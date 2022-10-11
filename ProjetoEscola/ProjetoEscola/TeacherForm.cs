@@ -16,10 +16,5 @@ namespace ProjetoEscola
         {
             InitializeComponent();
         }
-
-        private void TeacherForm_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

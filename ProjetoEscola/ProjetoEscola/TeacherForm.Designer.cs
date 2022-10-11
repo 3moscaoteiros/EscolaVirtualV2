@@ -227,7 +227,7 @@
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.textBox1.Location = new System.Drawing.Point(250, -10);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
@@ -246,7 +246,7 @@
             // treeView1
             // 
             this.treeView1.Location = new System.Drawing.Point(280, 54);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(2);
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(198, 172);
             this.treeView1.TabIndex = 83;
@@ -280,10 +280,9 @@
             this.Controls.Add(this.txtTeacherNaem);
             this.Controls.Add(this.lblTeacherName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "TeacherForm";
             this.Text = "TeacherForm";
-            this.Load += new System.EventHandler(this.TeacherForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

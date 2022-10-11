@@ -73,7 +73,7 @@ namespace ProjetoEscola
             // 
             // txtCreateContact
             // 
-            this.txtCreateContact.Location = new System.Drawing.Point(54, 174);
+            this.txtCreateContact.Location = new System.Drawing.Point(54, 178);
             this.txtCreateContact.Name = "txtCreateContact";
             this.txtCreateContact.Size = new System.Drawing.Size(87, 20);
             this.txtCreateContact.TabIndex = 85;
@@ -81,7 +81,7 @@ namespace ProjetoEscola
             // lblCreateContact
             // 
             this.lblCreateContact.AutoSize = true;
-            this.lblCreateContact.Location = new System.Drawing.Point(9, 181);
+            this.lblCreateContact.Location = new System.Drawing.Point(7, 181);
             this.lblCreateContact.Name = "lblCreateContact";
             this.lblCreateContact.Size = new System.Drawing.Size(47, 13);
             this.lblCreateContact.TabIndex = 84;
