@@ -1,0 +1,12 @@
+C:\Users\gonçalo\source\repos\ProjetoEscola\ProjetoEscola\bin\Debug\ProjetoEscola.exe.config
+C:\Users\gonçalo\source\repos\ProjetoEscola\ProjetoEscola\bin\Debug\ProjetoEscola.exe
+C:\Users\gonçalo\source\repos\ProjetoEscola\ProjetoEscola\bin\Debug\ProjetoEscola.pdb
+C:\Users\gonçalo\source\repos\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.csproj.AssemblyReference.cache
+C:\Users\gonçalo\source\repos\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.csproj.SuggestedBindingRedirects.cache
+C:\Users\gonçalo\source\repos\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.Properties.Resources.resources
+C:\Users\gonçalo\source\repos\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.csproj.GenerateResource.cache
+C:\Users\gonçalo\source\repos\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.csproj.CoreCompileInputs.cache
+C:\Users\gonçalo\source\repos\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.exe
+C:\Users\gonçalo\source\repos\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.pdb
+C:\Users\gonçalo\source\repos\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.LoginForm.resources
+C:\Users\gonçalo\source\repos\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.TeacherForm.resources
