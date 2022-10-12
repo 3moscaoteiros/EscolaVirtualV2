@@ -52,7 +52,7 @@ namespace ProjetoEscola
             this.cbbCreateSubjects = new System.Windows.Forms.ComboBox();
             this.lstRequest = new System.Windows.Forms.ListBox();
             this.btnRequest = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblRequest = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtCreateAdress
@@ -267,16 +267,16 @@ namespace ProjetoEscola
             this.btnRequest.Text = "OK";
             this.btnRequest.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // lblRequest
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(363, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 25);
-            this.label1.TabIndex = 91;
-            this.label1.Text = "Request";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblRequest.AutoSize = true;
+            this.lblRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRequest.Location = new System.Drawing.Point(363, 45);
+            this.lblRequest.Name = "lblRequest";
+            this.lblRequest.Size = new System.Drawing.Size(103, 25);
+            this.lblRequest.TabIndex = 91;
+            this.lblRequest.Text = "Requests";
+            this.lblRequest.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AdminForm
             // 
@@ -284,7 +284,7 @@ namespace ProjetoEscola
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(491, 317);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblRequest);
             this.Controls.Add(this.btnRequest);
             this.Controls.Add(this.lstRequest);
             this.Controls.Add(this.cbbCreateSubjects);
@@ -341,6 +341,6 @@ namespace ProjetoEscola
         private System.Windows.Forms.ComboBox cbbCreateSubjects;
         private System.Windows.Forms.ListBox lstRequest;
         private System.Windows.Forms.Button btnRequest;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblRequest;
     }
 }
