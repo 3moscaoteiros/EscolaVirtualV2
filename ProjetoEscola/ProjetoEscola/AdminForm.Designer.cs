@@ -49,7 +49,7 @@ namespace ProjetoEscola
             this.lblCreateBalance = new System.Windows.Forms.Label();
             this.btnCreateAcc = new System.Windows.Forms.Button();
             this.lblCreateAcc = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbbCreateSubjects = new System.Windows.Forms.ComboBox();
             this.lstRequest = new System.Windows.Forms.ListBox();
             this.btnRequest = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -161,6 +161,7 @@ namespace ProjetoEscola
             this.txtCreateName.Name = "txtCreateName";
             this.txtCreateName.Size = new System.Drawing.Size(158, 20);
             this.txtCreateName.TabIndex = 76;
+            this.txtCreateName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCreateName_KeyPress);
             // 
             // lblCreateName
             // 
@@ -240,14 +241,14 @@ namespace ProjetoEscola
             this.lblCreateAcc.Text = "Creation";
             this.lblCreateAcc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // comboBox1
+            // cbbCreateSubjects
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(282, 137);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(65, 21);
-            this.comboBox1.TabIndex = 88;
+            this.cbbCreateSubjects.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCreateSubjects.FormattingEnabled = true;
+            this.cbbCreateSubjects.Location = new System.Drawing.Point(282, 137);
+            this.cbbCreateSubjects.Name = "cbbCreateSubjects";
+            this.cbbCreateSubjects.Size = new System.Drawing.Size(65, 21);
+            this.cbbCreateSubjects.TabIndex = 88;
             // 
             // lstRequest
             // 
@@ -286,7 +287,7 @@ namespace ProjetoEscola
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnRequest);
             this.Controls.Add(this.lstRequest);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbbCreateSubjects);
             this.Controls.Add(this.txtCreateAdress);
             this.Controls.Add(this.lblCreateAdress);
             this.Controls.Add(this.txtCreateContact);
@@ -337,7 +338,7 @@ namespace ProjetoEscola
         private System.Windows.Forms.Label lblCreateBalance;
         private System.Windows.Forms.Button btnCreateAcc;
         private System.Windows.Forms.Label lblCreateAcc;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbbCreateSubjects;
         private System.Windows.Forms.ListBox lstRequest;
         private System.Windows.Forms.Button btnRequest;
         private System.Windows.Forms.Label label1;

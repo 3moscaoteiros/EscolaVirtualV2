@@ -21,5 +21,10 @@ namespace ProjetoEscola
         {
 
         }
+
+        private void txtCreateName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
     }
 }
