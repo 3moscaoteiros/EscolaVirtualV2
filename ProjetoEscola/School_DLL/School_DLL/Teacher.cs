@@ -8,9 +8,9 @@ using System.Web;
 
 namespace School_DLL
 {
-    internal class Teacher : User
+    public class Teacher : User
     {
-
+        
         List<Subject> subjects= new List<Subject>();
         
     }

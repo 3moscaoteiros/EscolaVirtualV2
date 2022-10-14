@@ -3,3 +3,9 @@ C:\Users\i200042\Desktop\School_DLL\School_DLL\bin\Release\School_DLL.pdb
 C:\Users\i200042\Desktop\School_DLL\School_DLL\obj\Release\School_DLL.csproj.CoreCompileInputs.cache
 C:\Users\i200042\Desktop\School_DLL\School_DLL\obj\Release\School_DLL.dll
 C:\Users\i200042\Desktop\School_DLL\School_DLL\obj\Release\School_DLL.pdb
+C:\Users\gonçalo\OneDrive\Documentos\GitHub\EscolaVirtualV2\ProjetoEscola\School_DLL\School_DLL\bin\Release\School_DLL.dll
+C:\Users\gonçalo\OneDrive\Documentos\GitHub\EscolaVirtualV2\ProjetoEscola\School_DLL\School_DLL\bin\Release\School_DLL.pdb
+C:\Users\gonçalo\OneDrive\Documentos\GitHub\EscolaVirtualV2\ProjetoEscola\School_DLL\School_DLL\obj\Release\School_DLL.csproj.AssemblyReference.cache
+C:\Users\gonçalo\OneDrive\Documentos\GitHub\EscolaVirtualV2\ProjetoEscola\School_DLL\School_DLL\obj\Release\School_DLL.csproj.CoreCompileInputs.cache
+C:\Users\gonçalo\OneDrive\Documentos\GitHub\EscolaVirtualV2\ProjetoEscola\School_DLL\School_DLL\obj\Release\School_DLL.dll
+C:\Users\gonçalo\OneDrive\Documentos\GitHub\EscolaVirtualV2\ProjetoEscola\School_DLL\School_DLL\obj\Release\School_DLL.pdb

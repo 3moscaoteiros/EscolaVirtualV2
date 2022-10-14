@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace School_DLL
 {
-    internal class Class
+   public class Class
     {
-        string Name;
-        int id;
-        List<Student> students = new List<Student>();
+        string Name { get; set; }
+        int id { get; set; }
+        public List<Student> students = new List<Student>();
     }
 }

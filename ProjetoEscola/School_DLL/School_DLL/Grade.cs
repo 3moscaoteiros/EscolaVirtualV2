@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace School_DLL
 {
-    internal class Grade
+    public class Grade
     {
-        double Val;
-        Subject Subject = new Subject();
+      public double Val { get; set; }
+      public Subject Subject = new Subject();
     }
 }
