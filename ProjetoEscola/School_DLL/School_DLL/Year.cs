@@ -8,7 +8,7 @@ namespace School_DLL
 {
     public class Year
     {
-        string year;
-        List<Class> CLasses = new List<Class>();    
+       public string year { get; set; }
+       public List<Class> CLasses = new List<Class>();    
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace School_DLL
 {
-    internal class Student : User
+    public class Student : User
     {
         public double Balance { get; set; }
         List<Grade> grades = new List<Grade>();        

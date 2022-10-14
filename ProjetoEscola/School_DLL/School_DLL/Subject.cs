@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace School_DLL
 {
-    internal class Subject
+    public class Subject
     {
-        int id;
-        string Name;
+        public int id { get; set; }
+        public string Name { get; set; }
         Teacher teacher = new Teacher();
 
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace School_DLL
 {
-    internal abstract class User
+    public abstract class User
     {
         public string Name { get; set; }
         public string Adress { get; set; }
