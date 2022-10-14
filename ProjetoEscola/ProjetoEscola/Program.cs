@@ -8,7 +8,7 @@ namespace ProjetoEscola
 {
     internal static class Program
     {
-        public static Year Anos = new Year();
+        public static List<Year> Anos = new List<Year>();
         /// <summary>
         /// Ponto de entrada principal para o aplicativo.
         /// </summary>
