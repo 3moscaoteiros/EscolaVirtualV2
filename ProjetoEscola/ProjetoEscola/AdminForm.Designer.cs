@@ -29,6 +29,15 @@ namespace ProjetoEscola
         /// </summary>
         private void InitializeComponent()
         {
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lblCreateClass = new System.Windows.Forms.Label();
+            this.cbbCreateClass = new System.Windows.Forms.ComboBox();
+            this.lstCreateYears = new System.Windows.Forms.ListBox();
+            this.lstCreateSubjects = new System.Windows.Forms.ListBox();
+            this.lblRequest = new System.Windows.Forms.Label();
+            this.btnRequest = new System.Windows.Forms.Button();
+            this.lstRequest = new System.Windows.Forms.ListBox();
             this.txtCreateAdress = new System.Windows.Forms.TextBox();
             this.lblCreateAdress = new System.Windows.Forms.Label();
             this.txtCreateContact = new System.Windows.Forms.TextBox();
@@ -48,122 +57,226 @@ namespace ProjetoEscola
             this.lblCreateBalance = new System.Windows.Forms.Label();
             this.btnCreateAcc = new System.Windows.Forms.Button();
             this.lblCreateAcc = new System.Windows.Forms.Label();
-            this.lstRequest = new System.Windows.Forms.ListBox();
-            this.btnRequest = new System.Windows.Forms.Button();
-            this.lblRequest = new System.Windows.Forms.Label();
-            this.lstCreateSubjects = new System.Windows.Forms.ListBox();
-            this.lstCreateYears = new System.Windows.Forms.ListBox();
-            this.cbbCreateClass = new System.Windows.Forms.ComboBox();
-            this.lblCreateClass = new System.Windows.Forms.Label();
+            this.tabControl1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(697, 505);
+            this.tabControl1.TabIndex = 96;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.lblCreateClass);
+            this.tabPage2.Controls.Add(this.cbbCreateClass);
+            this.tabPage2.Controls.Add(this.lstCreateYears);
+            this.tabPage2.Controls.Add(this.lstCreateSubjects);
+            this.tabPage2.Controls.Add(this.lblRequest);
+            this.tabPage2.Controls.Add(this.btnRequest);
+            this.tabPage2.Controls.Add(this.lstRequest);
+            this.tabPage2.Controls.Add(this.txtCreateAdress);
+            this.tabPage2.Controls.Add(this.lblCreateAdress);
+            this.tabPage2.Controls.Add(this.txtCreateContact);
+            this.tabPage2.Controls.Add(this.lblCreateContact);
+            this.tabPage2.Controls.Add(this.lblbCreateSubject);
+            this.tabPage2.Controls.Add(this.txtCreateNIF);
+            this.tabPage2.Controls.Add(this.lblCreateNIF);
+            this.tabPage2.Controls.Add(this.txtCreateNum);
+            this.tabPage2.Controls.Add(this.lblCreateNum);
+            this.tabPage2.Controls.Add(this.lblCreateYear);
+            this.tabPage2.Controls.Add(this.txtCreateName);
+            this.tabPage2.Controls.Add(this.lblCreateName);
+            this.tabPage2.Controls.Add(this.btnAdminLeave);
+            this.tabPage2.Controls.Add(this.lblCreateType);
+            this.tabPage2.Controls.Add(this.cbCreateS_T);
+            this.tabPage2.Controls.Add(this.txtCreateBalance);
+            this.tabPage2.Controls.Add(this.lblCreateBalance);
+            this.tabPage2.Controls.Add(this.btnCreateAcc);
+            this.tabPage2.Controls.Add(this.lblCreateAcc);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(689, 479);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // lblCreateClass
+            // 
+            this.lblCreateClass.AutoSize = true;
+            this.lblCreateClass.Location = new System.Drawing.Point(341, 173);
+            this.lblCreateClass.Name = "lblCreateClass";
+            this.lblCreateClass.Size = new System.Drawing.Size(35, 13);
+            this.lblCreateClass.TabIndex = 121;
+            this.lblCreateClass.Text = "Class:";
+            // 
+            // cbbCreateClass
+            // 
+            this.cbbCreateClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCreateClass.FormattingEnabled = true;
+            this.cbbCreateClass.Items.AddRange(new object[] {
+            "Teacher",
+            "Student"});
+            this.cbbCreateClass.Location = new System.Drawing.Point(382, 170);
+            this.cbbCreateClass.Name = "cbbCreateClass";
+            this.cbbCreateClass.Size = new System.Drawing.Size(72, 21);
+            this.cbbCreateClass.TabIndex = 120;
+            // 
+            // lstCreateYears
+            // 
+            this.lstCreateYears.FormattingEnabled = true;
+            this.lstCreateYears.Location = new System.Drawing.Point(373, 172);
+            this.lstCreateYears.Name = "lstCreateYears";
+            this.lstCreateYears.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lstCreateYears.Size = new System.Drawing.Size(81, 82);
+            this.lstCreateYears.TabIndex = 119;
+            // 
+            // lstCreateSubjects
+            // 
+            this.lstCreateSubjects.FormattingEnabled = true;
+            this.lstCreateSubjects.Location = new System.Drawing.Point(382, 261);
+            this.lstCreateSubjects.Name = "lstCreateSubjects";
+            this.lstCreateSubjects.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lstCreateSubjects.Size = new System.Drawing.Size(72, 108);
+            this.lstCreateSubjects.TabIndex = 118;
+            // 
+            // lblRequest
+            // 
+            this.lblRequest.AutoSize = true;
+            this.lblRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRequest.Location = new System.Drawing.Point(470, 109);
+            this.lblRequest.Name = "lblRequest";
+            this.lblRequest.Size = new System.Drawing.Size(103, 25);
+            this.lblRequest.TabIndex = 117;
+            this.lblRequest.Text = "Requests";
+            this.lblRequest.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnRequest
+            // 
+            this.btnRequest.Location = new System.Drawing.Point(475, 311);
+            this.btnRequest.Name = "btnRequest";
+            this.btnRequest.Size = new System.Drawing.Size(75, 23);
+            this.btnRequest.TabIndex = 116;
+            this.btnRequest.Text = "OK";
+            this.btnRequest.UseVisualStyleBackColor = true;
+            // 
+            // lstRequest
+            // 
+            this.lstRequest.FormattingEnabled = true;
+            this.lstRequest.Location = new System.Drawing.Point(460, 145);
+            this.lstRequest.Name = "lstRequest";
+            this.lstRequest.Size = new System.Drawing.Size(118, 160);
+            this.lstRequest.TabIndex = 115;
             // 
             // txtCreateAdress
             // 
-            this.txtCreateAdress.Location = new System.Drawing.Point(54, 152);
+            this.txtCreateAdress.Location = new System.Drawing.Point(161, 216);
             this.txtCreateAdress.Name = "txtCreateAdress";
             this.txtCreateAdress.Size = new System.Drawing.Size(168, 20);
-            this.txtCreateAdress.TabIndex = 87;
+            this.txtCreateAdress.TabIndex = 114;
             // 
             // lblCreateAdress
             // 
             this.lblCreateAdress.AutoSize = true;
-            this.lblCreateAdress.Location = new System.Drawing.Point(12, 154);
+            this.lblCreateAdress.Location = new System.Drawing.Point(119, 218);
             this.lblCreateAdress.Name = "lblCreateAdress";
             this.lblCreateAdress.Size = new System.Drawing.Size(42, 13);
-            this.lblCreateAdress.TabIndex = 86;
+            this.lblCreateAdress.TabIndex = 113;
             this.lblCreateAdress.Text = "Adress:";
             // 
             // txtCreateContact
             // 
-            this.txtCreateContact.Location = new System.Drawing.Point(54, 178);
+            this.txtCreateContact.Location = new System.Drawing.Point(161, 242);
             this.txtCreateContact.Name = "txtCreateContact";
             this.txtCreateContact.Size = new System.Drawing.Size(87, 20);
-            this.txtCreateContact.TabIndex = 85;
-            this.txtCreateContact.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCreateContact_KeyPress);
+            this.txtCreateContact.TabIndex = 112;
             // 
             // lblCreateContact
             // 
             this.lblCreateContact.AutoSize = true;
-            this.lblCreateContact.Location = new System.Drawing.Point(7, 181);
+            this.lblCreateContact.Location = new System.Drawing.Point(114, 245);
             this.lblCreateContact.Name = "lblCreateContact";
             this.lblCreateContact.Size = new System.Drawing.Size(47, 13);
-            this.lblCreateContact.TabIndex = 84;
+            this.lblCreateContact.TabIndex = 111;
             this.lblCreateContact.Text = "Contact:";
             // 
             // lblbCreateSubject
             // 
             this.lblbCreateSubject.AutoSize = true;
-            this.lblbCreateSubject.Location = new System.Drawing.Point(226, 197);
+            this.lblbCreateSubject.Location = new System.Drawing.Point(335, 261);
             this.lblbCreateSubject.Name = "lblbCreateSubject";
             this.lblbCreateSubject.Size = new System.Drawing.Size(51, 13);
-            this.lblbCreateSubject.TabIndex = 83;
+            this.lblbCreateSubject.TabIndex = 110;
             this.lblbCreateSubject.Text = "Subjects:";
             // 
             // txtCreateNIF
             // 
-            this.txtCreateNIF.Location = new System.Drawing.Point(54, 131);
+            this.txtCreateNIF.Location = new System.Drawing.Point(161, 195);
             this.txtCreateNIF.Name = "txtCreateNIF";
             this.txtCreateNIF.Size = new System.Drawing.Size(87, 20);
-            this.txtCreateNIF.TabIndex = 81;
-            this.txtCreateNIF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCreateNIF_KeyPress);
+            this.txtCreateNIF.TabIndex = 109;
             // 
             // lblCreateNIF
             // 
             this.lblCreateNIF.AutoSize = true;
-            this.lblCreateNIF.Location = new System.Drawing.Point(25, 132);
+            this.lblCreateNIF.Location = new System.Drawing.Point(132, 196);
             this.lblCreateNIF.Name = "lblCreateNIF";
             this.lblCreateNIF.Size = new System.Drawing.Size(27, 13);
-            this.lblCreateNIF.TabIndex = 80;
+            this.lblCreateNIF.TabIndex = 108;
             this.lblCreateNIF.Text = "NIF:";
             // 
             // txtCreateNum
             // 
-            this.txtCreateNum.Location = new System.Drawing.Point(54, 106);
+            this.txtCreateNum.Location = new System.Drawing.Point(161, 170);
             this.txtCreateNum.Name = "txtCreateNum";
             this.txtCreateNum.Size = new System.Drawing.Size(87, 20);
-            this.txtCreateNum.TabIndex = 79;
+            this.txtCreateNum.TabIndex = 107;
             // 
             // lblCreateNum
             // 
             this.lblCreateNum.AutoSize = true;
-            this.lblCreateNum.Location = new System.Drawing.Point(20, 109);
+            this.lblCreateNum.Location = new System.Drawing.Point(127, 173);
             this.lblCreateNum.Name = "lblCreateNum";
             this.lblCreateNum.Size = new System.Drawing.Size(32, 13);
-            this.lblCreateNum.TabIndex = 78;
+            this.lblCreateNum.TabIndex = 106;
             this.lblCreateNum.Text = "Num:";
             // 
             // lblCreateYear
             // 
             this.lblCreateYear.AutoSize = true;
-            this.lblCreateYear.Location = new System.Drawing.Point(228, 109);
+            this.lblCreateYear.Location = new System.Drawing.Point(335, 173);
             this.lblCreateYear.Name = "lblCreateYear";
             this.lblCreateYear.Size = new System.Drawing.Size(32, 13);
-            this.lblCreateYear.TabIndex = 77;
+            this.lblCreateYear.TabIndex = 105;
             this.lblCreateYear.Text = "Year:";
             // 
             // txtCreateName
             // 
-            this.txtCreateName.Location = new System.Drawing.Point(54, 81);
+            this.txtCreateName.Location = new System.Drawing.Point(161, 145);
             this.txtCreateName.Name = "txtCreateName";
             this.txtCreateName.Size = new System.Drawing.Size(158, 20);
-            this.txtCreateName.TabIndex = 76;
-            this.txtCreateName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCreateName_KeyPress);
+            this.txtCreateName.TabIndex = 104;
             // 
             // lblCreateName
             // 
             this.lblCreateName.AutoSize = true;
-            this.lblCreateName.Location = new System.Drawing.Point(14, 88);
+            this.lblCreateName.Location = new System.Drawing.Point(121, 152);
             this.lblCreateName.Name = "lblCreateName";
             this.lblCreateName.Size = new System.Drawing.Size(38, 13);
-            this.lblCreateName.TabIndex = 75;
+            this.lblCreateName.TabIndex = 103;
             this.lblCreateName.Text = "Name:";
             // 
             // btnAdminLeave
             // 
-            this.btnAdminLeave.Location = new System.Drawing.Point(142, 261);
+            this.btnAdminLeave.Location = new System.Drawing.Point(249, 325);
             this.btnAdminLeave.Name = "btnAdminLeave";
             this.btnAdminLeave.Size = new System.Drawing.Size(69, 31);
-            this.btnAdminLeave.TabIndex = 74;
+            this.btnAdminLeave.TabIndex = 102;
             this.btnAdminLeave.Text = "Leave";
             this.btnAdminLeave.UseVisualStyleBackColor = true;
             // 
@@ -171,10 +284,10 @@ namespace ProjetoEscola
             // 
             this.lblCreateType.AutoSize = true;
             this.lblCreateType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreateType.Location = new System.Drawing.Point(226, 60);
+            this.lblCreateType.Location = new System.Drawing.Point(333, 124);
             this.lblCreateType.Name = "lblCreateType";
             this.lblCreateType.Size = new System.Drawing.Size(34, 13);
-            this.lblCreateType.TabIndex = 73;
+            this.lblCreateType.TabIndex = 101;
             this.lblCreateType.Text = "Type:";
             // 
             // cbCreateS_T
@@ -184,162 +297,78 @@ namespace ProjetoEscola
             this.cbCreateS_T.Items.AddRange(new object[] {
             "Teacher",
             "Student"});
-            this.cbCreateS_T.Location = new System.Drawing.Point(226, 81);
+            this.cbCreateS_T.Location = new System.Drawing.Point(333, 145);
             this.cbCreateS_T.Name = "cbCreateS_T";
             this.cbCreateS_T.Size = new System.Drawing.Size(121, 21);
-            this.cbCreateS_T.TabIndex = 72;
-            this.cbCreateS_T.SelectedIndexChanged += new System.EventHandler(this.cbCreateS_T_SelectedIndexChanged);
+            this.cbCreateS_T.TabIndex = 100;
             // 
             // txtCreateBalance
             // 
             this.txtCreateBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCreateBalance.Location = new System.Drawing.Point(54, 204);
+            this.txtCreateBalance.Location = new System.Drawing.Point(161, 268);
             this.txtCreateBalance.Name = "txtCreateBalance";
             this.txtCreateBalance.Size = new System.Drawing.Size(155, 24);
-            this.txtCreateBalance.TabIndex = 71;
-            this.txtCreateBalance.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCreateBalance_KeyPress);
+            this.txtCreateBalance.TabIndex = 99;
             // 
             // lblCreateBalance
             // 
             this.lblCreateBalance.AutoSize = true;
             this.lblCreateBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreateBalance.Location = new System.Drawing.Point(3, 211);
+            this.lblCreateBalance.Location = new System.Drawing.Point(110, 275);
             this.lblCreateBalance.Name = "lblCreateBalance";
             this.lblCreateBalance.Size = new System.Drawing.Size(49, 13);
-            this.lblCreateBalance.TabIndex = 70;
+            this.lblCreateBalance.TabIndex = 98;
             this.lblCreateBalance.Text = "Balance:";
             // 
             // btnCreateAcc
             // 
             this.btnCreateAcc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateAcc.Location = new System.Drawing.Point(18, 253);
+            this.btnCreateAcc.Location = new System.Drawing.Point(125, 317);
             this.btnCreateAcc.Name = "btnCreateAcc";
             this.btnCreateAcc.Size = new System.Drawing.Size(107, 45);
-            this.btnCreateAcc.TabIndex = 69;
+            this.btnCreateAcc.TabIndex = 97;
             this.btnCreateAcc.Text = "Create";
             this.btnCreateAcc.UseVisualStyleBackColor = true;
-            this.btnCreateAcc.Click += new System.EventHandler(this.btnCreateAcc_Click);
             // 
             // lblCreateAcc
             // 
             this.lblCreateAcc.AutoSize = true;
             this.lblCreateAcc.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreateAcc.Location = new System.Drawing.Point(64, 45);
+            this.lblCreateAcc.Location = new System.Drawing.Point(171, 109);
             this.lblCreateAcc.Name = "lblCreateAcc";
             this.lblCreateAcc.Size = new System.Drawing.Size(93, 25);
-            this.lblCreateAcc.TabIndex = 68;
+            this.lblCreateAcc.TabIndex = 96;
             this.lblCreateAcc.Text = "Creation";
             this.lblCreateAcc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lstRequest
-            // 
-            this.lstRequest.FormattingEnabled = true;
-            this.lstRequest.Location = new System.Drawing.Point(353, 81);
-            this.lstRequest.Name = "lstRequest";
-            this.lstRequest.Size = new System.Drawing.Size(118, 160);
-            this.lstRequest.TabIndex = 89;
-            // 
-            // btnRequest
-            // 
-            this.btnRequest.Location = new System.Drawing.Point(368, 247);
-            this.btnRequest.Name = "btnRequest";
-            this.btnRequest.Size = new System.Drawing.Size(75, 23);
-            this.btnRequest.TabIndex = 90;
-            this.btnRequest.Text = "OK";
-            this.btnRequest.UseVisualStyleBackColor = true;
-            // 
-            // lblRequest
-            // 
-            this.lblRequest.AutoSize = true;
-            this.lblRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRequest.Location = new System.Drawing.Point(363, 45);
-            this.lblRequest.Name = "lblRequest";
-            this.lblRequest.Size = new System.Drawing.Size(103, 25);
-            this.lblRequest.TabIndex = 91;
-            this.lblRequest.Text = "Requests";
-            this.lblRequest.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lstCreateSubjects
-            // 
-            this.lstCreateSubjects.FormattingEnabled = true;
-            this.lstCreateSubjects.Location = new System.Drawing.Point(275, 197);
-            this.lstCreateSubjects.Name = "lstCreateSubjects";
-            this.lstCreateSubjects.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lstCreateSubjects.Size = new System.Drawing.Size(72, 108);
-            this.lstCreateSubjects.TabIndex = 92;
-            // 
-            // lstCreateYears
-            // 
-            this.lstCreateYears.FormattingEnabled = true;
-            this.lstCreateYears.Location = new System.Drawing.Point(266, 108);
-            this.lstCreateYears.Name = "lstCreateYears";
-            this.lstCreateYears.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lstCreateYears.Size = new System.Drawing.Size(81, 82);
-            this.lstCreateYears.TabIndex = 93;
-            // 
-            // cbbCreateClass
-            // 
-            this.cbbCreateClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbCreateClass.FormattingEnabled = true;
-            this.cbbCreateClass.Items.AddRange(new object[] {
-            "Teacher",
-            "Student"});
-            this.cbbCreateClass.Location = new System.Drawing.Point(275, 106);
-            this.cbbCreateClass.Name = "cbbCreateClass";
-            this.cbbCreateClass.Size = new System.Drawing.Size(72, 21);
-            this.cbbCreateClass.TabIndex = 94;
-            // 
-            // lblCreateClass
-            // 
-            this.lblCreateClass.AutoSize = true;
-            this.lblCreateClass.Location = new System.Drawing.Point(234, 109);
-            this.lblCreateClass.Name = "lblCreateClass";
-            this.lblCreateClass.Size = new System.Drawing.Size(35, 13);
-            this.lblCreateClass.TabIndex = 95;
-            this.lblCreateClass.Text = "Class:";
             // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(491, 317);
-            this.Controls.Add(this.lblCreateClass);
-            this.Controls.Add(this.cbbCreateClass);
-            this.Controls.Add(this.lstCreateYears);
-            this.Controls.Add(this.lstCreateSubjects);
-            this.Controls.Add(this.lblRequest);
-            this.Controls.Add(this.btnRequest);
-            this.Controls.Add(this.lstRequest);
-            this.Controls.Add(this.txtCreateAdress);
-            this.Controls.Add(this.lblCreateAdress);
-            this.Controls.Add(this.txtCreateContact);
-            this.Controls.Add(this.lblCreateContact);
-            this.Controls.Add(this.lblbCreateSubject);
-            this.Controls.Add(this.txtCreateNIF);
-            this.Controls.Add(this.lblCreateNIF);
-            this.Controls.Add(this.txtCreateNum);
-            this.Controls.Add(this.lblCreateNum);
-            this.Controls.Add(this.lblCreateYear);
-            this.Controls.Add(this.txtCreateName);
-            this.Controls.Add(this.lblCreateName);
-            this.Controls.Add(this.btnAdminLeave);
-            this.Controls.Add(this.lblCreateType);
-            this.Controls.Add(this.cbCreateS_T);
-            this.Controls.Add(this.txtCreateBalance);
-            this.Controls.Add(this.lblCreateBalance);
-            this.Controls.Add(this.btnCreateAcc);
-            this.Controls.Add(this.lblCreateAcc);
+            this.ClientSize = new System.Drawing.Size(660, 475);
+            this.Controls.Add(this.tabControl1);
             this.Name = "AdminForm";
             this.Text = "AdminForm";
             this.Load += new System.EventHandler(this.AdminForm_Load);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Label lblCreateClass;
+        private System.Windows.Forms.ComboBox cbbCreateClass;
+        private System.Windows.Forms.ListBox lstCreateYears;
+        private System.Windows.Forms.ListBox lstCreateSubjects;
+        private System.Windows.Forms.Label lblRequest;
+        private System.Windows.Forms.Button btnRequest;
+        private System.Windows.Forms.ListBox lstRequest;
         private System.Windows.Forms.TextBox txtCreateAdress;
         private System.Windows.Forms.Label lblCreateAdress;
         private System.Windows.Forms.TextBox txtCreateContact;
@@ -359,12 +388,5 @@ namespace ProjetoEscola
         private System.Windows.Forms.Label lblCreateBalance;
         private System.Windows.Forms.Button btnCreateAcc;
         private System.Windows.Forms.Label lblCreateAcc;
-        private System.Windows.Forms.ListBox lstRequest;
-        private System.Windows.Forms.Button btnRequest;
-        private System.Windows.Forms.Label lblRequest;
-        private System.Windows.Forms.ListBox lstCreateSubjects;
-        private System.Windows.Forms.ListBox lstCreateYears;
-        private System.Windows.Forms.ComboBox cbbCreateClass;
-        private System.Windows.Forms.Label lblCreateClass;
     }
 }
