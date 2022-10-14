@@ -218,6 +218,7 @@ namespace ProjetoEscola
             this.btnCreateAcc.TabIndex = 69;
             this.btnCreateAcc.Text = "Create";
             this.btnCreateAcc.UseVisualStyleBackColor = true;
+            this.btnCreateAcc.Click += new System.EventHandler(this.btnCreateAcc_Click);
             // 
             // lblCreateAcc
             // 

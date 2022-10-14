@@ -12,6 +12,7 @@ namespace ProjetoEscola
 {
     public partial class AdminForm : Form
     {
+
         public AdminForm()
         {
             InitializeComponent();
@@ -85,6 +86,12 @@ namespace ProjetoEscola
                 lstCreateSubjects.Visible = true;
             }
           
+        }
+
+        private void btnCreateAcc_Click(object sender, EventArgs e)
+        {
+           
+           
         }
     }
 }
