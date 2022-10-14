@@ -309,6 +309,7 @@
             this.Controls.Add(this.lblStudentName);
             this.Name = "StudentForm";
             this.Text = "Student";
+            this.Load += new System.EventHandler(this.StudentForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
