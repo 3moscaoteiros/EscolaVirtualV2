@@ -34,7 +34,6 @@ namespace ProjetoEscola
             this.txtCreateContact = new System.Windows.Forms.TextBox();
             this.lblCreateContact = new System.Windows.Forms.Label();
             this.lblbCreateSubject = new System.Windows.Forms.Label();
-            this.cbCreateYears = new System.Windows.Forms.ComboBox();
             this.txtCreateNIF = new System.Windows.Forms.TextBox();
             this.lblCreateNIF = new System.Windows.Forms.Label();
             this.txtCreateNum = new System.Windows.Forms.TextBox();
@@ -49,10 +48,13 @@ namespace ProjetoEscola
             this.lblCreateBalance = new System.Windows.Forms.Label();
             this.btnCreateAcc = new System.Windows.Forms.Button();
             this.lblCreateAcc = new System.Windows.Forms.Label();
-            this.cbbCreateSubjects = new System.Windows.Forms.ComboBox();
             this.lstRequest = new System.Windows.Forms.ListBox();
             this.btnRequest = new System.Windows.Forms.Button();
             this.lblRequest = new System.Windows.Forms.Label();
+            this.lstCreateSubjects = new System.Windows.Forms.ListBox();
+            this.lstCreateYears = new System.Windows.Forms.ListBox();
+            this.cbbCreateClass = new System.Windows.Forms.ComboBox();
+            this.lblCreateClass = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtCreateAdress
@@ -77,6 +79,7 @@ namespace ProjetoEscola
             this.txtCreateContact.Name = "txtCreateContact";
             this.txtCreateContact.Size = new System.Drawing.Size(87, 20);
             this.txtCreateContact.TabIndex = 85;
+            this.txtCreateContact.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCreateContact_KeyPress);
             // 
             // lblCreateContact
             // 
@@ -90,29 +93,11 @@ namespace ProjetoEscola
             // lblbCreateSubject
             // 
             this.lblbCreateSubject.AutoSize = true;
-            this.lblbCreateSubject.Location = new System.Drawing.Point(225, 142);
+            this.lblbCreateSubject.Location = new System.Drawing.Point(226, 197);
             this.lblbCreateSubject.Name = "lblbCreateSubject";
             this.lblbCreateSubject.Size = new System.Drawing.Size(51, 13);
             this.lblbCreateSubject.TabIndex = 83;
             this.lblbCreateSubject.Text = "Subjects:";
-            // 
-            // cbCreateYears
-            // 
-            this.cbCreateYears.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCreateYears.FormattingEnabled = true;
-            this.cbCreateYears.Items.AddRange(new object[] {
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12"});
-            this.cbCreateYears.Location = new System.Drawing.Point(262, 109);
-            this.cbCreateYears.Name = "cbCreateYears";
-            this.cbCreateYears.Size = new System.Drawing.Size(85, 21);
-            this.cbCreateYears.TabIndex = 82;
             // 
             // txtCreateNIF
             // 
@@ -120,6 +105,7 @@ namespace ProjetoEscola
             this.txtCreateNIF.Name = "txtCreateNIF";
             this.txtCreateNIF.Size = new System.Drawing.Size(87, 20);
             this.txtCreateNIF.TabIndex = 81;
+            this.txtCreateNIF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCreateNIF_KeyPress);
             // 
             // lblCreateNIF
             // 
@@ -149,7 +135,7 @@ namespace ProjetoEscola
             // lblCreateYear
             // 
             this.lblCreateYear.AutoSize = true;
-            this.lblCreateYear.Location = new System.Drawing.Point(225, 112);
+            this.lblCreateYear.Location = new System.Drawing.Point(228, 109);
             this.lblCreateYear.Name = "lblCreateYear";
             this.lblCreateYear.Size = new System.Drawing.Size(32, 13);
             this.lblCreateYear.TabIndex = 77;
@@ -193,6 +179,7 @@ namespace ProjetoEscola
             // 
             // cbCreateS_T
             // 
+            this.cbCreateS_T.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCreateS_T.FormattingEnabled = true;
             this.cbCreateS_T.Items.AddRange(new object[] {
             "Teacher",
@@ -201,6 +188,7 @@ namespace ProjetoEscola
             this.cbCreateS_T.Name = "cbCreateS_T";
             this.cbCreateS_T.Size = new System.Drawing.Size(121, 21);
             this.cbCreateS_T.TabIndex = 72;
+            this.cbCreateS_T.SelectedIndexChanged += new System.EventHandler(this.cbCreateS_T_SelectedIndexChanged);
             // 
             // txtCreateBalance
             // 
@@ -209,6 +197,7 @@ namespace ProjetoEscola
             this.txtCreateBalance.Name = "txtCreateBalance";
             this.txtCreateBalance.Size = new System.Drawing.Size(155, 24);
             this.txtCreateBalance.TabIndex = 71;
+            this.txtCreateBalance.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCreateBalance_KeyPress);
             // 
             // lblCreateBalance
             // 
@@ -241,15 +230,6 @@ namespace ProjetoEscola
             this.lblCreateAcc.Text = "Creation";
             this.lblCreateAcc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // cbbCreateSubjects
-            // 
-            this.cbbCreateSubjects.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbCreateSubjects.FormattingEnabled = true;
-            this.cbbCreateSubjects.Location = new System.Drawing.Point(282, 137);
-            this.cbbCreateSubjects.Name = "cbbCreateSubjects";
-            this.cbbCreateSubjects.Size = new System.Drawing.Size(65, 21);
-            this.cbbCreateSubjects.TabIndex = 88;
-            // 
             // lstRequest
             // 
             this.lstRequest.FormattingEnabled = true;
@@ -278,22 +258,63 @@ namespace ProjetoEscola
             this.lblRequest.Text = "Requests";
             this.lblRequest.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lstCreateSubjects
+            // 
+            this.lstCreateSubjects.FormattingEnabled = true;
+            this.lstCreateSubjects.Location = new System.Drawing.Point(275, 197);
+            this.lstCreateSubjects.Name = "lstCreateSubjects";
+            this.lstCreateSubjects.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lstCreateSubjects.Size = new System.Drawing.Size(72, 108);
+            this.lstCreateSubjects.TabIndex = 92;
+            // 
+            // lstCreateYears
+            // 
+            this.lstCreateYears.FormattingEnabled = true;
+            this.lstCreateYears.Location = new System.Drawing.Point(266, 108);
+            this.lstCreateYears.Name = "lstCreateYears";
+            this.lstCreateYears.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lstCreateYears.Size = new System.Drawing.Size(81, 82);
+            this.lstCreateYears.TabIndex = 93;
+            // 
+            // cbbCreateClass
+            // 
+            this.cbbCreateClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCreateClass.FormattingEnabled = true;
+            this.cbbCreateClass.Items.AddRange(new object[] {
+            "Teacher",
+            "Student"});
+            this.cbbCreateClass.Location = new System.Drawing.Point(275, 106);
+            this.cbbCreateClass.Name = "cbbCreateClass";
+            this.cbbCreateClass.Size = new System.Drawing.Size(72, 21);
+            this.cbbCreateClass.TabIndex = 94;
+            // 
+            // lblCreateClass
+            // 
+            this.lblCreateClass.AutoSize = true;
+            this.lblCreateClass.Location = new System.Drawing.Point(234, 109);
+            this.lblCreateClass.Name = "lblCreateClass";
+            this.lblCreateClass.Size = new System.Drawing.Size(35, 13);
+            this.lblCreateClass.TabIndex = 95;
+            this.lblCreateClass.Text = "Class:";
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(491, 317);
+            this.Controls.Add(this.lblCreateClass);
+            this.Controls.Add(this.cbbCreateClass);
+            this.Controls.Add(this.lstCreateYears);
+            this.Controls.Add(this.lstCreateSubjects);
             this.Controls.Add(this.lblRequest);
             this.Controls.Add(this.btnRequest);
             this.Controls.Add(this.lstRequest);
-            this.Controls.Add(this.cbbCreateSubjects);
             this.Controls.Add(this.txtCreateAdress);
             this.Controls.Add(this.lblCreateAdress);
             this.Controls.Add(this.txtCreateContact);
             this.Controls.Add(this.lblCreateContact);
             this.Controls.Add(this.lblbCreateSubject);
-            this.Controls.Add(this.cbCreateYears);
             this.Controls.Add(this.txtCreateNIF);
             this.Controls.Add(this.lblCreateNIF);
             this.Controls.Add(this.txtCreateNum);
@@ -323,7 +344,6 @@ namespace ProjetoEscola
         private System.Windows.Forms.TextBox txtCreateContact;
         private System.Windows.Forms.Label lblCreateContact;
         private System.Windows.Forms.Label lblbCreateSubject;
-        private System.Windows.Forms.ComboBox cbCreateYears;
         private System.Windows.Forms.TextBox txtCreateNIF;
         private System.Windows.Forms.Label lblCreateNIF;
         private System.Windows.Forms.TextBox txtCreateNum;
@@ -338,9 +358,12 @@ namespace ProjetoEscola
         private System.Windows.Forms.Label lblCreateBalance;
         private System.Windows.Forms.Button btnCreateAcc;
         private System.Windows.Forms.Label lblCreateAcc;
-        private System.Windows.Forms.ComboBox cbbCreateSubjects;
         private System.Windows.Forms.ListBox lstRequest;
         private System.Windows.Forms.Button btnRequest;
         private System.Windows.Forms.Label lblRequest;
+        private System.Windows.Forms.ListBox lstCreateSubjects;
+        private System.Windows.Forms.ListBox lstCreateYears;
+        private System.Windows.Forms.ComboBox cbbCreateClass;
+        private System.Windows.Forms.Label lblCreateClass;
     }
 }
