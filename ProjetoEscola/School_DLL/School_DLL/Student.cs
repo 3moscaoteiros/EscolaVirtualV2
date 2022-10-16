@@ -9,6 +9,7 @@ namespace School_DLL
     public class Student : User
     {
         public double Balance { get; set; }
-        List<Grade> grades = new List<Grade>();        
+
+        public List<Grade> grades = new List<Grade>();        
     }
 }

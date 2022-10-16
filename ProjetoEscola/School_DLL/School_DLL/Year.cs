@@ -9,6 +9,9 @@ namespace School_DLL
     public class Year
     {
        public string year { get; set; }
-       public List<Class> CLasses = new List<Class>();    
+
+       public List<Class> CLasses = new List<Class>();
+
+       public List<Subject> subjects = new List<Subject>();
     }
 }

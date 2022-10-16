@@ -10,8 +10,6 @@ namespace School_DLL
 {
     public class Teacher : User
     {
-        
-        List<Subject> subjects= new List<Subject>();
-        
+        public Subject subject= new Subject();
     }
 }
