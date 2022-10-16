@@ -8,8 +8,8 @@ namespace School_DLL
 {
    public class Class
    {
-        string Name { get; set; }
-        int id { get; set; }
+        public string Name { get; set; }
+        public int id { get; set; }
 
         public List<Student> students = new List<Student>();
    }

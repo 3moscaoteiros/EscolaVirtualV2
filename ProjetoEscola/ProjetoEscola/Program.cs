@@ -30,7 +30,7 @@ namespace ProjetoEscola
                  new Subject() {id = 1 , Name = "Matemática" } ,
                  new Subject() {id = 2 , Name = "Música"  } ,
                  new Subject() {id = 3 , Name = "Ciências"  } ,
-                 new Subject() {id = 4 , Name = "Fisica-quimica" } });
+                 new Subject() {id = 4 , Name = "Fisico-quimica" } });
 
             Program.Anos.Find(s => s.year == "6").subjects.AddRange(new Subject[]
 
@@ -38,7 +38,7 @@ namespace ProjetoEscola
                  new Subject() {id = 1 , Name = "Matemática" } ,
                  new Subject() {id = 2 , Name = "Música"  } ,
                  new Subject() {id = 3 , Name = "Ciências"  } ,
-                 new Subject() {id = 4 , Name = "Fisica-quimica" } });
+                 new Subject() {id = 4 , Name = "Fisico-quimica" } });
 
         }         
     }
