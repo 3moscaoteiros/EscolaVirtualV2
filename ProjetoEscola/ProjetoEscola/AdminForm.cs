@@ -112,15 +112,15 @@ namespace ProjetoEscola
             };
 
             //percorrer anos para ver qual é o ano que tem a turma
-            foreach(Year y in )
-            {
+            //foreach(Year y in )
+            //{
 
 
 
 
-            }
+            //}
 
-            Program.Anos.Find(s => s.year == )
+            //Program.Anos.Find(s => s.year == )
                 //Program.Anos.Find(y => y.year == year).CLasses.Add(cl);
             //add à turma
             //só consigo add à turma passando pelos anos
@@ -168,6 +168,9 @@ namespace ProjetoEscola
                    
         }
 
-
+        private void btnLeaveStudent_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

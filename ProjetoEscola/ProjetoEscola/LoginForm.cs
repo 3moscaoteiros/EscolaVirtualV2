@@ -17,8 +17,30 @@ namespace ProjetoEscola
             InitializeComponent();
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
+        private void txtLoginNum_KeyPress(object sender, KeyPressEventArgs e)
         {
+            
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (txtLoginNum.Text != "" || txtLoginPassword.Text != "")
+            {
+                if (txtLoginNum.Text == "00000" && txtLoginPassword.Text == "00000")
+                {
+                    Hide();
+                    AdminForm adminForm = new AdminForm();
+                    adminForm.ShowDialog();
+                    Show();
+                }
+                else if(txtLoginNum.Text == "00000" && txtLoginPassword.Text != "00000")
+                {
+                    MessageBox.Show("Palavra.passe incorreta!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }       
+                
+            }
+            else
+                MessageBox.Show("Preencha tdos os campos!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             
         }
     }
