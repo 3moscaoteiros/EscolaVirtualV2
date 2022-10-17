@@ -31,16 +31,16 @@ namespace ProjetoEscola
                     Hide();
                     AdminForm adminForm = new AdminForm();
                     adminForm.ShowDialog();
-                    Show();
+                   
                 }
-                else if(txtLoginNum.Text == "00000" && txtLoginPassword.Text != "00000")
+                else 
                 {
-                    MessageBox.Show("Palavra.passe incorreta!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Wrong information!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }       
                 
             }
             else
-                MessageBox.Show("Preencha tdos os campos!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Missing information!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             
         }
     }

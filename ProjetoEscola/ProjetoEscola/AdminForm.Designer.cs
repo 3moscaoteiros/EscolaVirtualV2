@@ -519,14 +519,6 @@ namespace ProjetoEscola
             this.txtChooseYear.Size = new System.Drawing.Size(82, 31);
             this.txtChooseYear.TabIndex = 138;
             // 
-            // txtChooseYear
-            // 
-            this.txtChooseYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChooseYear.Location = new System.Drawing.Point(86, 46);
-            this.txtChooseYear.Name = "txtChooseYear";
-            this.txtChooseYear.Size = new System.Drawing.Size(82, 31);
-            this.txtChooseYear.TabIndex = 138;
-            // 
             // btnLeaveClasses
             // 
             this.btnLeaveClasses.Location = new System.Drawing.Point(283, 268);
@@ -637,6 +629,7 @@ namespace ProjetoEscola
             this.Controls.Add(this.tbAdmin);
             this.Name = "AdminForm";
             this.Text = "AdminForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminForm_FormClosed);
             this.Load += new System.EventHandler(this.AdminForm_Load);
             this.tbAdmin.ResumeLayout(false);
             this.tpStudent.ResumeLayout(false);

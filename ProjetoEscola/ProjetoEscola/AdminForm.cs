@@ -193,24 +193,34 @@ namespace ProjetoEscola
         #region btnLeaveClickEvents
         private void btnLeaveStudent_Click(object sender, EventArgs e)
         {
+            
             Close();
-         
         }
 
         private void btnLeaveTeacher_Click(object sender, EventArgs e)
         {
-
+            
+            Close();
         }
 
         private void btnLeaveClasses_Click(object sender, EventArgs e)
         {
-
+            
+            Close();
         }
 
         private void btnLeaveRequests_Click(object sender, EventArgs e)
         {
-
+            
+            Close();
         }
         #endregion
+
+        private void AdminForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LoginForm login = new LoginForm();
+            login.Visible = true;
+            Close();
+        }
     }
 }
