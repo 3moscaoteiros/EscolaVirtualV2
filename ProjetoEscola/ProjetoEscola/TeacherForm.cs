@@ -1,4 +1,5 @@
-﻿using System;
+﻿using School_DLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,31 @@ namespace ProjetoEscola
 {
     public partial class TeacherForm : Form
     {
+        Year ano = new Year();
         public TeacherForm()
         {
             InitializeComponent();
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
+
+        private void TeacherForm_Load(object sender, EventArgs e)
+        {
+            foreach(Year y in Program.Anos)
+            {
+                foreach(Class c in y.CLasses)
+                {
+                    cbbClasses.Items.Add(c.Name);
+                }
+            }
+        }
+
+        private void cbbClasses_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
