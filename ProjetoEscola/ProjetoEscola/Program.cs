@@ -26,8 +26,6 @@ namespace ProjetoEscola
             Application.Run(new LoginForm());
 
 
-
-
             Program.Anos.Find(s => s.year == "5").subjects.AddRange(new Subject[]
 
                 {
