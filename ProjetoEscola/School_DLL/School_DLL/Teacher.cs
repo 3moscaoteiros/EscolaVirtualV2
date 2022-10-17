@@ -10,6 +10,6 @@ namespace School_DLL
 {
     public class Teacher : User
     {
-        public Subject subject= new Subject();
+        public Subject subject;
     }
 }
