@@ -18,18 +18,37 @@ namespace ProjetoEscola
         {
             InitializeComponent();
         }
-
-
         private void AdminForm_Load(object sender, EventArgs e)
         {
             btnCreateStudent.Enabled = false;
             btnCreateTeacher.Enabled = false;
             btnCreateClass.Enabled = false;
 
+
+            #region update classes in student
+            foreach (Year Y in Program.Anos)
+            {
+                foreach (Class c in Y.CLasses)
+                {
+                    cbbClassStudent.Items.Add(c.Name);
+
+                }
+            }
+            #endregion
+
+            
+            #region update years in teacher
+            foreach (Year y in Program.Anos)
+            {
+                lstTeacherYears.Items.Add(y);
+            }
+            #endregion
+
+
         }
 
-        #region KeyPressEvents
-        private void txtNameStudent_KeyPress(object sender, KeyPressEventArgs e)
+     #region KeyPressEvents
+    private void txtNameStudent_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsLetter(e.KeyChar) || e.KeyChar==8)
                 e.Handled= false;
@@ -97,6 +116,8 @@ namespace ProjetoEscola
             string Class = cbbClassStudent.SelectedItem.ToString();
             string money = txtBalanceStudent.Text;
             string pin = txtPINStudnet.Text;
+
+            string YearWithTheClass = "";
             #endregion
 
             Student student = new Student()
@@ -112,21 +133,22 @@ namespace ProjetoEscola
             };
 
             //percorrer anos para ver qual é o ano que tem a turma
-            foreach(Year y in )
+            foreach (Year y in Program.Anos)
             {
-
-
-
-
+                foreach (Class c in y.CLasses)
+                {
+                    if (c.Name == Class)
+                        YearWithTheClass =y.year;
+                }
             }
 
-            Program.Anos.Find(s => s.year == )
-                //Program.Anos.Find(y => y.year == year).CLasses.Add(cl);
-            //add à turma
-            //só consigo add à turma passando pelos anos
-            //Program.Anos.Add()
 
+            
         }
+
+     
+
+
 
         private void btnCreateClass_Click(object sender, EventArgs e)
         {
@@ -168,6 +190,27 @@ namespace ProjetoEscola
                    
         }
 
+        #region btnLeaveClickEvents
+        private void btnLeaveStudent_Click(object sender, EventArgs e)
+        {
+            Close();
+         
+        }
 
+        private void btnLeaveTeacher_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLeaveClasses_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLeaveRequests_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
     }
 }

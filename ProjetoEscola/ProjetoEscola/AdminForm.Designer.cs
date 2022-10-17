@@ -71,6 +71,7 @@ namespace ProjetoEscola
             this.lblSubjectsTeacher = new System.Windows.Forms.Label();
             this.lblYearTeacher = new System.Windows.Forms.Label();
             this.tpClasses = new System.Windows.Forms.TabPage();
+            this.txtChooseYear = new System.Windows.Forms.TextBox();
             this.btnLeaveClasses = new System.Windows.Forms.Button();
             this.lblClassChooseYear = new System.Windows.Forms.Label();
             this.btnCreateClass = new System.Windows.Forms.Button();
@@ -81,7 +82,6 @@ namespace ProjetoEscola
             this.lblRequest = new System.Windows.Forms.Label();
             this.btnRequest = new System.Windows.Forms.Button();
             this.lstRequest = new System.Windows.Forms.ListBox();
-            this.txtChooseYear = new System.Windows.Forms.TextBox();
             this.tbAdmin.SuspendLayout();
             this.tpStudent.SuspendLayout();
             this.tpTeacher.SuspendLayout();
@@ -103,6 +103,7 @@ namespace ProjetoEscola
             // 
             // tpStudent
             // 
+            this.tpStudent.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tpStudent.Controls.Add(this.txtPINStudnet);
             this.tpStudent.Controls.Add(this.lblPINStudent);
             this.tpStudent.Controls.Add(this.lblChooseClass);
@@ -128,7 +129,6 @@ namespace ProjetoEscola
             this.tpStudent.Size = new System.Drawing.Size(463, 336);
             this.tpStudent.TabIndex = 1;
             this.tpStudent.Text = "Student";
-            this.tpStudent.UseVisualStyleBackColor = true;
             // 
             // txtPINStudnet
             // 
@@ -257,6 +257,7 @@ namespace ProjetoEscola
             this.btnLeaveStudent.TabIndex = 102;
             this.btnLeaveStudent.Text = "Leave";
             this.btnLeaveStudent.UseVisualStyleBackColor = true;
+            this.btnLeaveStudent.Click += new System.EventHandler(this.btnLeaveStudent_Click);
             // 
             // txtBalanceStudent
             // 
@@ -301,6 +302,7 @@ namespace ProjetoEscola
             // 
             // tpTeacher
             // 
+            this.tpTeacher.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tpTeacher.Controls.Add(this.txtPINTeacher);
             this.tpTeacher.Controls.Add(this.lblPINTeacher);
             this.tpTeacher.Controls.Add(this.btnLeaveTeacher);
@@ -326,7 +328,6 @@ namespace ProjetoEscola
             this.tpTeacher.Size = new System.Drawing.Size(463, 336);
             this.tpTeacher.TabIndex = 2;
             this.tpTeacher.Text = "Teacher";
-            this.tpTeacher.UseVisualStyleBackColor = true;
             // 
             // txtPINTeacher
             // 
@@ -352,6 +353,7 @@ namespace ProjetoEscola
             this.btnLeaveTeacher.TabIndex = 136;
             this.btnLeaveTeacher.Text = "Leave";
             this.btnLeaveTeacher.UseVisualStyleBackColor = true;
+            this.btnLeaveTeacher.Click += new System.EventHandler(this.btnLeaveTeacher_Click);
             // 
             // btnCreateTeacher
             // 
@@ -494,6 +496,7 @@ namespace ProjetoEscola
             // 
             // tpClasses
             // 
+            this.tpClasses.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tpClasses.Controls.Add(this.txtChooseYear);
             this.tpClasses.Controls.Add(this.btnLeaveClasses);
             this.tpClasses.Controls.Add(this.lblClassChooseYear);
@@ -507,7 +510,14 @@ namespace ProjetoEscola
             this.tpClasses.Size = new System.Drawing.Size(463, 336);
             this.tpClasses.TabIndex = 3;
             this.tpClasses.Text = "CreateClasses";
-            this.tpClasses.UseVisualStyleBackColor = true;
+            // 
+            // txtChooseYear
+            // 
+            this.txtChooseYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtChooseYear.Location = new System.Drawing.Point(86, 46);
+            this.txtChooseYear.Name = "txtChooseYear";
+            this.txtChooseYear.Size = new System.Drawing.Size(82, 31);
+            this.txtChooseYear.TabIndex = 138;
             // 
             // btnLeaveClasses
             // 
@@ -517,6 +527,7 @@ namespace ProjetoEscola
             this.btnLeaveClasses.TabIndex = 137;
             this.btnLeaveClasses.Text = "Leave";
             this.btnLeaveClasses.UseVisualStyleBackColor = true;
+            this.btnLeaveClasses.Click += new System.EventHandler(this.btnLeaveClasses_Click);
             // 
             // lblClassChooseYear
             // 
@@ -559,6 +570,7 @@ namespace ProjetoEscola
             // 
             // tbRequests
             // 
+            this.tbRequests.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tbRequests.Controls.Add(this.btnLeaveRequests);
             this.tbRequests.Controls.Add(this.lblRequest);
             this.tbRequests.Controls.Add(this.btnRequest);
@@ -569,7 +581,6 @@ namespace ProjetoEscola
             this.tbRequests.Size = new System.Drawing.Size(463, 336);
             this.tbRequests.TabIndex = 4;
             this.tbRequests.Text = "Requests";
-            this.tbRequests.UseVisualStyleBackColor = true;
             // 
             // btnLeaveRequests
             // 
@@ -579,6 +590,7 @@ namespace ProjetoEscola
             this.btnLeaveRequests.TabIndex = 137;
             this.btnLeaveRequests.Text = "Leave";
             this.btnLeaveRequests.UseVisualStyleBackColor = true;
+            this.btnLeaveRequests.Click += new System.EventHandler(this.btnLeaveRequests_Click);
             // 
             // lblRequest
             // 
@@ -603,18 +615,10 @@ namespace ProjetoEscola
             // lstRequest
             // 
             this.lstRequest.FormattingEnabled = true;
-            this.lstRequest.Location = new System.Drawing.Point(98, 68);
+            this.lstRequest.Location = new System.Drawing.Point(94, 58);
             this.lstRequest.Name = "lstRequest";
             this.lstRequest.Size = new System.Drawing.Size(159, 186);
             this.lstRequest.TabIndex = 118;
-            // 
-            // txtChooseYear
-            // 
-            this.txtChooseYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChooseYear.Location = new System.Drawing.Point(86, 46);
-            this.txtChooseYear.Name = "txtChooseYear";
-            this.txtChooseYear.Size = new System.Drawing.Size(82, 31);
-            this.txtChooseYear.TabIndex = 138;
             // 
             // AdminForm
             // 
