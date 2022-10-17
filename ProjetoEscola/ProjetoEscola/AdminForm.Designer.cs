@@ -31,6 +31,8 @@ namespace ProjetoEscola
         {
             this.tbAdmin = new System.Windows.Forms.TabControl();
             this.tpStudent = new System.Windows.Forms.TabPage();
+            this.txtPINStudnet = new System.Windows.Forms.TextBox();
+            this.lblPINStudent = new System.Windows.Forms.Label();
             this.lblChooseClass = new System.Windows.Forms.Label();
             this.cbbClassStudent = new System.Windows.Forms.ComboBox();
             this.txtAdressStudent = new System.Windows.Forms.TextBox();
@@ -49,6 +51,8 @@ namespace ProjetoEscola
             this.btnCreateStudent = new System.Windows.Forms.Button();
             this.lblCreateStudent = new System.Windows.Forms.Label();
             this.tpTeacher = new System.Windows.Forms.TabPage();
+            this.txtPINTeacher = new System.Windows.Forms.TextBox();
+            this.lblPINTeacher = new System.Windows.Forms.Label();
             this.btnLeaveTeacher = new System.Windows.Forms.Button();
             this.btnCreateTeacher = new System.Windows.Forms.Button();
             this.txtAdressTeacher = new System.Windows.Forms.TextBox();
@@ -67,21 +71,17 @@ namespace ProjetoEscola
             this.lblSubjectsTeacher = new System.Windows.Forms.Label();
             this.lblYearTeacher = new System.Windows.Forms.Label();
             this.tpClasses = new System.Windows.Forms.TabPage();
+            this.btnLeaveClasses = new System.Windows.Forms.Button();
             this.lblClassChooseYear = new System.Windows.Forms.Label();
-            this.cbbChooseYear = new System.Windows.Forms.ComboBox();
             this.btnCreateClass = new System.Windows.Forms.Button();
             this.lblCreateClass = new System.Windows.Forms.Label();
             this.txtCreateClass = new System.Windows.Forms.TextBox();
             this.tbRequests = new System.Windows.Forms.TabPage();
+            this.btnLeaveRequests = new System.Windows.Forms.Button();
             this.lblRequest = new System.Windows.Forms.Label();
             this.btnRequest = new System.Windows.Forms.Button();
             this.lstRequest = new System.Windows.Forms.ListBox();
-            this.btnLeaveClasses = new System.Windows.Forms.Button();
-            this.btnLeaveRequests = new System.Windows.Forms.Button();
-            this.txtPINStudnet = new System.Windows.Forms.TextBox();
-            this.lblPINStudent = new System.Windows.Forms.Label();
-            this.txtPINTeacher = new System.Windows.Forms.TextBox();
-            this.lblPINTeacher = new System.Windows.Forms.Label();
+            this.txtChooseYear = new System.Windows.Forms.TextBox();
             this.tbAdmin.SuspendLayout();
             this.tpStudent.SuspendLayout();
             this.tpTeacher.SuspendLayout();
@@ -129,6 +129,22 @@ namespace ProjetoEscola
             this.tpStudent.TabIndex = 1;
             this.tpStudent.Text = "Student";
             this.tpStudent.UseVisualStyleBackColor = true;
+            // 
+            // txtPINStudnet
+            // 
+            this.txtPINStudnet.Location = new System.Drawing.Point(107, 229);
+            this.txtPINStudnet.Name = "txtPINStudnet";
+            this.txtPINStudnet.Size = new System.Drawing.Size(43, 20);
+            this.txtPINStudnet.TabIndex = 123;
+            // 
+            // lblPINStudent
+            // 
+            this.lblPINStudent.AutoSize = true;
+            this.lblPINStudent.Location = new System.Drawing.Point(73, 232);
+            this.lblPINStudent.Name = "lblPINStudent";
+            this.lblPINStudent.Size = new System.Drawing.Size(28, 13);
+            this.lblPINStudent.TabIndex = 122;
+            this.lblPINStudent.Text = "PIN:";
             // 
             // lblChooseClass
             // 
@@ -312,6 +328,22 @@ namespace ProjetoEscola
             this.tpTeacher.Text = "Teacher";
             this.tpTeacher.UseVisualStyleBackColor = true;
             // 
+            // txtPINTeacher
+            // 
+            this.txtPINTeacher.Location = new System.Drawing.Point(70, 180);
+            this.txtPINTeacher.Name = "txtPINTeacher";
+            this.txtPINTeacher.Size = new System.Drawing.Size(43, 20);
+            this.txtPINTeacher.TabIndex = 138;
+            // 
+            // lblPINTeacher
+            // 
+            this.lblPINTeacher.AutoSize = true;
+            this.lblPINTeacher.Location = new System.Drawing.Point(36, 183);
+            this.lblPINTeacher.Name = "lblPINTeacher";
+            this.lblPINTeacher.Size = new System.Drawing.Size(28, 13);
+            this.lblPINTeacher.TabIndex = 137;
+            this.lblPINTeacher.Text = "PIN:";
+            // 
             // btnLeaveTeacher
             // 
             this.btnLeaveTeacher.Location = new System.Drawing.Point(8, 268);
@@ -462,9 +494,9 @@ namespace ProjetoEscola
             // 
             // tpClasses
             // 
+            this.tpClasses.Controls.Add(this.txtChooseYear);
             this.tpClasses.Controls.Add(this.btnLeaveClasses);
             this.tpClasses.Controls.Add(this.lblClassChooseYear);
-            this.tpClasses.Controls.Add(this.cbbChooseYear);
             this.tpClasses.Controls.Add(this.btnCreateClass);
             this.tpClasses.Controls.Add(this.lblCreateClass);
             this.tpClasses.Controls.Add(this.txtCreateClass);
@@ -477,6 +509,15 @@ namespace ProjetoEscola
             this.tpClasses.Text = "CreateClasses";
             this.tpClasses.UseVisualStyleBackColor = true;
             // 
+            // btnLeaveClasses
+            // 
+            this.btnLeaveClasses.Location = new System.Drawing.Point(283, 268);
+            this.btnLeaveClasses.Name = "btnLeaveClasses";
+            this.btnLeaveClasses.Size = new System.Drawing.Size(69, 31);
+            this.btnLeaveClasses.TabIndex = 137;
+            this.btnLeaveClasses.Text = "Leave";
+            this.btnLeaveClasses.UseVisualStyleBackColor = true;
+            // 
             // lblClassChooseYear
             // 
             this.lblClassChooseYear.AutoSize = true;
@@ -486,15 +527,6 @@ namespace ProjetoEscola
             this.lblClassChooseYear.Size = new System.Drawing.Size(64, 25);
             this.lblClassChooseYear.TabIndex = 4;
             this.lblClassChooseYear.Text = "Year:";
-            // 
-            // cbbChooseYear
-            // 
-            this.cbbChooseYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbChooseYear.FormattingEnabled = true;
-            this.cbbChooseYear.Location = new System.Drawing.Point(86, 46);
-            this.cbbChooseYear.Name = "cbbChooseYear";
-            this.cbbChooseYear.Size = new System.Drawing.Size(121, 33);
-            this.cbbChooseYear.TabIndex = 3;
             // 
             // btnCreateClass
             // 
@@ -539,6 +571,15 @@ namespace ProjetoEscola
             this.tbRequests.Text = "Requests";
             this.tbRequests.UseVisualStyleBackColor = true;
             // 
+            // btnLeaveRequests
+            // 
+            this.btnLeaveRequests.Location = new System.Drawing.Point(283, 264);
+            this.btnLeaveRequests.Name = "btnLeaveRequests";
+            this.btnLeaveRequests.Size = new System.Drawing.Size(69, 31);
+            this.btnLeaveRequests.TabIndex = 137;
+            this.btnLeaveRequests.Text = "Leave";
+            this.btnLeaveRequests.UseVisualStyleBackColor = true;
+            // 
             // lblRequest
             // 
             this.lblRequest.AutoSize = true;
@@ -567,55 +608,13 @@ namespace ProjetoEscola
             this.lstRequest.Size = new System.Drawing.Size(159, 186);
             this.lstRequest.TabIndex = 118;
             // 
-            // btnLeaveClasses
+            // txtChooseYear
             // 
-            this.btnLeaveClasses.Location = new System.Drawing.Point(283, 268);
-            this.btnLeaveClasses.Name = "btnLeaveClasses";
-            this.btnLeaveClasses.Size = new System.Drawing.Size(69, 31);
-            this.btnLeaveClasses.TabIndex = 137;
-            this.btnLeaveClasses.Text = "Leave";
-            this.btnLeaveClasses.UseVisualStyleBackColor = true;
-            // 
-            // btnLeaveRequests
-            // 
-            this.btnLeaveRequests.Location = new System.Drawing.Point(283, 264);
-            this.btnLeaveRequests.Name = "btnLeaveRequests";
-            this.btnLeaveRequests.Size = new System.Drawing.Size(69, 31);
-            this.btnLeaveRequests.TabIndex = 137;
-            this.btnLeaveRequests.Text = "Leave";
-            this.btnLeaveRequests.UseVisualStyleBackColor = true;
-            // 
-            // txtPINStudnet
-            // 
-            this.txtPINStudnet.Location = new System.Drawing.Point(107, 229);
-            this.txtPINStudnet.Name = "txtPINStudnet";
-            this.txtPINStudnet.Size = new System.Drawing.Size(43, 20);
-            this.txtPINStudnet.TabIndex = 123;
-            // 
-            // lblPINStudent
-            // 
-            this.lblPINStudent.AutoSize = true;
-            this.lblPINStudent.Location = new System.Drawing.Point(73, 232);
-            this.lblPINStudent.Name = "lblPINStudent";
-            this.lblPINStudent.Size = new System.Drawing.Size(28, 13);
-            this.lblPINStudent.TabIndex = 122;
-            this.lblPINStudent.Text = "PIN:";
-            // 
-            // txtPINTeacher
-            // 
-            this.txtPINTeacher.Location = new System.Drawing.Point(70, 180);
-            this.txtPINTeacher.Name = "txtPINTeacher";
-            this.txtPINTeacher.Size = new System.Drawing.Size(43, 20);
-            this.txtPINTeacher.TabIndex = 138;
-            // 
-            // lblPINTeacher
-            // 
-            this.lblPINTeacher.AutoSize = true;
-            this.lblPINTeacher.Location = new System.Drawing.Point(36, 183);
-            this.lblPINTeacher.Name = "lblPINTeacher";
-            this.lblPINTeacher.Size = new System.Drawing.Size(28, 13);
-            this.lblPINTeacher.TabIndex = 137;
-            this.lblPINTeacher.Text = "PIN:";
+            this.txtChooseYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtChooseYear.Location = new System.Drawing.Point(86, 46);
+            this.txtChooseYear.Name = "txtChooseYear";
+            this.txtChooseYear.Size = new System.Drawing.Size(82, 31);
+            this.txtChooseYear.TabIndex = 138;
             // 
             // AdminForm
             // 
@@ -688,12 +687,12 @@ namespace ProjetoEscola
         private System.Windows.Forms.Label lblCreateClass;
         private System.Windows.Forms.TextBox txtCreateClass;
         private System.Windows.Forms.Label lblClassChooseYear;
-        private System.Windows.Forms.ComboBox cbbChooseYear;
         private System.Windows.Forms.Button btnLeaveClasses;
         private System.Windows.Forms.Button btnLeaveRequests;
         private System.Windows.Forms.TextBox txtPINStudnet;
         private System.Windows.Forms.Label lblPINStudent;
         private System.Windows.Forms.TextBox txtPINTeacher;
         private System.Windows.Forms.Label lblPINTeacher;
+        private System.Windows.Forms.TextBox txtChooseYear;
     }
 }

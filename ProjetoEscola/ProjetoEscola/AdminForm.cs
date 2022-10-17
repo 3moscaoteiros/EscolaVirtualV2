@@ -111,8 +111,17 @@ namespace ProjetoEscola
                 
             };
 
+            //percorrer anos para ver qual é o ano que tem a turma
+            foreach(Year y in )
+            {
 
-            //Program.Anos.Find(y => y.year == year).CLasses.Add(cl);
+
+
+
+            }
+
+            Program.Anos.Find(s => s.year == )
+                //Program.Anos.Find(y => y.year == year).CLasses.Add(cl);
             //add à turma
             //só consigo add à turma passando pelos anos
             //Program.Anos.Add()
@@ -121,26 +130,34 @@ namespace ProjetoEscola
 
         private void btnCreateClass_Click(object sender, EventArgs e)
         {
-            string year= cbbChooseYear.SelectedItem.ToString();
+            string year = txtChooseYear.Text;
             string Class = txtCreateClass.Text;
 
-            if(cbbChooseYear.SelectedItem == null || Class.Trim()=="")
+            #region errors 
+            if (year.Trim() != "" || Class.Trim()=="")
             {
                 MessageBox.Show("ERROR","Info missing",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
+
+            if (Convert.ToInt32(year.Trim()) < 7 || Convert.ToInt32(year.Trim()) >12)
+            {
+                MessageBox.Show("ERROR", "Wrong year", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            #endregion
 
             Class cl = new Class();
             cl.Name = Class;
             //não preciso do id ent pq ele existir?
 
 
-            //verificar se já existe a turma
+            //variavél aux
             bool hasClass = Program.Anos.Find(y => y.year == year).CLasses.Any(c => c.Name.Contains(Class));
 
-            //add a turma ao ano escolhido
-            if(!hasClass)
-            Program.Anos.Find(y => y.year == year).CLasses.Add(cl);
+            //verificar se já existe a turma
+            if (!hasClass)
+                Program.Anos.Find(y => y.year == year).CLasses.Add(cl);//add a turma ao ano escolhido
             else
             {
                 MessageBox.Show("ERROR", "Class already exists", MessageBoxButtons.OK, MessageBoxIcon.Error);
