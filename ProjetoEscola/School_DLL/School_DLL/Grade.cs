@@ -8,7 +8,7 @@ namespace School_DLL
 {
     public class Grade
     {
-      public double Val { get; set; }
-      public Subject Subject = new Subject();
+        public double Val { get; set; }
+        public Subject Subject { get; set; }
     }
 }

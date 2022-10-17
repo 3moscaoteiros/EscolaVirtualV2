@@ -10,7 +10,7 @@ namespace School_DLL
     {
         public int id { get; set; }
         public string Name { get; set; }
-        Teacher teacher = new Teacher();
 
+        public Teacher teacher = new Teacher();
     }
 }

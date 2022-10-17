@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using School_DLL;
 
 namespace ProjetoEscola
 {
@@ -21,21 +22,46 @@ namespace ProjetoEscola
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
-            #region Disable Controls
+            btnCreateStudent.Enabled = false;
+            btnCreateTeacher.Enabled = false;
+            btnCreateClass.Enabled = false;
 
-            txtCreateBalance.Visible = false;
-            btnCreateAcc.Enabled = false;
-            lstCreateSubjects.Visible = false;
-            lstCreateYears.Visible = false;
-            lblCreateYear.Visible = false;
-            lblbCreateSubject.Visible = false;
-            cbbCreateClass.Visible = false;
-
-            #endregion
         }
 
         #region KeyPressEvents
-        private void txtCreateName_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtNameStudent_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar) || e.KeyChar==8)
+                e.Handled= false;
+            else
+                e.Handled= true;
+        }
+
+        private void txtNIFStudent_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) || e.KeyChar == 8)
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        private void txtContactStudent_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) || e.KeyChar == 8)
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        private void txtBalanceStudent_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) || e.KeyChar == 8)
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        private void txtNameTeacher_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsLetter(e.KeyChar) || e.KeyChar == 8)
                 e.Handled = false;
@@ -43,8 +69,7 @@ namespace ProjetoEscola
                 e.Handled = true;
         }
 
-
-        private void txtCreateNIF_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtNIFTeacher_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar) || e.KeyChar == 8)
                 e.Handled = false;
@@ -52,16 +77,7 @@ namespace ProjetoEscola
                 e.Handled = true;
         }
 
-        private void txtCreateContact_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (Char.IsDigit(e.KeyChar) || e.KeyChar == 8)
-                e.Handled = false;
-            else
-                e.Handled = true;
-
-        }
-
-        private void txtCreateBalance_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtContactTeacher_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar) || e.KeyChar == 8)
                 e.Handled = false;
@@ -70,28 +86,71 @@ namespace ProjetoEscola
         }
         #endregion
 
-        private void cbCreateS_T_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnCreateStudent_Click(object sender, EventArgs e)
         {
-            if (cbCreateS_T.SelectedItem.ToString()=="Student")
-            {
-                txtCreateBalance.Visible = true;
-                cbbCreateClass.Visible = true;
+            #region variables
+            string name = txtNameStudent.Text;
+            string num = txtNumStudent.Text;
+            string nif = txtNIFStudent.Text; ;
+            string adress = txtAdressStudent.Text; 
+            string contact = txtContactStudent.Text;
+            string Class = cbbClassStudent.SelectedItem.ToString();
+            string money = txtBalanceStudent.Text;
+            string pin = txtPINStudnet.Text;
+            #endregion
 
+            Student student = new Student()
+            {
+                Name = name,
+                Adress = adress,
+                EMAIL = contact,
+                NIF = Convert.ToInt32(nif),
+                ID = num,
+                PIN = pin,
+                Request = false
+                
+            };
+
+
+            //Program.Anos.Find(y => y.year == year).CLasses.Add(cl);
+            //add à turma
+            //só consigo add à turma passando pelos anos
+            //Program.Anos.Add()
+
+        }
+
+        private void btnCreateClass_Click(object sender, EventArgs e)
+        {
+            string year= cbbChooseYear.SelectedItem.ToString();
+            string Class = txtCreateClass.Text;
+
+            if(cbbChooseYear.SelectedItem == null || Class.Trim()=="")
+            {
+                MessageBox.Show("ERROR","Info missing",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
             }
+
+            Class cl = new Class();
+            cl.Name = Class;
+            //não preciso do id ent pq ele existir?
+
+
+            //verificar se já existe a turma
+            bool hasClass = Program.Anos.Find(y => y.year == year).CLasses.Any(c => c.Name.Contains(Class));
+
+            //add a turma ao ano escolhido
+            if(!hasClass)
+            Program.Anos.Find(y => y.year == year).CLasses.Add(cl);
             else
             {
-                lblCreateYear.Visible = true;
-                lblbCreateSubject.Visible = true;
-                lstCreateYears.Visible = true;
-                lstCreateSubjects.Visible = true;
+                MessageBox.Show("ERROR", "Class already exists", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
           
+                   
         }
 
-        private void btnCreateAcc_Click(object sender, EventArgs e)
-        {
-           
-           
-        }
+
     }
 }
