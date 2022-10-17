@@ -11,4 +11,4 @@ namespace School_DLL
        public string year { get; set; }
        public List<Class> CLasses = new List<Class>();    
     }
-}
+}   
