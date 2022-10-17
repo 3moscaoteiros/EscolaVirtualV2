@@ -20,11 +20,7 @@ namespace ProjetoEscola
         }
         private void AdminForm_Load(object sender, EventArgs e)
         {
-            btnCreateStudent.Enabled = false;
-            btnCreateTeacher.Enabled = false;
-            btnCreateClass.Enabled = false;
-
-
+           
             #region update classes in student
             foreach (Year Y in Program.Anos)
             {
@@ -40,7 +36,7 @@ namespace ProjetoEscola
             #region update years in teacher
             foreach (Year y in Program.Anos)
             {
-                lstTeacherYears.Items.Add(y);
+                lstTeacherYears.Items.Add(y.year);
             }
             #endregion
 
@@ -107,6 +103,7 @@ namespace ProjetoEscola
 
         private void btnCreateStudent_Click(object sender, EventArgs e)
         {
+            ////////////////falta verificar as infos
             #region variables
             string name = txtNameStudent.Text;
             string num = txtNumStudent.Text;
@@ -220,7 +217,7 @@ namespace ProjetoEscola
         {
             LoginForm login = new LoginForm();
             login.Visible = true;
-            Close();
+           
         }
     }
 }

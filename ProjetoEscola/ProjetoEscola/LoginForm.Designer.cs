@@ -74,7 +74,6 @@
             this.txtLoginNum.Name = "txtLoginNum";
             this.txtLoginNum.Size = new System.Drawing.Size(100, 29);
             this.txtLoginNum.TabIndex = 7;
-            this.txtLoginNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLoginNum_KeyPress);
             // 
             // btnLogin
             // 

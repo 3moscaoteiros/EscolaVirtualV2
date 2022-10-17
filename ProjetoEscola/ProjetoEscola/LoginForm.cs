@@ -17,11 +17,6 @@ namespace ProjetoEscola
             InitializeComponent();
         }
 
-        private void txtLoginNum_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if (txtLoginNum.Text != "" || txtLoginPassword.Text != "")
