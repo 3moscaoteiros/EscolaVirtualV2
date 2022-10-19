@@ -67,7 +67,7 @@ namespace ProjetoEscola
             this.lblNameTeacher = new System.Windows.Forms.Label();
             this.lblCreateTeacher = new System.Windows.Forms.Label();
             this.lstTeacherYears = new System.Windows.Forms.ListBox();
-            this.ltsTeacherSubjects = new System.Windows.Forms.ListBox();
+            this.lstTeacherSubjects = new System.Windows.Forms.ListBox();
             this.lblSubjectsTeacher = new System.Windows.Forms.Label();
             this.lblYearTeacher = new System.Windows.Forms.Label();
             this.tpClasses = new System.Windows.Forms.TabPage();
@@ -319,7 +319,7 @@ namespace ProjetoEscola
             this.tpTeacher.Controls.Add(this.lblNameTeacher);
             this.tpTeacher.Controls.Add(this.lblCreateTeacher);
             this.tpTeacher.Controls.Add(this.lstTeacherYears);
-            this.tpTeacher.Controls.Add(this.ltsTeacherSubjects);
+            this.tpTeacher.Controls.Add(this.lstTeacherSubjects);
             this.tpTeacher.Controls.Add(this.lblSubjectsTeacher);
             this.tpTeacher.Controls.Add(this.lblYearTeacher);
             this.tpTeacher.Location = new System.Drawing.Point(4, 22);
@@ -466,15 +466,16 @@ namespace ProjetoEscola
             this.lstTeacherYears.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lstTeacherYears.Size = new System.Drawing.Size(81, 82);
             this.lstTeacherYears.TabIndex = 123;
+            this.lstTeacherYears.SelectedIndexChanged += new System.EventHandler(this.lstTeacherYears_SelectedIndexChanged);
             // 
-            // ltsTeacherSubjects
+            // lstTeacherSubjects
             // 
-            this.ltsTeacherSubjects.FormattingEnabled = true;
-            this.ltsTeacherSubjects.Location = new System.Drawing.Point(254, 169);
-            this.ltsTeacherSubjects.Name = "ltsTeacherSubjects";
-            this.ltsTeacherSubjects.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.ltsTeacherSubjects.Size = new System.Drawing.Size(72, 108);
-            this.ltsTeacherSubjects.TabIndex = 122;
+            this.lstTeacherSubjects.FormattingEnabled = true;
+            this.lstTeacherSubjects.Location = new System.Drawing.Point(254, 169);
+            this.lstTeacherSubjects.Name = "lstTeacherSubjects";
+            this.lstTeacherSubjects.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lstTeacherSubjects.Size = new System.Drawing.Size(72, 108);
+            this.lstTeacherSubjects.TabIndex = 122;
             // 
             // lblSubjectsTeacher
             // 
@@ -514,7 +515,7 @@ namespace ProjetoEscola
             // txtChooseYear
             // 
             this.txtChooseYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChooseYear.Location = new System.Drawing.Point(86, 46);
+            this.txtChooseYear.Location = new System.Drawing.Point(95, 46);
             this.txtChooseYear.Name = "txtChooseYear";
             this.txtChooseYear.Size = new System.Drawing.Size(82, 31);
             this.txtChooseYear.TabIndex = 138;
@@ -533,7 +534,7 @@ namespace ProjetoEscola
             // 
             this.lblClassChooseYear.AutoSize = true;
             this.lblClassChooseYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClassChooseYear.Location = new System.Drawing.Point(17, 49);
+            this.lblClassChooseYear.Location = new System.Drawing.Point(25, 49);
             this.lblClassChooseYear.Name = "lblClassChooseYear";
             this.lblClassChooseYear.Size = new System.Drawing.Size(64, 25);
             this.lblClassChooseYear.TabIndex = 4;
@@ -554,7 +555,7 @@ namespace ProjetoEscola
             // 
             this.lblCreateClass.AutoSize = true;
             this.lblCreateClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreateClass.Location = new System.Drawing.Point(17, 88);
+            this.lblCreateClass.Location = new System.Drawing.Point(17, 85);
             this.lblCreateClass.Name = "lblCreateClass";
             this.lblCreateClass.Size = new System.Drawing.Size(72, 25);
             this.lblCreateClass.TabIndex = 1;
@@ -563,7 +564,7 @@ namespace ProjetoEscola
             // txtCreateClass
             // 
             this.txtCreateClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCreateClass.Location = new System.Drawing.Point(86, 85);
+            this.txtCreateClass.Location = new System.Drawing.Point(95, 83);
             this.txtCreateClass.Name = "txtCreateClass";
             this.txtCreateClass.Size = new System.Drawing.Size(235, 31);
             this.txtCreateClass.TabIndex = 0;
@@ -627,6 +628,9 @@ namespace ProjetoEscola
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(368, 333);
             this.Controls.Add(this.tbAdmin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AdminForm";
             this.Text = "AdminForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminForm_FormClosed);
@@ -682,7 +686,7 @@ namespace ProjetoEscola
         private System.Windows.Forms.Label lblNameTeacher;
         private System.Windows.Forms.Label lblCreateTeacher;
         private System.Windows.Forms.ListBox lstTeacherYears;
-        private System.Windows.Forms.ListBox ltsTeacherSubjects;
+        private System.Windows.Forms.ListBox lstTeacherSubjects;
         private System.Windows.Forms.Label lblSubjectsTeacher;
         private System.Windows.Forms.Label lblYearTeacher;
         private System.Windows.Forms.Label lblRequest;

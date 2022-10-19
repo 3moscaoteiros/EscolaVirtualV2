@@ -44,26 +44,23 @@ namespace ProjetoEscola
             "NIF",
             "Adrees",
             "Contact"});
-            this.cbbRequest.Location = new System.Drawing.Point(84, 63);
-            this.cbbRequest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbbRequest.Location = new System.Drawing.Point(63, 51);
             this.cbbRequest.Name = "cbbRequest";
-            this.cbbRequest.Size = new System.Drawing.Size(209, 24);
+            this.cbbRequest.Size = new System.Drawing.Size(158, 21);
             this.cbbRequest.TabIndex = 0;
             // 
             // txtRequest
             // 
-            this.txtRequest.Location = new System.Drawing.Point(84, 116);
-            this.txtRequest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRequest.Location = new System.Drawing.Point(63, 94);
             this.txtRequest.Name = "txtRequest";
-            this.txtRequest.Size = new System.Drawing.Size(209, 22);
+            this.txtRequest.Size = new System.Drawing.Size(158, 20);
             this.txtRequest.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(84, 164);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(63, 133);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(211, 28);
+            this.button1.Size = new System.Drawing.Size(158, 23);
             this.button1.TabIndex = 2;
             this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
@@ -72,24 +69,25 @@ namespace ProjetoEscola
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.label1.Location = new System.Drawing.Point(87, 27);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(65, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(181, 16);
+            this.label1.Size = new System.Drawing.Size(151, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "What do you want to change?";
             // 
             // Request
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(380, 220);
+            this.ClientSize = new System.Drawing.Size(285, 179);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtRequest);
             this.Controls.Add(this.cbbRequest);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Request";
             this.Text = "RequestTeacher";
             this.Load += new System.EventHandler(this.Request_Load);

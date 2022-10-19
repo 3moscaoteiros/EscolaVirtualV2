@@ -33,7 +33,7 @@ namespace ProjetoEscola
             #endregion
 
             
-            #region update years in teacher
+            #region update years in TeacherTab
             foreach (Year y in Program.Anos)
             {
                 lstTeacherYears.Items.Add(y.year);
@@ -41,10 +41,11 @@ namespace ProjetoEscola
             #endregion
 
 
+
         }
 
-     #region KeyPressEvents
-    private void txtNameStudent_KeyPress(object sender, KeyPressEventArgs e)
+        #region KeyPressEvents
+        private void txtNameStudent_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsLetter(e.KeyChar) || e.KeyChar==8)
                 e.Handled= false;
@@ -103,17 +104,24 @@ namespace ProjetoEscola
 
         private void btnCreateStudent_Click(object sender, EventArgs e)
         {
-            ////////////////falta verificar as infos
+           
             #region variables
-            string name = txtNameStudent.Text;
-            string num = txtNumStudent.Text;
-            string nif = txtNIFStudent.Text; ;
-            string adress = txtAdressStudent.Text; 
-            string contact = txtContactStudent.Text;
+            string name = txtNameStudent.Text.Trim();
+            string num = txtNumStudent.Text.Trim();
+            string nif = txtNIFStudent.Text.Trim(); ;
+            string adress = txtAdressStudent.Text.Trim(); 
+            string contact = txtContactStudent.Text.Trim();
             string Class = cbbClassStudent.SelectedItem.ToString();
-            string money = txtBalanceStudent.Text;
-            string pin = txtPINStudnet.Text;
+            string money = txtBalanceStudent.Text.Trim();
+            string pin = txtPINStudnet.Text.Trim();
 
+            #region errors
+            if( name == "" || num == "" || nif == "" || adress == "" || contact == "" || Class == "" || money==""  || pin =="" )
+            {
+                MessageBox.Show("ERROR", "Information missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            #endregion
             string YearWithTheClass = "";
             #endregion
 
@@ -135,12 +143,12 @@ namespace ProjetoEscola
                 foreach (Class c in y.CLasses)
                 {
                     if (c.Name == Class)
-                        YearWithTheClass =y.year;
+                        YearWithTheClass = y.year;
                 }
             }
 
 
-            
+
         }
 
      
@@ -168,20 +176,27 @@ namespace ProjetoEscola
 
             Class cl = new Class();
             cl.Name = Class;
-            //não preciso do id ent pq ele existir?
+            //why do I nedd class id?
 
 
-            //variavél aux
+            //aux variable
             bool hasClass = Program.Anos.Find(y => y.year == year).CLasses.Any(c => c.Name.Contains(Class));
 
-            //verificar se já existe a turma
+
+            //verify if class already exists
             if (!hasClass)
-                Program.Anos.Find(y => y.year == year).CLasses.Add(cl);//add a turma ao ano escolhido
+            {
+                Program.Anos.Find(y => y.year == year).CLasses.Add(cl);//add the class to the chosen year
+
+                //update cbb
+                cbbClassStudent.Items.Add(cl.Name.ToString());
+            }
             else
             {
                 MessageBox.Show("ERROR", "Class already exists", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
 
           
                    
@@ -218,6 +233,24 @@ namespace ProjetoEscola
             LoginForm login = new LoginForm();
             login.Visible = true;
            
+        }
+
+        private void lstTeacherYears_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            #region update subjects in TeacherTab
+
+            
+            //foreach (Year y in Program.Anos)
+            //{
+            //    foreach (Subject s in y.subjects)
+            //    {
+            //        lstTeacherSubjects.Items.Add(s.Name.ToString());
+            //    }
+            //}
+
+
+            #endregion
         }
     }
 }

@@ -109,7 +109,10 @@
             this.Controls.Add(this.txtLoginNum);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "LoginForm";
             this.Text = "Login";
             this.ResumeLayout(false);
