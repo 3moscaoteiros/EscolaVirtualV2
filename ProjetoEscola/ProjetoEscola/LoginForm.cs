@@ -62,7 +62,7 @@ namespace ProjetoEscola
                 return;
             }
 
-              if (txtLoginNum.Text == "00000" && txtLoginPassword.Text == "00000")
+            if (txtLoginNum.Text == "00000" && txtLoginPassword.Text == "00000")
               {
                     Hide();
                     AdminForm adminForm = new AdminForm();
@@ -77,16 +77,16 @@ namespace ProjetoEscola
             if (firstC=="t")
             {
                 //error
-                if (!Program.Anos.Exists(s => s.subjects.Exists(v => v.teacher.ID == num))) // Esta lambda expression substitui os ciclos e a existencia da variável , e faz a mesma coisa.
+                if (!Program.Anos.Exists(s => s.subjects.Exists(v => v.teacher.ID == num))) 
                 {
                     txtLoginNum.Text = "";
                     txtLoginPassword.Text = "";
 
                     MessageBox.Show("Wrong information!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
                 }
                 else
                 {
+                    //if exists:
                     Hide();
                     TeacherForm teacherForm = new TeacherForm();
                     teacherForm.ShowDialog();
@@ -96,41 +96,22 @@ namespace ProjetoEscola
             //if student
             if (firstC == "s")
             {
-                bool exists = false;
-                //search in list if student exists
-                foreach (Year y in Program.Anos)
-                {
-                    foreach (Class c in y.CLasses)
-                    {
-                        foreach (Student s in c.students)
-                        {
-                            if (s.ID==num)
-                                exists = true;
-                        }
-                    }
-                }
-
-
                 //error
-                if (!exists)
+                if (!Program.Anos.Exists(s => s.CLasses.Exists(v => v.students.Exists(t => t.ID == num)))) 
                 {
                     txtLoginNum.Text = "";
                     txtLoginPassword.Text = "";
 
                     MessageBox.Show("Wrong information!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
                 }
-
-
-                //if exists:
-                Hide();
-                StudentForm studentForm = new StudentForm();
-                studentForm.ShowDialog();
-
+                else
+                {
+                    //if exists:
+                    Hide();
+                    StudentForm studentForm = new StudentForm();
+                    studentForm.ShowDialog();
+                }
             }
-
         }
-
-       
     }
 }
