@@ -18,6 +18,38 @@ namespace ProjetoEscola
             InitializeComponent();
         }
 
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            Program.Anos.Find(s => s.year == "5").subjects.AddRange(new Subject[]
+
+               {
+                 new Subject() {id = 0 , Name = "Português" ,
+                                         teacher = new Teacher(){ID="t0001", PIN="t0001" } } ,
+                 new Subject() {id = 1 , Name = "Matemática",
+                                         teacher = new Teacher(){ID="t0002", PIN="t0002"} } ,
+                 new Subject() {id = 2 , Name = "Música" ,
+                                         teacher = new Teacher(){ID="t0003", PIN="t0003"} } ,
+                 new Subject() {id = 3 , Name = "Ciências",
+                                         teacher = new Teacher(){ID="t0004", PIN="t0004"} } ,
+                 new Subject() {id = 4 , Name = "Fisico-quimica",
+                                         teacher = new Teacher(){ID="t0005", PIN="t0005"} } });
+
+            Program.Anos.Find(s => s.year == "6").subjects.AddRange(new Subject[]
+
+                 {
+                 new Subject() {id = 0 , Name = "Português" ,
+                                         teacher = Program.Anos[0].subjects[0].teacher} ,
+                 new Subject() {id = 1 , Name = "Matemática",
+                                         teacher = Program.Anos[0].subjects[1].teacher } ,
+                 new Subject() {id = 2 , Name = "Música" ,
+                                         teacher = Program.Anos[0].subjects[2].teacher } ,
+                 new Subject() {id = 3 , Name = "Ciências",
+                                         teacher = Program.Anos[0].subjects[3].teacher } ,
+                 new Subject() {id = 4 , Name = "Fisico-quimica",
+                                         teacher = Program.Anos[0].subjects[4].teacher }
+                 });
+        }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string num = txtLoginNum.Text;
@@ -26,20 +58,16 @@ namespace ProjetoEscola
             //error
             if (num == "" || pass == "")
             {
-                MessageBox.Show("Missing information!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Missing information!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-
             }
 
               if (txtLoginNum.Text == "00000" && txtLoginPassword.Text == "00000")
-                {
+              {
                     Hide();
                     AdminForm adminForm = new AdminForm();
                     adminForm.ShowDialog();
-                   
               }
-
-
 
               //take first char(t or s)
             string firstC = txtLoginNum.Text.ToLower().Substring(0, 1);
@@ -48,21 +76,8 @@ namespace ProjetoEscola
             //if teacher
             if (firstC=="t")
             {
-                bool exists = false;
-                //search in list if teacher exists
-                foreach (Year y in Program.Anos)
-                {
-                    foreach (Subject s in y.subjects)
-                    {
-                        if (s.teacher.ID==num)
-                            exists = true;
-                    }
-                }
-
-               
-
                 //error
-                if (!exists)
+                if (!Program.Anos.Exists(s => s.subjects.Exists(v => v.teacher.ID == num))) // Esta lambda expression substitui os ciclos e a existencia da variável , e faz a mesma coisa.
                 {
                     txtLoginNum.Text = "";
                     txtLoginPassword.Text = "";
@@ -70,13 +85,12 @@ namespace ProjetoEscola
                     MessageBox.Show("Wrong information!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-
-
-                //if exists:
-                Hide();
-                TeacherForm teacherForm = new TeacherForm();
-                teacherForm.ShowDialog();
-
+                else
+                {
+                    Hide();
+                    TeacherForm teacherForm = new TeacherForm();
+                    teacherForm.ShowDialog();
+                }
             }
 
             //if student
@@ -116,5 +130,7 @@ namespace ProjetoEscola
             }
 
         }
+
+       
     }
 }
