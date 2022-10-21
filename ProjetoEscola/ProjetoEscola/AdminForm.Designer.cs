@@ -133,9 +133,7 @@ namespace ProjetoEscola
             // txtPINStudnet
             // 
             this.txtPINStudnet.Location = new System.Drawing.Point(107, 229);
-            this.txtPINStudnet.MaxLength = 5;
             this.txtPINStudnet.Name = "txtPINStudnet";
-            this.txtPINStudnet.PasswordChar = '*';
             this.txtPINStudnet.Size = new System.Drawing.Size(43, 20);
             this.txtPINStudnet.TabIndex = 123;
             // 
@@ -161,6 +159,9 @@ namespace ProjetoEscola
             // 
             this.cbbClassStudent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbClassStudent.FormattingEnabled = true;
+            this.cbbClassStudent.Items.AddRange(new object[] {
+            "Teacher",
+            "Student"});
             this.cbbClassStudent.Location = new System.Drawing.Point(107, 174);
             this.cbbClassStudent.Name = "cbbClassStudent";
             this.cbbClassStudent.Size = new System.Drawing.Size(72, 21);
@@ -218,7 +219,6 @@ namespace ProjetoEscola
             // txtNumStudent
             // 
             this.txtNumStudent.Location = new System.Drawing.Point(107, 76);
-            this.txtNumStudent.MaxLength = 5;
             this.txtNumStudent.Name = "txtNumStudent";
             this.txtNumStudent.Size = new System.Drawing.Size(87, 20);
             this.txtNumStudent.TabIndex = 107;
@@ -333,9 +333,7 @@ namespace ProjetoEscola
             // txtPINTeacher
             // 
             this.txtPINTeacher.Location = new System.Drawing.Point(70, 180);
-            this.txtPINTeacher.MaxLength = 5;
             this.txtPINTeacher.Name = "txtPINTeacher";
-            this.txtPINTeacher.PasswordChar = '*';
             this.txtPINTeacher.Size = new System.Drawing.Size(43, 20);
             this.txtPINTeacher.TabIndex = 138;
             // 
@@ -420,7 +418,6 @@ namespace ProjetoEscola
             // txtNumTeacher
             // 
             this.txtNumTeacher.Location = new System.Drawing.Point(70, 82);
-            this.txtNumTeacher.MaxLength = 5;
             this.txtNumTeacher.Name = "txtNumTeacher";
             this.txtNumTeacher.Size = new System.Drawing.Size(87, 20);
             this.txtNumTeacher.TabIndex = 128;
