@@ -117,15 +117,14 @@ namespace ProjetoEscola
 
         private void btnCreateStudent_Click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 #region variables
                 string name = txtNameStudent.Text.Trim();
                 string num = txtNumStudent.Text.Trim();
                 string nif = txtNIFStudent.Text.Trim(); ;
                 string adress = txtAdressStudent.Text.Trim();
                 string contact = txtContactStudent.Text.Trim();
-                string Class = cbbClassStudent.SelectedItem.ToString();
                 string money = txtBalanceStudent.Text.Trim();
                 string pin = txtPINStudnet.Text.Trim();
                 bool exists = false;
@@ -133,16 +132,19 @@ namespace ProjetoEscola
                 #endregion
 
                 #region errors
-                if (name == "" || num == "" || nif == "" || adress == "" || contact == "" || Class == "" || money == "" || pin == "")
+                if (name == "" || num == "" || nif == "" || adress == "" || contact == "" || cbbClassStudent.SelectedItem==null || money == "" || pin == "")
                 {
                     MessageBox.Show("ERROR", "Information missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                #endregion
 
-                #region check if exists
-                //search in list if student exists
-                foreach (Year y in Program.Anos)
+
+            #endregion
+
+            string Class = cbbClassStudent.SelectedItem.ToString();
+            #region check if exists
+            //search in list if student exists
+            foreach (Year y in Program.Anos)
                 {
                     foreach (Class c in y.CLasses)
                     {
@@ -173,10 +175,10 @@ namespace ProjetoEscola
                     Adress = adress,
                     EMAIL = contact,
                     NIF = Convert.ToInt32(nif),
-                    ID = num,
+                    ID = $"s{num}",
                     PIN = pin,
                     Request = false
-
+                    
                 };
 
                 //cycle list years to see which is the year that has the student's class
@@ -196,11 +198,11 @@ namespace ProjetoEscola
                 ////////////////////////
                 #endregion
 
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show(error.Message);
-            }
+            
+            //catch (Exception error)
+            //{
+            //    MessageBox.Show(error.Message);
+            //}
 
 
         }
@@ -217,13 +219,13 @@ namespace ProjetoEscola
                 #region errors 
                 if (year.Trim() != "" || Class.Trim() == "")
                 {
-                    MessageBox.Show("ERROR", "Info missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Info missing", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
                 if (Convert.ToInt32(year.Trim()) < 7 || Convert.ToInt32(year.Trim()) > 12)
                 {
-                    MessageBox.Show("ERROR", "Wrong year", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Wrong year", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 #endregion

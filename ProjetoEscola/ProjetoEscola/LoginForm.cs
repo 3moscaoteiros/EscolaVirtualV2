@@ -46,7 +46,7 @@ namespace ProjetoEscola
            
 
             //if teacher
-            if (firstC=="t")
+            if (firstC.Trim()=="t")
             {
                 bool exists = false;
                 //search in list if teacher exists
@@ -80,7 +80,7 @@ namespace ProjetoEscola
             }
 
             //if student
-            if (firstC == "s")
+            if (firstC.Trim() == "s")
             {
                 bool exists = false;
                 //search in list if student exists
@@ -115,6 +115,11 @@ namespace ProjetoEscola
 
             }
 
+        }
+
+        private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
         }
     }
 }

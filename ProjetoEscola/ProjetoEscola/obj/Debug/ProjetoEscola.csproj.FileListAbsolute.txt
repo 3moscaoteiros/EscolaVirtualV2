@@ -1,50 +1,3 @@
-C:\Users\gonçalo\source\repos\ProjetoEscola\ProjetoEscola\bin\Debug\ProjetoEscola.exe.config
-C:\Users\gonçalo\source\repos\ProjetoEscola\ProjetoEscola\bin\Debug\ProjetoEscola.exe
-C:\Users\gonçalo\source\repos\ProjetoEscola\ProjetoEscola\bin\Debug\ProjetoEscola.pdb
-C:\Users\gonçalo\source\repos\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.csproj.AssemblyReference.cache
-C:\Users\gonçalo\source\repos\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.csproj.SuggestedBindingRedirects.cache
-C:\Users\gonçalo\source\repos\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.Properties.Resources.resources
-C:\Users\gonçalo\source\repos\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.csproj.GenerateResource.cache
-C:\Users\gonçalo\source\repos\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.csproj.CoreCompileInputs.cache
-C:\Users\gonçalo\source\repos\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.exe
-C:\Users\gonçalo\source\repos\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.pdb
-C:\Users\gonçalo\source\repos\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.LoginForm.resources
-C:\Users\gonçalo\source\repos\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.TeacherForm.resources
-C:\Users\I200039\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\bin\Debug\ProjetoEscola.exe.config
-C:\Users\I200039\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\bin\Debug\ProjetoEscola.exe
-C:\Users\I200039\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\bin\Debug\ProjetoEscola.pdb
-C:\Users\I200039\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\bin\Debug\School_DLL.dll
-C:\Users\I200039\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\bin\Debug\School_DLL.pdb
-C:\Users\I200039\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.csproj.AssemblyReference.cache
-C:\Users\I200039\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.AdminForm.resources
-C:\Users\I200039\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.LoginForm.resources
-C:\Users\I200039\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.Properties.Resources.resources
-C:\Users\I200039\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.Request.resources
-C:\Users\I200039\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.StudentForm.resources
-C:\Users\I200039\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.TeacherForm.resources
-C:\Users\I200039\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.csproj.GenerateResource.cache
-C:\Users\I200039\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.csproj.CoreCompileInputs.cache
-C:\Users\I200039\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.csproj.CopyComplete
-C:\Users\I200039\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.exe
-C:\Users\I200039\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.pdb
-C:\Users\algue\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\bin\Debug\ProjetoEscola.exe.config
-C:\Users\algue\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\bin\Debug\ProjetoEscola.exe
-C:\Users\algue\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\bin\Debug\ProjetoEscola.pdb
-C:\Users\algue\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\bin\Debug\School_DLL.dll
-C:\Users\algue\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\bin\Debug\School_DLL.pdb
-C:\Users\algue\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.csproj.AssemblyReference.cache
-C:\Users\algue\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.csproj.SuggestedBindingRedirects.cache
-C:\Users\algue\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.AdminForm.resources
-C:\Users\algue\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.LoginForm.resources
-C:\Users\algue\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.Properties.Resources.resources
-C:\Users\algue\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.Request.resources
-C:\Users\algue\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.StudentForm.resources
-C:\Users\algue\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.TeacherForm.resources
-C:\Users\algue\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.csproj.GenerateResource.cache
-C:\Users\algue\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.csproj.CoreCompileInputs.cache
-C:\Users\algue\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.csproj.CopyComplete
-C:\Users\algue\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.exe
-C:\Users\algue\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.pdb
 C:\Users\Maxi G\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\bin\Debug\ProjetoEscola.exe.config
 C:\Users\Maxi G\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\bin\Debug\ProjetoEscola.exe
 C:\Users\Maxi G\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\bin\Debug\ProjetoEscola.pdb
@@ -63,20 +16,3 @@ C:\Users\Maxi G\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj
 C:\Users\Maxi G\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.csproj.CopyComplete
 C:\Users\Maxi G\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.exe
 C:\Users\Maxi G\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.pdb
-C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.csproj.AssemblyReference.cache
-C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.AdminForm.resources
-C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.LoginForm.resources
-C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.Properties.Resources.resources
-C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.Request.resources
-C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.StudentForm.resources
-C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.TeacherForm.resources
-C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.csproj.GenerateResource.cache
-C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.csproj.CoreCompileInputs.cache
-C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.exe
-C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.pdb
-C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\bin\Debug\ProjetoEscola.exe.config
-C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\bin\Debug\ProjetoEscola.exe
-C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\bin\Debug\ProjetoEscola.pdb
-C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\bin\Debug\School_DLL.dll
-C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\bin\Debug\School_DLL.pdb
-C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.csproj.CopyComplete
