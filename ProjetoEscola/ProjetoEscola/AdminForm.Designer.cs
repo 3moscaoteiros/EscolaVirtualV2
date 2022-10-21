@@ -222,6 +222,7 @@ namespace ProjetoEscola
             this.txtNumStudent.Name = "txtNumStudent";
             this.txtNumStudent.Size = new System.Drawing.Size(87, 20);
             this.txtNumStudent.TabIndex = 107;
+            this.txtNumStudent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumStudent_KeyPress);
             // 
             // lblCreateNum
             // 
@@ -423,6 +424,7 @@ namespace ProjetoEscola
             this.txtNumTeacher.Name = "txtNumTeacher";
             this.txtNumTeacher.Size = new System.Drawing.Size(87, 20);
             this.txtNumTeacher.TabIndex = 128;
+            this.txtNumTeacher.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumTeacher_KeyPress);
             // 
             // lblNumTeacher
             // 

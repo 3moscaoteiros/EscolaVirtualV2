@@ -312,5 +312,15 @@ namespace ProjetoEscola
 
             #endregion
         }
+
+        private void txtNumStudent_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void txtNumTeacher_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
     }
 }

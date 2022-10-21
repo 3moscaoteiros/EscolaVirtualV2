@@ -34,6 +34,7 @@
             this.txtLoginNum = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnLoginInfo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblLoginPassword
@@ -97,12 +98,25 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Bem vindo!";
             // 
+            // btnLoginInfo
+            // 
+            this.btnLoginInfo.BackColor = System.Drawing.Color.Transparent;
+            this.btnLoginInfo.BackgroundImage = global::ProjetoEscola.Properties.Resources.icons8_info_48;
+            this.btnLoginInfo.ForeColor = System.Drawing.Color.Transparent;
+            this.btnLoginInfo.Location = new System.Drawing.Point(-1, -1);
+            this.btnLoginInfo.Name = "btnLoginInfo";
+            this.btnLoginInfo.Size = new System.Drawing.Size(51, 52);
+            this.btnLoginInfo.TabIndex = 12;
+            this.btnLoginInfo.UseVisualStyleBackColor = false;
+            this.btnLoginInfo.Click += new System.EventHandler(this.btnLoginInfo_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(302, 297);
+            this.Controls.Add(this.btnLoginInfo);
             this.Controls.Add(this.lblLoginPassword);
             this.Controls.Add(this.lblLoginNum);
             this.Controls.Add(this.txtLoginPassword);
@@ -129,6 +143,7 @@
         private System.Windows.Forms.TextBox txtLoginNum;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnLoginInfo;
     }
 }
 

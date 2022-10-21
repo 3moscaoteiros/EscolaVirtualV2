@@ -121,5 +121,10 @@ namespace ProjetoEscola
         {
             System.Windows.Forms.Application.Exit();
         }
+
+        private void btnLoginInfo_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Num:(s/t) and 4 digits\nPin:5 digits", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
