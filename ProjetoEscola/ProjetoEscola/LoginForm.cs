@@ -27,7 +27,7 @@ namespace ProjetoEscola
                                          teacher = new Teacher(){ID="t0001", PIN="t0001" } } ,
                  new Subject() {id = 1 , Name = "Matemática",
                                          teacher = new Teacher(){ID="t0002", PIN="t0002"} } ,
-                 new Subject() {id = 2 , Name = "Música" ,
+                 new Subject() {id = 2 , Name = "Inglês" ,
                                          teacher = new Teacher(){ID="t0003", PIN="t0003"} } ,
                  new Subject() {id = 3 , Name = "Ciências",
                                          teacher = new Teacher(){ID="t0004", PIN="t0004"} } ,
@@ -41,7 +41,7 @@ namespace ProjetoEscola
                                          teacher = Program.Anos[0].subjects[0].teacher} ,
                  new Subject() {id = 1 , Name = "Matemática",
                                          teacher = Program.Anos[0].subjects[1].teacher } ,
-                 new Subject() {id = 2 , Name = "Música" ,
+                 new Subject() {id = 2 , Name = "Inglês" ,
                                          teacher = Program.Anos[0].subjects[2].teacher } ,
                  new Subject() {id = 3 , Name = "Ciências",
                                          teacher = Program.Anos[0].subjects[3].teacher } ,
@@ -77,7 +77,7 @@ namespace ProjetoEscola
             if (firstC=="t")
             {
                 //error
-                if (!Program.Anos.Exists(s => s.subjects.Exists(v => v.teacher.ID == num))) 
+                if (!Program.Anos.Exists(s => s.subjects.Exists(v => v.teacher.ID == num && v.teacher.PIN == pass)))
                 {
                     txtLoginNum.Text = "";
                     txtLoginPassword.Text = "";
@@ -112,11 +112,18 @@ namespace ProjetoEscola
                     studentForm.ShowDialog();
                 }
             }
+           
+
         }
 
         private void btnLoginInfo_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Num:(s/t) and 4 digits\nPin:5 digits", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
         }
     }
 }

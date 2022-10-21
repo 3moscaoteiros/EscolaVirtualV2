@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TeacherForm));
             this.txtSelectGrade = new System.Windows.Forms.TextBox();
             this.lblGradesManagement = new System.Windows.Forms.Label();
             this.btnApplyGrades = new System.Windows.Forms.Button();
@@ -47,18 +48,14 @@
             this.txtTeacherNaem = new System.Windows.Forms.TextBox();
             this.lblTeacherName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDesign = new System.Windows.Forms.TextBox();
             this.lblEnterGrade = new System.Windows.Forms.Label();
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.cbbClasses = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.trvSchool = new System.Windows.Forms.TreeView();
             this.SuspendLayout();
             // 
             // txtSelectGrade
             // 
-            this.txtSelectGrade.Location = new System.Drawing.Point(403, 258);
+            this.txtSelectGrade.Location = new System.Drawing.Point(347, 256);
             this.txtSelectGrade.Name = "txtSelectGrade";
             this.txtSelectGrade.Size = new System.Drawing.Size(68, 20);
             this.txtSelectGrade.TabIndex = 77;
@@ -76,7 +73,7 @@
             // btnApplyGrades
             // 
             this.btnApplyGrades.Font = new System.Drawing.Font("Microsoft PhagsPa", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnApplyGrades.Location = new System.Drawing.Point(383, 284);
+            this.btnApplyGrades.Location = new System.Drawing.Point(327, 282);
             this.btnApplyGrades.Name = "btnApplyGrades";
             this.btnApplyGrades.Size = new System.Drawing.Size(104, 31);
             this.btnApplyGrades.TabIndex = 75;
@@ -225,75 +222,35 @@
             this.label1.TabIndex = 81;
             this.label1.Text = "Info";
             // 
-            // textBox1
+            // txtDesign
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.textBox1.Location = new System.Drawing.Point(250, -10);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(8, 347);
-            this.textBox1.TabIndex = 82;
+            this.txtDesign.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.txtDesign.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDesign.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtDesign.Location = new System.Drawing.Point(250, -10);
+            this.txtDesign.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDesign.Multiline = true;
+            this.txtDesign.Name = "txtDesign";
+            this.txtDesign.ReadOnly = true;
+            this.txtDesign.Size = new System.Drawing.Size(8, 347);
+            this.txtDesign.TabIndex = 82;
             // 
             // lblEnterGrade
             // 
             this.lblEnterGrade.AutoSize = true;
-            this.lblEnterGrade.Location = new System.Drawing.Point(417, 243);
+            this.lblEnterGrade.Location = new System.Drawing.Point(361, 241);
             this.lblEnterGrade.Name = "lblEnterGrade";
             this.lblEnterGrade.Size = new System.Drawing.Size(39, 13);
             this.lblEnterGrade.TabIndex = 78;
             this.lblEnterGrade.Text = "Grade:";
             // 
-            // treeView1
+            // trvSchool
             // 
-            this.treeView1.Location = new System.Drawing.Point(280, 54);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(198, 172);
-            this.treeView1.TabIndex = 83;
-            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
-            // 
-            // cbbClasses
-            // 
-            this.cbbClasses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbClasses.FormattingEnabled = true;
-            this.cbbClasses.Location = new System.Drawing.Point(280, 292);
-            this.cbbClasses.Name = "cbbClasses";
-            this.cbbClasses.Size = new System.Drawing.Size(80, 21);
-            this.cbbClasses.TabIndex = 84;
-            this.cbbClasses.SelectedIndexChanged += new System.EventHandler(this.cbbClasses_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(278, 275);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
-            this.label2.TabIndex = 85;
-            this.label2.Text = "Classes";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(278, 236);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 13);
-            this.label3.TabIndex = 87;
-            this.label3.Text = "Classes";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(280, 253);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(80, 21);
-            this.comboBox1.TabIndex = 86;
+            this.trvSchool.Location = new System.Drawing.Point(280, 54);
+            this.trvSchool.Margin = new System.Windows.Forms.Padding(2);
+            this.trvSchool.Name = "trvSchool";
+            this.trvSchool.Size = new System.Drawing.Size(198, 172);
+            this.trvSchool.TabIndex = 83;
             // 
             // TeacherForm
             // 
@@ -301,12 +258,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(497, 325);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.cbbClasses);
-            this.Controls.Add(this.treeView1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.trvSchool);
+            this.Controls.Add(this.txtDesign);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblEnterGrade);
             this.Controls.Add(this.txtSelectGrade);
@@ -328,7 +281,8 @@
             this.Controls.Add(this.txtTeacherNaem);
             this.Controls.Add(this.lblTeacherName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TeacherForm";
@@ -359,12 +313,8 @@
         private System.Windows.Forms.TextBox txtTeacherNaem;
         private System.Windows.Forms.Label lblTeacherName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDesign;
         private System.Windows.Forms.Label lblEnterGrade;
-        private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.ComboBox cbbClasses;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TreeView trvSchool;
     }
 }

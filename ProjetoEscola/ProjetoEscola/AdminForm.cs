@@ -20,24 +20,13 @@ namespace ProjetoEscola
         }
         private void AdminForm_Load(object sender, EventArgs e)
         {
-           
-            #region update classes in student
-            foreach (Year Y in Program.Anos)
-            {
-                foreach (Class c in Y.CLasses)
-                {
-                    cbbClassStudent.Items.Add(c.Name);
 
-                }
-            }
+            #region add all classes to tbStudent cbb
+            Program.Anos.ForEach(y => y.CLasses.ForEach(c => cbbClassStudent.Items.Add(c.Name)));
             #endregion
 
-            
             #region update years in TeacherTab
-            foreach (Year y in Program.Anos)
-            {
-                lstTeacherYears.Items.Add(y.year);
-            }
+            Program.Anos.ForEach(y=> lstTeacherYears.Items.Add(y.year));
             #endregion
 
             #region update requests List
@@ -113,6 +102,38 @@ namespace ProjetoEscola
             else
                 e.Handled = true;
         }
+
+        private void txtNumStudent_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) || e.KeyChar == 8)
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        private void txtNumTeacher_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) || e.KeyChar == 8)
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        private void txtChooseYear_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) || e.KeyChar == 8)
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        private void txtPINStudnet_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) || e.KeyChar == 8)
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
         #endregion
 
         private void btnCreateStudent_Click(object sender, EventArgs e)
@@ -133,34 +154,33 @@ namespace ProjetoEscola
                 #endregion
 
                 #region errors
-                if (name == "" || num == "" || nif == "" || adress == "" || contact == "" || Class == "" || money == "" || pin == "")
+                if (name == "" || num == "" || nif == "" || adress == "" || contact == "" || cbbClassStudent.Items==null || money == "" || pin == "")
                 {
-                    MessageBox.Show("ERROR", "Information missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Information missing", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 #endregion
 
                 #region check if exists
                 //search in list if student exists
-                foreach (Year y in Program.Anos)
-                {
-                    foreach (Class c in y.CLasses)
-                    {
-                        foreach (Student s in c.students)
-                        {
-                            if (s.ID == num)
-                                exists = true;
-                        }
-                    }
-                }
 
+                Program.Anos.ForEach(y => y.CLasses.ForEach(c => c.students.ForEach(s =>
+                {
+                    if (s.ID == num || s.NIF.ToString().Trim() == nif)
+                        exists = true;
+
+                })));
+             
 
                 //error
-                if (!exists)
+                if (exists)
                 {
+                    
                     txtNumStudent.Text = "";
+                    txtNIFStudent.Text = "";
 
-                    MessageBox.Show("Wrong information!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    MessageBox.Show("User already exists!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 #endregion
@@ -173,27 +193,36 @@ namespace ProjetoEscola
                     Adress = adress,
                     EMAIL = contact,
                     NIF = Convert.ToInt32(nif),
-                    ID = num,
+                    ID = $"s{num}",
                     PIN = pin,
                     Request = false
 
                 };
 
                 //cycle list years to see which is the year that has the student's class
-                foreach (Year y in Program.Anos)
+                Program.Anos.ForEach(y => y.CLasses.ForEach(c =>
                 {
-                    foreach (Class c in y.CLasses)
-                    {
-                        if (c.Name == Class)
-                            YearWithTheClass = y.year;
-                    }
-                }
+                    if (c.Name == Class)
+                        YearWithTheClass = y.year;
+                }));
+               
 
                 //lambda to add the student
                 Program.Anos.Where(y => y.year == YearWithTheClass).FirstOrDefault().CLasses.Where(c=>c.Name==Class).FirstOrDefault().students.Add(student);
-                ////////////////////////
-                ////////////////////////
-                ////////////////////////
+
+                #region reset textboxes
+                txtNameStudent.Text = "";
+                txtNumStudent.Text = "";
+                txtNIFStudent.Text = "";
+                txtAdressStudent.Text = "";
+                txtContactStudent.Text = "";
+                cbbClassStudent.SelectedItem = null;
+                txtBalanceStudent.Text = "";
+                txtPINStudnet.Text="";
+
+                #endregion
+
+
                 #endregion
 
             }
@@ -215,22 +244,22 @@ namespace ProjetoEscola
                 string Class = txtCreateClass.Text;
 
                 #region errors 
-                if (year.Trim() != "" || Class.Trim() == "")
+                if (year.Trim() == "" || Class.Trim() == "")
                 {
-                    MessageBox.Show("ERROR", "Info missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Info missing", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                if (Convert.ToInt32(year.Trim()) < 7 || Convert.ToInt32(year.Trim()) > 12)
+                if (Convert.ToInt32(year.Trim()) < 5 || Convert.ToInt32(year.Trim()) > 12)
                 {
-                    MessageBox.Show("ERROR", "Wrong year", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Wrong year", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 #endregion
 
                 Class cl = new Class();
                 cl.Name = Class;
-                //why do I nedd class id?
+                //why do I need class id?
 
                 #region verify if class already exists
                 //aux variable
@@ -239,14 +268,37 @@ namespace ProjetoEscola
                 
                 if (!hasClass)
                 {
-                    Program.Anos.Find(y => y.year == year).CLasses.Add(cl);//add the class to the chosen year
 
-                    //update cbb
-                    cbbClassStudent.Items.Add(cl.Name.ToString());
+                    //verify if year exists
+                    bool hasYear = Program.Anos.Any(y => y.year == year);
+
+                    if (hasYear)
+                    {
+                        //add the class to the chosen year
+                        Program.Anos.Find(y => y.year == year).CLasses.Add(cl);
+                        //update cbb
+                        cbbClassStudent.Items.Add(cl.Name.ToString());
+                        MessageBox.Show("Year successfully created", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtChooseYear.Text = "";
+                        txtCreateClass.Text = "";
+
+                    }
+                    else
+                    {
+                        //create year and class
+                        Year createdYear = new Year() { year = year };
+                        createdYear.CLasses.Add(cl);
+                        Program.Anos.Add(createdYear);
+                        
+                        MessageBox.Show("Year successfully created", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtChooseYear.Text = "";
+                        txtCreateClass.Text = "";
+                    }
+                   
                 }
                 else
                 {
-                    MessageBox.Show("ERROR", "Class already exists", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Class already exists", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 #endregion
@@ -311,14 +363,11 @@ namespace ProjetoEscola
             #endregion
         }
 
-        private void txtNumStudent_KeyPress(object sender, KeyPressEventArgs e)
+        private void btnCreateTeacher_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void txtNumTeacher_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
+       
     }
 }

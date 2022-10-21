@@ -29,6 +29,7 @@ namespace ProjetoEscola
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             this.tbAdmin = new System.Windows.Forms.TabControl();
             this.tpStudent = new System.Windows.Forms.TabPage();
             this.txtPINStudnet = new System.Windows.Forms.TextBox();
@@ -66,10 +67,8 @@ namespace ProjetoEscola
             this.txtNameTeacher = new System.Windows.Forms.TextBox();
             this.lblNameTeacher = new System.Windows.Forms.Label();
             this.lblCreateTeacher = new System.Windows.Forms.Label();
-            this.lstTeacherYears = new System.Windows.Forms.ListBox();
             this.lstTeacherSubjects = new System.Windows.Forms.ListBox();
             this.lblSubjectsTeacher = new System.Windows.Forms.Label();
-            this.lblYearTeacher = new System.Windows.Forms.Label();
             this.tpClasses = new System.Windows.Forms.TabPage();
             this.txtChooseYear = new System.Windows.Forms.TextBox();
             this.btnLeaveClasses = new System.Windows.Forms.Button();
@@ -132,15 +131,17 @@ namespace ProjetoEscola
             // 
             // txtPINStudnet
             // 
-            this.txtPINStudnet.Location = new System.Drawing.Point(107, 229);
+            this.txtPINStudnet.Location = new System.Drawing.Point(107, 234);
+            this.txtPINStudnet.MaxLength = 5;
             this.txtPINStudnet.Name = "txtPINStudnet";
             this.txtPINStudnet.Size = new System.Drawing.Size(43, 20);
             this.txtPINStudnet.TabIndex = 123;
+            this.txtPINStudnet.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPINStudnet_KeyPress);
             // 
             // lblPINStudent
             // 
             this.lblPINStudent.AutoSize = true;
-            this.lblPINStudent.Location = new System.Drawing.Point(73, 232);
+            this.lblPINStudent.Location = new System.Drawing.Point(77, 239);
             this.lblPINStudent.Name = "lblPINStudent";
             this.lblPINStudent.Size = new System.Drawing.Size(28, 13);
             this.lblPINStudent.TabIndex = 122;
@@ -149,7 +150,7 @@ namespace ProjetoEscola
             // lblChooseClass
             // 
             this.lblChooseClass.AutoSize = true;
-            this.lblChooseClass.Location = new System.Drawing.Point(70, 177);
+            this.lblChooseClass.Location = new System.Drawing.Point(70, 182);
             this.lblChooseClass.Name = "lblChooseClass";
             this.lblChooseClass.Size = new System.Drawing.Size(35, 13);
             this.lblChooseClass.TabIndex = 121;
@@ -159,17 +160,14 @@ namespace ProjetoEscola
             // 
             this.cbbClassStudent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbClassStudent.FormattingEnabled = true;
-            this.cbbClassStudent.Items.AddRange(new object[] {
-            "Teacher",
-            "Student"});
-            this.cbbClassStudent.Location = new System.Drawing.Point(107, 174);
+            this.cbbClassStudent.Location = new System.Drawing.Point(107, 179);
             this.cbbClassStudent.Name = "cbbClassStudent";
             this.cbbClassStudent.Size = new System.Drawing.Size(72, 21);
             this.cbbClassStudent.TabIndex = 120;
             // 
             // txtAdressStudent
             // 
-            this.txtAdressStudent.Location = new System.Drawing.Point(107, 122);
+            this.txtAdressStudent.Location = new System.Drawing.Point(107, 127);
             this.txtAdressStudent.Name = "txtAdressStudent";
             this.txtAdressStudent.Size = new System.Drawing.Size(168, 20);
             this.txtAdressStudent.TabIndex = 114;
@@ -177,7 +175,7 @@ namespace ProjetoEscola
             // lblCreateAdress
             // 
             this.lblCreateAdress.AutoSize = true;
-            this.lblCreateAdress.Location = new System.Drawing.Point(65, 124);
+            this.lblCreateAdress.Location = new System.Drawing.Point(65, 130);
             this.lblCreateAdress.Name = "lblCreateAdress";
             this.lblCreateAdress.Size = new System.Drawing.Size(42, 13);
             this.lblCreateAdress.TabIndex = 113;
@@ -185,7 +183,7 @@ namespace ProjetoEscola
             // 
             // txtContactStudent
             // 
-            this.txtContactStudent.Location = new System.Drawing.Point(107, 148);
+            this.txtContactStudent.Location = new System.Drawing.Point(107, 153);
             this.txtContactStudent.Name = "txtContactStudent";
             this.txtContactStudent.Size = new System.Drawing.Size(87, 20);
             this.txtContactStudent.TabIndex = 112;
@@ -193,7 +191,7 @@ namespace ProjetoEscola
             // lblCreateContact
             // 
             this.lblCreateContact.AutoSize = true;
-            this.lblCreateContact.Location = new System.Drawing.Point(60, 151);
+            this.lblCreateContact.Location = new System.Drawing.Point(60, 156);
             this.lblCreateContact.Name = "lblCreateContact";
             this.lblCreateContact.Size = new System.Drawing.Size(47, 13);
             this.lblCreateContact.TabIndex = 111;
@@ -210,7 +208,7 @@ namespace ProjetoEscola
             // lblCreateNIF
             // 
             this.lblCreateNIF.AutoSize = true;
-            this.lblCreateNIF.Location = new System.Drawing.Point(78, 102);
+            this.lblCreateNIF.Location = new System.Drawing.Point(74, 104);
             this.lblCreateNIF.Name = "lblCreateNIF";
             this.lblCreateNIF.Size = new System.Drawing.Size(27, 13);
             this.lblCreateNIF.TabIndex = 108;
@@ -252,7 +250,7 @@ namespace ProjetoEscola
             // 
             // btnLeaveStudent
             // 
-            this.btnLeaveStudent.Location = new System.Drawing.Point(283, 274);
+            this.btnLeaveStudent.Location = new System.Drawing.Point(283, 268);
             this.btnLeaveStudent.Name = "btnLeaveStudent";
             this.btnLeaveStudent.Size = new System.Drawing.Size(69, 31);
             this.btnLeaveStudent.TabIndex = 102;
@@ -262,10 +260,10 @@ namespace ProjetoEscola
             // 
             // txtBalanceStudent
             // 
-            this.txtBalanceStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBalanceStudent.Location = new System.Drawing.Point(107, 199);
+            this.txtBalanceStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBalanceStudent.Location = new System.Drawing.Point(107, 206);
             this.txtBalanceStudent.Name = "txtBalanceStudent";
-            this.txtBalanceStudent.Size = new System.Drawing.Size(155, 24);
+            this.txtBalanceStudent.Size = new System.Drawing.Size(155, 20);
             this.txtBalanceStudent.TabIndex = 99;
             this.txtBalanceStudent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBalanceStudent_KeyPress);
             // 
@@ -273,7 +271,7 @@ namespace ProjetoEscola
             // 
             this.lblCreateBalance.AutoSize = true;
             this.lblCreateBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreateBalance.Location = new System.Drawing.Point(56, 206);
+            this.lblCreateBalance.Location = new System.Drawing.Point(60, 210);
             this.lblCreateBalance.Name = "lblCreateBalance";
             this.lblCreateBalance.Size = new System.Drawing.Size(49, 13);
             this.lblCreateBalance.TabIndex = 98;
@@ -319,10 +317,8 @@ namespace ProjetoEscola
             this.tpTeacher.Controls.Add(this.txtNameTeacher);
             this.tpTeacher.Controls.Add(this.lblNameTeacher);
             this.tpTeacher.Controls.Add(this.lblCreateTeacher);
-            this.tpTeacher.Controls.Add(this.lstTeacherYears);
             this.tpTeacher.Controls.Add(this.lstTeacherSubjects);
             this.tpTeacher.Controls.Add(this.lblSubjectsTeacher);
-            this.tpTeacher.Controls.Add(this.lblYearTeacher);
             this.tpTeacher.Location = new System.Drawing.Point(4, 22);
             this.tpTeacher.Name = "tpTeacher";
             this.tpTeacher.Padding = new System.Windows.Forms.Padding(3);
@@ -365,6 +361,7 @@ namespace ProjetoEscola
             this.btnCreateTeacher.TabIndex = 135;
             this.btnCreateTeacher.Text = "Create";
             this.btnCreateTeacher.UseVisualStyleBackColor = true;
+            this.btnCreateTeacher.Click += new System.EventHandler(this.btnCreateTeacher_Click);
             // 
             // txtAdressTeacher
             // 
@@ -460,42 +457,23 @@ namespace ProjetoEscola
             this.lblCreateTeacher.Text = "Creation";
             this.lblCreateTeacher.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lstTeacherYears
-            // 
-            this.lstTeacherYears.FormattingEnabled = true;
-            this.lstTeacherYears.Location = new System.Drawing.Point(254, 49);
-            this.lstTeacherYears.Name = "lstTeacherYears";
-            this.lstTeacherYears.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lstTeacherYears.Size = new System.Drawing.Size(81, 82);
-            this.lstTeacherYears.TabIndex = 123;
-            this.lstTeacherYears.SelectedIndexChanged += new System.EventHandler(this.lstTeacherYears_SelectedIndexChanged);
-            // 
             // lstTeacherSubjects
             // 
             this.lstTeacherSubjects.FormattingEnabled = true;
-            this.lstTeacherSubjects.Location = new System.Drawing.Point(254, 169);
+            this.lstTeacherSubjects.Location = new System.Drawing.Point(267, 57);
             this.lstTeacherSubjects.Name = "lstTeacherSubjects";
             this.lstTeacherSubjects.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lstTeacherSubjects.Size = new System.Drawing.Size(72, 108);
+            this.lstTeacherSubjects.Size = new System.Drawing.Size(85, 134);
             this.lstTeacherSubjects.TabIndex = 122;
             // 
             // lblSubjectsTeacher
             // 
             this.lblSubjectsTeacher.AutoSize = true;
-            this.lblSubjectsTeacher.Location = new System.Drawing.Point(251, 144);
+            this.lblSubjectsTeacher.Location = new System.Drawing.Point(264, 41);
             this.lblSubjectsTeacher.Name = "lblSubjectsTeacher";
             this.lblSubjectsTeacher.Size = new System.Drawing.Size(51, 13);
             this.lblSubjectsTeacher.TabIndex = 121;
             this.lblSubjectsTeacher.Text = "Subjects:";
-            // 
-            // lblYearTeacher
-            // 
-            this.lblYearTeacher.AutoSize = true;
-            this.lblYearTeacher.Location = new System.Drawing.Point(251, 33);
-            this.lblYearTeacher.Name = "lblYearTeacher";
-            this.lblYearTeacher.Size = new System.Drawing.Size(32, 13);
-            this.lblYearTeacher.TabIndex = 120;
-            this.lblYearTeacher.Text = "Year:";
             // 
             // tpClasses
             // 
@@ -521,6 +499,7 @@ namespace ProjetoEscola
             this.txtChooseYear.Name = "txtChooseYear";
             this.txtChooseYear.Size = new System.Drawing.Size(82, 31);
             this.txtChooseYear.TabIndex = 138;
+            this.txtChooseYear.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtChooseYear_KeyPress);
             // 
             // btnLeaveClasses
             // 
@@ -587,7 +566,7 @@ namespace ProjetoEscola
             // 
             // btnLeaveRequests
             // 
-            this.btnLeaveRequests.Location = new System.Drawing.Point(283, 264);
+            this.btnLeaveRequests.Location = new System.Drawing.Point(283, 268);
             this.btnLeaveRequests.Name = "btnLeaveRequests";
             this.btnLeaveRequests.Size = new System.Drawing.Size(69, 31);
             this.btnLeaveRequests.TabIndex = 137;
@@ -618,7 +597,7 @@ namespace ProjetoEscola
             // lstRequest
             // 
             this.lstRequest.FormattingEnabled = true;
-            this.lstRequest.Location = new System.Drawing.Point(94, 58);
+            this.lstRequest.Location = new System.Drawing.Point(97, 58);
             this.lstRequest.Name = "lstRequest";
             this.lstRequest.Size = new System.Drawing.Size(159, 186);
             this.lstRequest.TabIndex = 118;
@@ -631,6 +610,7 @@ namespace ProjetoEscola
             this.ClientSize = new System.Drawing.Size(368, 333);
             this.Controls.Add(this.tbAdmin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AdminForm";
@@ -687,10 +667,8 @@ namespace ProjetoEscola
         private System.Windows.Forms.TextBox txtNameTeacher;
         private System.Windows.Forms.Label lblNameTeacher;
         private System.Windows.Forms.Label lblCreateTeacher;
-        private System.Windows.Forms.ListBox lstTeacherYears;
         private System.Windows.Forms.ListBox lstTeacherSubjects;
         private System.Windows.Forms.Label lblSubjectsTeacher;
-        private System.Windows.Forms.Label lblYearTeacher;
         private System.Windows.Forms.Label lblRequest;
         private System.Windows.Forms.Button btnRequest;
         private System.Windows.Forms.ListBox lstRequest;

@@ -29,6 +29,7 @@ namespace ProjetoEscola
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Request));
             this.cbbRequest = new System.Windows.Forms.ComboBox();
             this.txtRequest = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -86,10 +87,11 @@ namespace ProjetoEscola
             this.Controls.Add(this.txtRequest);
             this.Controls.Add(this.cbbRequest);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Request";
-            this.Text = "RequestTeacher";
+            this.Text = "Request";
             this.Load += new System.EventHandler(this.Request_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

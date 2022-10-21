@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentForm));
             this.cbStudentSubjects = new System.Windows.Forms.ComboBox();
             this.lblStudentSubjects = new System.Windows.Forms.Label();
             this.txtStudentAdress = new System.Windows.Forms.TextBox();
@@ -48,7 +49,7 @@
             this.lblStudentYear = new System.Windows.Forms.Label();
             this.txtStudentName = new System.Windows.Forms.TextBox();
             this.lblStudentName = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtdesign1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -231,24 +232,24 @@
             // lblStudentName
             // 
             this.lblStudentName.AutoSize = true;
-            this.lblStudentName.Location = new System.Drawing.Point(26, 33);
+            this.lblStudentName.Location = new System.Drawing.Point(24, 36);
             this.lblStudentName.Name = "lblStudentName";
             this.lblStudentName.Size = new System.Drawing.Size(38, 13);
             this.lblStudentName.TabIndex = 47;
             this.lblStudentName.Text = "Name:";
             // 
-            // textBox1
+            // txtdesign1
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.textBox1.Location = new System.Drawing.Point(238, -28);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(8, 347);
-            this.textBox1.TabIndex = 83;
+            this.txtdesign1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.txtdesign1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtdesign1.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtdesign1.Location = new System.Drawing.Point(238, -28);
+            this.txtdesign1.Margin = new System.Windows.Forms.Padding(2);
+            this.txtdesign1.Multiline = true;
+            this.txtdesign1.Name = "txtdesign1";
+            this.txtdesign1.ReadOnly = true;
+            this.txtdesign1.Size = new System.Drawing.Size(8, 347);
+            this.txtdesign1.TabIndex = 83;
             // 
             // label1
             // 
@@ -268,7 +269,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(542, 289);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtdesign1);
             this.Controls.Add(this.cbStudentSubjects);
             this.Controls.Add(this.lblStudentSubjects);
             this.Controls.Add(this.txtStudentAdress);
@@ -290,7 +291,8 @@
             this.Controls.Add(this.txtStudentName);
             this.Controls.Add(this.lblStudentName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "StudentForm";
@@ -323,7 +325,7 @@
         private System.Windows.Forms.Label lblStudentYear;
         private System.Windows.Forms.TextBox txtStudentName;
         private System.Windows.Forms.Label lblStudentName;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtdesign1;
         private System.Windows.Forms.Label label1;
     }
 }
