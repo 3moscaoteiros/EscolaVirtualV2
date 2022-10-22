@@ -68,7 +68,7 @@ namespace ProjetoEscola
                     AdminForm adminForm = new AdminForm();
                     adminForm.ShowDialog();
               }
-
+            
               //take first char(t or s)
             string firstC = txtLoginNum.Text.ToLower().Substring(0, 1);
            
@@ -76,6 +76,7 @@ namespace ProjetoEscola
             //if teacher
             if (firstC=="t")
             {
+                //MAYBE USE FOREACH??? //verify if the pass of the inserted num is correct
                 //error
                 if (!Program.Anos.Exists(s => s.subjects.Exists(v => v.teacher.ID == num && v.teacher.PIN == pass)))
                 {
@@ -86,6 +87,8 @@ namespace ProjetoEscola
                 }
                 else
                 {
+   
+
                     //if exists:
                     Hide();
                     TeacherForm teacherForm = new TeacherForm();
@@ -97,7 +100,8 @@ namespace ProjetoEscola
             if (firstC == "s")
             {
                 //error
-                if (!Program.Anos.Exists(s => s.CLasses.Exists(v => v.students.Exists(t => t.ID == num)))) 
+                //MAYBE USE FOREACH??? //verify if the pass of the inserted num is correct
+                if (!Program.Anos.Exists(y => y.CLasses.Exists(v => v.students.Exists(s => s.ID == num && s.PIN == pass)))) 
                 {
                     txtLoginNum.Text = "";
                     txtLoginPassword.Text = "";
@@ -106,6 +110,7 @@ namespace ProjetoEscola
                 }
                 else
                 {
+                    
                     //if exists:
                     Hide();
                     StudentForm studentForm = new StudentForm();
