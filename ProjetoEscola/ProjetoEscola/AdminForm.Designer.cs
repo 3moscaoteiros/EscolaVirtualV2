@@ -123,6 +123,7 @@ namespace ProjetoEscola
             this.tpStudent.Size = new System.Drawing.Size(463, 336);
             this.tpStudent.TabIndex = 1;
             this.tpStudent.Text = "Student";
+            this.tpStudent.Click += new System.EventHandler(this.tpStudent_Click);
             // 
             // txtPINStudnet
             // 

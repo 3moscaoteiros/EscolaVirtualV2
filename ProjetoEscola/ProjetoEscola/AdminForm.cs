@@ -465,5 +465,10 @@ namespace ProjetoEscola
 
             //}
         }
+
+        private void tpStudent_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

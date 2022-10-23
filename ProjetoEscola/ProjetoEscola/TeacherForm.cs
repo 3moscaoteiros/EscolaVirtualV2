@@ -18,21 +18,26 @@ namespace ProjetoEscola
             InitializeComponent();
         }
 
-        
+
 
         private void TeacherForm_Load(object sender, EventArgs e)
         {
-            
+            List<Student> alunos = Program.Anos.SelectMany(t => t.CLasses).FirstOrDefault(t => t.students.Exists(a => a.grades.Exists(c => c.Subject.teacher.ID == txtTeacherNum.Text)))?.students;
+            for(int i = 0; i < alunos.Count; i++)
+            {
+                lstStudentGrade.Items.Add(alunos[i].ToString());   
+            }
+
         }
 
         private void cbbClasses_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void button1_Click(object sender, EventArgs e)

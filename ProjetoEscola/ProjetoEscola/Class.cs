@@ -9,9 +9,7 @@ namespace ProjetoEscola
    public class Class
    {
         public string Name { get; set; }
-        
-        public List<Subject> Subjects = new List<Subject>();
-        
+              
         public List<Student> students = new List<Student>();
    }
 }
