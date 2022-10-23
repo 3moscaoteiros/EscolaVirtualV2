@@ -76,7 +76,7 @@ namespace ProjetoEscola
             //if teacher
             if (firstC=="t")
             {
-                //MAYBE USE FOREACH??? //verify if the pass of the inserted num is correct
+                //verify if the pass of the inserted num is correct
                 //error
                 if (!Program.Anos.Exists(s => s.subjects.Exists(v => v.teacher.ID == num && v.teacher.PIN == pass)))
                 {
@@ -100,7 +100,7 @@ namespace ProjetoEscola
             if (firstC == "s")
             {
                 //error
-                //MAYBE USE FOREACH??? //verify if the pass of the inserted num is correct
+                 //verify if the pass of the inserted num is correct
                 if (!Program.Anos.Exists(y => y.CLasses.Exists(v => v.students.Exists(s => s.ID == num && s.PIN == pass)))) 
                 {
                     txtLoginNum.Text = "";
@@ -129,6 +129,14 @@ namespace ProjetoEscola
         private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             System.Windows.Forms.Application.Exit();
+        }
+
+        private void txtLoginPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) || e.KeyChar == 8)
+                e.Handled = false;
+            else
+                e.Handled = true;
         }
     }
 }

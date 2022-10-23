@@ -67,6 +67,7 @@
             this.txtLoginPassword.PasswordChar = '*';
             this.txtLoginPassword.Size = new System.Drawing.Size(100, 29);
             this.txtLoginPassword.TabIndex = 8;
+            this.txtLoginPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLoginPassword_KeyPress);
             // 
             // txtLoginNum
             // 
