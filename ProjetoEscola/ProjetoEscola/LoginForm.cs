@@ -92,6 +92,7 @@ namespace ProjetoEscola
                     teacherForm.ShowDialog();
                 }
             }
+   
 
             //if student
             if (firstC == "s")
@@ -114,7 +115,8 @@ namespace ProjetoEscola
                     studentForm.ShowDialog();
                 }
             }
-           
+                 
+            List<Student> StudentsProf = Program.Anos.SelectMany(s => s.CLasses.Exists(h => h.)
 
         }
 
