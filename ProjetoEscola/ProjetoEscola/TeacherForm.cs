@@ -23,7 +23,7 @@ namespace ProjetoEscola
 
         private void TeacherForm_Load(object sender, EventArgs e)
         {
-          //cbbClasses.Items.
+         
         }
 
         private void cbbClasses_SelectedIndexChanged(object sender, EventArgs e)
@@ -34,6 +34,18 @@ namespace ProjetoEscola
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
+
+        }
+
+        private void TeacherForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LoginForm login = new LoginForm();
+            login.Visible = true;
         }
     }
 }
