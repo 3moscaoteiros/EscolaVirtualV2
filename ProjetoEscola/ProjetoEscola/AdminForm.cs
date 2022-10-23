@@ -64,7 +64,7 @@ namespace ProjetoEscola
             }));
 
             #endregion
-        }///////////
+        }
 
         private void AdminForm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -351,12 +351,13 @@ namespace ProjetoEscola
             }
         }
 
-        private void btnCreateClass_Click(object sender, EventArgs e)////create subjects missing
+        private void btnCreateClass_Click(object sender, EventArgs e)
         {
             try
             {
                 string year = txtChooseYear.Text;
                 string Class = txtCreateClass.Text;
+                bool hasClass = false;
 
                 #region errors 
                 if (year.Trim() == "" || Class.Trim() == "")
@@ -374,12 +375,14 @@ namespace ProjetoEscola
 
                 Class cl = new Class();
                 cl.Name = Class;
-                //why do I need class id?
 
-                #region verify if class already exists
-                //aux variable
-                bool hasClass = Program.Anos.Find(y => y.year == year).CLasses.Any(c => c.Name.Contains(Class));
+            #region verify if class already exists
+            Program.Anos.ForEach(y => y.CLasses.ForEach(c =>
+            {
+                if (c.Name == Class)
+                    hasClass = true;
 
+            }));
                 
                 if (hasClass==false)
                 {
@@ -392,15 +395,9 @@ namespace ProjetoEscola
                         //add the class to the chosen year
                         Program.Anos.Find(y => y.year == year).CLasses.Add(cl);
 
-                        #region add subjects
-
-                        #endregion
-
+                        
                         //update cbb
                         cbbClassStudent.Items.Add(cl.Name.ToString());
-                        MessageBox.Show("Class successfully created", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        txtChooseYear.Text = "";
-                        txtCreateClass.Text = "";
 
                     }
                     else
@@ -410,16 +407,65 @@ namespace ProjetoEscola
                         createdYear.CLasses.Add(cl);
                         Program.Anos.Add(createdYear);
 
-                        #region add subjects
-
-                        #endregion
-
-
-                        MessageBox.Show("Class successfully created", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        txtChooseYear.Text = "";
-                        txtCreateClass.Text = "";
                     }
-                   
+
+                    #region add subjects
+                    switch (year)
+                    {
+                        case "7":
+                        case "8":
+                        case "9":
+
+                            Program.Anos.Find(y => y.year == year).subjects.AddRange(new Subject[]
+                            {
+                                new Subject() { Name = "Português"} ,
+                                new Subject() { Name = "Matemática"} ,
+                                new Subject() { Name = "Inglês"} ,
+                                new Subject() { Name = "Ciências"} ,
+                                new Subject() { Name = "Educação Física" } ,
+                                new Subject() { Name = "Fisico-quimica"} }
+                            );
+
+                            break;
+
+                        case "10":
+                        case "11":
+                        case "12":
+
+                            Program.Anos.Find(y => y.year == year).subjects.AddRange(new Subject[]
+                            {
+                                new Subject() { Name = "Português"} ,
+                                new Subject() { Name = "Matemática"} ,
+                                new Subject() { Name = "Inglês"} ,
+                                new Subject() { Name = "Programação e Sistemas de Informação"} ,
+                                new Subject() { Name = "Educação Física" } ,
+                                new Subject() { Name = "Arquitetura de Computadores" } ,
+                                new Subject() { Name = "Sistemas Operativos" } ,
+                                new Subject() { Name = "Fisico-quimica" } ,
+                                new Subject() { Name = "Redes de Comunicação"} }
+                            );
+
+                            break;
+
+                    }
+                    #endregion
+
+                    #region update subjects in TeacherTab
+
+                    Program.Anos.ForEach(y => y.subjects.ForEach(s =>
+                    {
+                        if (!lstTeacherSubjects.Items.Contains(s.Name))
+                            lstTeacherSubjects.Items.Add(s.Name);
+
+                    }));
+
+                    #endregion
+
+                    #region messagebox show & texboxes reset
+                    MessageBox.Show("Class successfully created", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtChooseYear.Text = "";
+                    txtCreateClass.Text = "";
+                    #endregion
                 }
                 else
                 {
@@ -427,6 +473,7 @@ namespace ProjetoEscola
                     return;
                 }
                 #endregion
+
             }
             catch (Exception error)
             {
@@ -464,11 +511,6 @@ namespace ProjetoEscola
             //    //remove from lst
 
             //}
-        }
-
-        private void tpStudent_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

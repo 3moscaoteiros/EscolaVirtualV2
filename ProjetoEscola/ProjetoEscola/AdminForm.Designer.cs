@@ -123,7 +123,6 @@ namespace ProjetoEscola
             this.tpStudent.Size = new System.Drawing.Size(463, 336);
             this.tpStudent.TabIndex = 1;
             this.tpStudent.Text = "Student";
-            this.tpStudent.Click += new System.EventHandler(this.tpStudent_Click);
             // 
             // txtPINStudnet
             // 
@@ -213,6 +212,7 @@ namespace ProjetoEscola
             // txtNumStudent
             // 
             this.txtNumStudent.Location = new System.Drawing.Point(107, 76);
+            this.txtNumStudent.MaxLength = 4;
             this.txtNumStudent.Name = "txtNumStudent";
             this.txtNumStudent.Size = new System.Drawing.Size(87, 20);
             this.txtNumStudent.TabIndex = 107;
@@ -314,6 +314,7 @@ namespace ProjetoEscola
             // txtPINTeacher
             // 
             this.txtPINTeacher.Location = new System.Drawing.Point(70, 180);
+            this.txtPINTeacher.MaxLength = 5;
             this.txtPINTeacher.Name = "txtPINTeacher";
             this.txtPINTeacher.Size = new System.Drawing.Size(43, 20);
             this.txtPINTeacher.TabIndex = 138;
@@ -390,6 +391,7 @@ namespace ProjetoEscola
             // txtNumTeacher
             // 
             this.txtNumTeacher.Location = new System.Drawing.Point(70, 82);
+            this.txtNumTeacher.MaxLength = 4;
             this.txtNumTeacher.Name = "txtNumTeacher";
             this.txtNumTeacher.Size = new System.Drawing.Size(87, 20);
             this.txtNumTeacher.TabIndex = 128;
