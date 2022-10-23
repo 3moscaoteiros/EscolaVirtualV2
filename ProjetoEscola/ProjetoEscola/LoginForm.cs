@@ -24,15 +24,15 @@ namespace ProjetoEscola
 
                {
                  new Subject() {id = 0 , Name = "Português" ,
-                                         teacher = new Teacher(){ID="t0001", PIN="t0001" } } ,
+                                         teacher = new Teacher(){ID="t0001", PIN="00000" } } ,
                  new Subject() {id = 1 , Name = "Matemática",
-                                         teacher = new Teacher(){ID="t0002", PIN="t0002"} } ,
+                                         teacher = new Teacher(){ID="t0002", PIN="00000"} } ,
                  new Subject() {id = 2 , Name = "Inglês" ,
-                                         teacher = new Teacher(){ID="t0003", PIN="t0003"} } ,
+                                         teacher = new Teacher(){ID="t0003", PIN="00000"} } ,
                  new Subject() {id = 3 , Name = "Ciências",
-                                         teacher = new Teacher(){ID="t0004", PIN="t0004"} } ,
+                                         teacher = new Teacher(){ID="t0004", PIN="00000"} } ,
                  new Subject() {id = 4 , Name = "Fisico-quimica",
-                                         teacher = new Teacher(){ID="t0005", PIN="t0005"} } });
+                                         teacher = new Teacher(){ID="t0005", PIN="00000"} } });
 
             Program.Anos.Find(s => s.year == "6").subjects.AddRange(new Subject[]
 

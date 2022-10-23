@@ -51,11 +51,13 @@
             this.txtDesign = new System.Windows.Forms.TextBox();
             this.lblEnterGrade = new System.Windows.Forms.Label();
             this.trvSchool = new System.Windows.Forms.TreeView();
+            this.cbbClasses = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtSelectGrade
             // 
-            this.txtSelectGrade.Location = new System.Drawing.Point(347, 256);
+            this.txtSelectGrade.Location = new System.Drawing.Point(394, 256);
             this.txtSelectGrade.Name = "txtSelectGrade";
             this.txtSelectGrade.Size = new System.Drawing.Size(68, 20);
             this.txtSelectGrade.TabIndex = 77;
@@ -73,7 +75,7 @@
             // btnApplyGrades
             // 
             this.btnApplyGrades.Font = new System.Drawing.Font("Microsoft PhagsPa", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnApplyGrades.Location = new System.Drawing.Point(327, 282);
+            this.btnApplyGrades.Location = new System.Drawing.Point(374, 282);
             this.btnApplyGrades.Name = "btnApplyGrades";
             this.btnApplyGrades.Size = new System.Drawing.Size(104, 31);
             this.btnApplyGrades.TabIndex = 75;
@@ -238,7 +240,7 @@
             // lblEnterGrade
             // 
             this.lblEnterGrade.AutoSize = true;
-            this.lblEnterGrade.Location = new System.Drawing.Point(361, 241);
+            this.lblEnterGrade.Location = new System.Drawing.Point(408, 241);
             this.lblEnterGrade.Name = "lblEnterGrade";
             this.lblEnterGrade.Size = new System.Drawing.Size(39, 13);
             this.lblEnterGrade.TabIndex = 78;
@@ -252,12 +254,32 @@
             this.trvSchool.Size = new System.Drawing.Size(198, 172);
             this.trvSchool.TabIndex = 83;
             // 
+            // cbbClasses
+            // 
+            this.cbbClasses.FormattingEnabled = true;
+            this.cbbClasses.Location = new System.Drawing.Point(263, 256);
+            this.cbbClasses.Name = "cbbClasses";
+            this.cbbClasses.Size = new System.Drawing.Size(91, 21);
+            this.cbbClasses.TabIndex = 84;
+            this.cbbClasses.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(292, 240);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(32, 13);
+            this.label2.TabIndex = 85;
+            this.label2.Text = "Class";
+            // 
             // TeacherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(497, 325);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.cbbClasses);
             this.Controls.Add(this.trvSchool);
             this.Controls.Add(this.txtDesign);
             this.Controls.Add(this.label1);
@@ -316,5 +338,7 @@
         private System.Windows.Forms.TextBox txtDesign;
         private System.Windows.Forms.Label lblEnterGrade;
         private System.Windows.Forms.TreeView trvSchool;
+        private System.Windows.Forms.ComboBox cbbClasses;
+        private System.Windows.Forms.Label label2;
     }
 }
