@@ -87,8 +87,6 @@ namespace ProjetoEscola
                 }
                 else
                 {
-   
-
                     //if exists:
                     Hide();
                     TeacherForm teacherForm = new TeacherForm();

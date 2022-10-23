@@ -394,19 +394,7 @@ namespace ProjetoEscola
                         //add the class to the chosen year
                         Program.Anos.Find(y => y.year == year).CLasses.Add(cl);
 
-                        #region add subjects
-                        switch()
-                        {
-
-
-
-
-
-
-
-
-                        }
-                        #endregion
+                  
 
                         //update cbb
                         cbbClassStudent.Items.Add(cl.Name.ToString());
