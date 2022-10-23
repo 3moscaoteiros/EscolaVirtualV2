@@ -237,6 +237,7 @@ namespace ProjetoEscola
 
                 //lambda to add the student
                 Program.Anos.Where(y => y.year == YearWithTheClass).FirstOrDefault().CLasses.Where(c=>c.Name==Class).FirstOrDefault().students.Add(student);
+                #endregion
 
                 #region reset textboxes
                 txtNameStudent.Text = "";
@@ -249,16 +250,7 @@ namespace ProjetoEscola
                 txtPINStudnet.Text="";
                 #endregion
 
-                #region errors
-                if (name == "" || num == "" || nif == "" || adress == "" || contact == "" || cbbClassStudent.Items == null || money == "" || pin == "")
-                {
-                    MessageBox.Show("Information missing", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                #endregion
-
-
-                #endregion
+              
 
             }
             catch (Exception error)
@@ -329,12 +321,20 @@ namespace ProjetoEscola
 
                 };
 
-                //cycle subjects to add the teacher to all of selected in listBox:
+                //cycle all selectedSubjects in listBox to add the teacher to all of them
 
-
-
-
-                //lambda to add the teacher:
+                //selected subjects in ListBox
+                foreach (string ss in lstTeacherSubjects.SelectedItems)
+                {
+                    //existing subjects
+                    Program.Anos.ForEach(y1 => y1.subjects.ForEach(s =>
+                    {
+                        //lambda to add the teacher:
+                        if (ss == s.Name)
+                        Program.Anos.Where(y2 => y2.subjects.Where(s2 => s2.Name == ss).FirstOrDefault().teacher==teacher);
+                        
+                    }));
+                }
 
                 #endregion
 
@@ -353,7 +353,7 @@ namespace ProjetoEscola
             }
         }
 
-        private void btnCreateClass_Click(object sender, EventArgs e)
+        private void btnCreateClass_Click(object sender, EventArgs e)////create subjects missing
         {
             try
             {
