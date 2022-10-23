@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace School_DLL
+namespace ProjetoEscola
 {
-    public class Grade
+    public class Subject
     {
-        public double Val { get; set; }
-        public Subject Subject { get; set; }
+        public string Name { get; set; }
+
+        public Teacher teacher;
     }
 }

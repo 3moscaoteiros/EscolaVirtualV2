@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace School_DLL
+namespace ProjetoEscola
 {
     public class Teacher : User
     {

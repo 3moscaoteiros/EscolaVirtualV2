@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using School_DLL;
 
 namespace ProjetoEscola
 {
@@ -23,29 +22,29 @@ namespace ProjetoEscola
             Program.Anos.Find(s => s.year == "5").subjects.AddRange(new Subject[]
 
                {
-                 new Subject() {id = 0 , Name = "Português" ,
+                 new Subject() { Name = "Português" ,
                                          teacher = new Teacher(){ID="t0001", PIN="00000" } } ,
-                 new Subject() {id = 1 , Name = "Matemática",
+                 new Subject() { Name = "Matemática",
                                          teacher = new Teacher(){ID="t0002", PIN="00000"} } ,
-                 new Subject() {id = 2 , Name = "Inglês" ,
+                 new Subject() { Name = "Inglês" ,
                                          teacher = new Teacher(){ID="t0003", PIN="00000"} } ,
-                 new Subject() {id = 3 , Name = "Ciências",
+                 new Subject() { Name = "Ciências",
                                          teacher = new Teacher(){ID="t0004", PIN="00000"} } ,
-                 new Subject() {id = 4 , Name = "Fisico-quimica",
+                 new Subject() { Name = "Fisico-quimica",
                                          teacher = new Teacher(){ID="t0005", PIN="00000"} } });
 
             Program.Anos.Find(s => s.year == "6").subjects.AddRange(new Subject[]
 
                  {
-                 new Subject() {id = 0 , Name = "Português" ,
+                 new Subject() { Name = "Português" ,
                                          teacher = Program.Anos[0].subjects[0].teacher} ,
-                 new Subject() {id = 1 , Name = "Matemática",
+                 new Subject() {Name = "Matemática",
                                          teacher = Program.Anos[0].subjects[1].teacher } ,
-                 new Subject() {id = 2 , Name = "Inglês" ,
+                 new Subject() {Name = "Inglês" ,
                                          teacher = Program.Anos[0].subjects[2].teacher } ,
-                 new Subject() {id = 3 , Name = "Ciências",
+                 new Subject() { Name = "Ciências",
                                          teacher = Program.Anos[0].subjects[3].teacher } ,
-                 new Subject() {id = 4 , Name = "Fisico-quimica",
+                 new Subject() { Name = "Fisico-quimica",
                                          teacher = Program.Anos[0].subjects[4].teacher }
                  });
         }

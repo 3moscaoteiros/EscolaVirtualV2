@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace School_DLL
+namespace ProjetoEscola
 {
    public class Class
    {

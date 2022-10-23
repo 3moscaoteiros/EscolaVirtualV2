@@ -1,7 +1,7 @@
 ﻿
 namespace ProjetoEscola
 {
-    partial class Request
+    partial class RequestForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace ProjetoEscola
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Request));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RequestForm));
             this.cbbRequest = new System.Windows.Forms.ComboBox();
             this.txtRequest = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();

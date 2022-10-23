@@ -1,5 +1,4 @@
-﻿using School_DLL;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -33,7 +32,7 @@ namespace ProjetoEscola
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+           
         }
 
         private void button1_Click(object sender, EventArgs e)

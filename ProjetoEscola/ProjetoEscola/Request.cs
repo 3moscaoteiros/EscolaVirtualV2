@@ -1,26 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using School_DLL;
+
 namespace ProjetoEscola
 {
-    public partial class Request : Form
+    class Request
     {
-        
-        public Request()
-        {
-            InitializeComponent();
-            
-        }
-
-        private void Request_Load(object sender, EventArgs e)
-        {
-        }
+        public string UserNum { get; set; }
+        public string Info_To_Change { get; set; } //Campo a mudar
+        public string info { get; set; } //Informação do campo a mudar        
     }
-} 
+}
