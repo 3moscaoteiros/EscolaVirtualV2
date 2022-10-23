@@ -50,12 +50,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtDesign = new System.Windows.Forms.TextBox();
             this.lblEnterGrade = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lstStudentGrade = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // txtSelectGrade
             // 
-            this.txtSelectGrade.Location = new System.Drawing.Point(394, 256);
+            this.txtSelectGrade.Location = new System.Drawing.Point(354, 258);
             this.txtSelectGrade.Name = "txtSelectGrade";
             this.txtSelectGrade.Size = new System.Drawing.Size(68, 20);
             this.txtSelectGrade.TabIndex = 77;
@@ -73,7 +73,7 @@
             // btnApplyGrades
             // 
             this.btnApplyGrades.Font = new System.Drawing.Font("Microsoft PhagsPa", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnApplyGrades.Location = new System.Drawing.Point(374, 282);
+            this.btnApplyGrades.Location = new System.Drawing.Point(334, 284);
             this.btnApplyGrades.Name = "btnApplyGrades";
             this.btnApplyGrades.Size = new System.Drawing.Size(104, 31);
             this.btnApplyGrades.TabIndex = 75;
@@ -228,7 +228,7 @@
             this.txtDesign.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDesign.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtDesign.Location = new System.Drawing.Point(250, -10);
-            this.txtDesign.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDesign.Margin = new System.Windows.Forms.Padding(2);
             this.txtDesign.Multiline = true;
             this.txtDesign.Name = "txtDesign";
             this.txtDesign.ReadOnly = true;
@@ -238,19 +238,19 @@
             // lblEnterGrade
             // 
             this.lblEnterGrade.AutoSize = true;
-            this.lblEnterGrade.Location = new System.Drawing.Point(408, 241);
+            this.lblEnterGrade.Location = new System.Drawing.Point(368, 243);
             this.lblEnterGrade.Name = "lblEnterGrade";
             this.lblEnterGrade.Size = new System.Drawing.Size(39, 13);
             this.lblEnterGrade.TabIndex = 78;
             this.lblEnterGrade.Text = "Grade:";
             // 
-            // listBox1
+            // lstStudentGrade
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(267, 42);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(218, 186);
-            this.listBox1.TabIndex = 86;
+            this.lstStudentGrade.FormattingEnabled = true;
+            this.lstStudentGrade.Location = new System.Drawing.Point(267, 42);
+            this.lstStudentGrade.Name = "lstStudentGrade";
+            this.lstStudentGrade.Size = new System.Drawing.Size(218, 186);
+            this.lstStudentGrade.TabIndex = 86;
             // 
             // TeacherForm
             // 
@@ -258,7 +258,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(497, 325);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lstStudentGrade);
             this.Controls.Add(this.txtDesign);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblEnterGrade);
@@ -282,7 +282,7 @@
             this.Controls.Add(this.lblTeacherName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TeacherForm";
@@ -317,6 +317,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtDesign;
         private System.Windows.Forms.Label lblEnterGrade;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lstStudentGrade;
     }
 }

@@ -23,7 +23,7 @@ namespace ProjetoEscola
 
         private void TeacherForm_Load(object sender, EventArgs e)
         {
-         
+            
         }
 
         private void cbbClasses_SelectedIndexChanged(object sender, EventArgs e)

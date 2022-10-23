@@ -9,7 +9,6 @@ namespace School_DLL
    public class Class
    {
         public string Name { get; set; }
-        public int id { get; set; }
         
         public List<Subject> Subjects = new List<Subject>();
         

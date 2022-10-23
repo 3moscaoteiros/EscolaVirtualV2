@@ -8,7 +8,6 @@ namespace School_DLL
 {
     public class Subject
     {
-        public int id { get; set; }
         public string Name { get; set; }
 
         public Teacher teacher;
