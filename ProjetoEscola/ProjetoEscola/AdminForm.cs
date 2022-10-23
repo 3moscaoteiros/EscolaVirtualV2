@@ -53,7 +53,7 @@ namespace ProjetoEscola
 
            
 
-            #endregion
+            #endregion//////////////
 
             #region update subjects in TeacherTab
 
@@ -65,7 +65,7 @@ namespace ProjetoEscola
             }));
 
             #endregion
-        }///////////
+        }
 
         private void AdminForm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -394,9 +394,9 @@ namespace ProjetoEscola
                         //add the class to the chosen year
                         Program.Anos.Find(y => y.year == year).CLasses.Add(cl);
 
-                        #region add subjects
-                        switch()
-                        {
+                        //#region add subjects
+                        //switch()
+                        //{
 
 
 
@@ -405,8 +405,8 @@ namespace ProjetoEscola
 
 
 
-                        }
-                        #endregion
+                        //}
+                        //#endregion
 
                         //update cbb
                         cbbClassStudent.Items.Add(cl.Name.ToString());
