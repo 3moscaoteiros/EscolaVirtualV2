@@ -13,6 +13,7 @@ namespace School_DLL
         public string EMAIL { get; set; }
         public int NIF { get; set; }
         public string PIN { get; set; }
+        public string ID { get; set; }
         public bool Request { get; set; }
 
     }
