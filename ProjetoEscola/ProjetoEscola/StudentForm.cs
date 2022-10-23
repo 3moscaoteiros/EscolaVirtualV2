@@ -17,9 +17,10 @@ namespace ProjetoEscola
             InitializeComponent();
         }
 
-        private void StudentForm_Load(object sender, EventArgs e)
+        private void StudentForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-
+            LoginForm login = new LoginForm();
+            login.Visible = true;
         }
     }
 }

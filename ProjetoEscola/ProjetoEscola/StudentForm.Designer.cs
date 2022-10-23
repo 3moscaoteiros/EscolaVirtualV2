@@ -60,7 +60,7 @@
             this.cbStudentSubjects.ForeColor = System.Drawing.SystemColors.Control;
             this.cbStudentSubjects.FormattingEnabled = true;
             this.cbStudentSubjects.Location = new System.Drawing.Point(89, 164);
-            this.cbStudentSubjects.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbStudentSubjects.Margin = new System.Windows.Forms.Padding(4);
             this.cbStudentSubjects.Name = "cbStudentSubjects";
             this.cbStudentSubjects.Size = new System.Drawing.Size(115, 24);
             this.cbStudentSubjects.TabIndex = 66;
@@ -79,7 +79,7 @@
             // 
             this.txtStudentAdress.BackColor = System.Drawing.SystemColors.Control;
             this.txtStudentAdress.Location = new System.Drawing.Point(89, 198);
-            this.txtStudentAdress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStudentAdress.Margin = new System.Windows.Forms.Padding(4);
             this.txtStudentAdress.Name = "txtStudentAdress";
             this.txtStudentAdress.ReadOnly = true;
             this.txtStudentAdress.Size = new System.Drawing.Size(197, 22);
@@ -99,7 +99,7 @@
             // 
             this.txtStudentContact.BackColor = System.Drawing.SystemColors.Control;
             this.txtStudentContact.Location = new System.Drawing.Point(89, 229);
-            this.txtStudentContact.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStudentContact.Margin = new System.Windows.Forms.Padding(4);
             this.txtStudentContact.Name = "txtStudentContact";
             this.txtStudentContact.ReadOnly = true;
             this.txtStudentContact.Size = new System.Drawing.Size(115, 22);
@@ -119,7 +119,7 @@
             // 
             this.btnChangeDataStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangeDataStudent.Location = new System.Drawing.Point(89, 286);
-            this.btnChangeDataStudent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnChangeDataStudent.Margin = new System.Windows.Forms.Padding(4);
             this.btnChangeDataStudent.Name = "btnChangeDataStudent";
             this.btnChangeDataStudent.Size = new System.Drawing.Size(172, 58);
             this.btnChangeDataStudent.TabIndex = 60;
@@ -130,7 +130,7 @@
             // 
             this.txtStudentNIF.BackColor = System.Drawing.SystemColors.Control;
             this.txtStudentNIF.Location = new System.Drawing.Point(89, 103);
-            this.txtStudentNIF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStudentNIF.Margin = new System.Windows.Forms.Padding(4);
             this.txtStudentNIF.Name = "txtStudentNIF";
             this.txtStudentNIF.ReadOnly = true;
             this.txtStudentNIF.Size = new System.Drawing.Size(115, 22);
@@ -150,7 +150,7 @@
             // 
             this.txtBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBalance.Location = new System.Drawing.Point(357, 114);
-            this.txtBalance.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBalance.Margin = new System.Windows.Forms.Padding(4);
             this.txtBalance.Name = "txtBalance";
             this.txtBalance.ReadOnly = true;
             this.txtBalance.Size = new System.Drawing.Size(328, 34);
@@ -171,7 +171,7 @@
             // 
             this.txtDeposit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDeposit.Location = new System.Drawing.Point(357, 188);
-            this.txtDeposit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDeposit.Margin = new System.Windows.Forms.Padding(4);
             this.txtDeposit.Name = "txtDeposit";
             this.txtDeposit.Size = new System.Drawing.Size(329, 34);
             this.txtDeposit.TabIndex = 55;
@@ -180,7 +180,7 @@
             // 
             this.btnTransaction.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTransaction.Location = new System.Drawing.Point(357, 263);
-            this.btnTransaction.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTransaction.Margin = new System.Windows.Forms.Padding(4);
             this.btnTransaction.Name = "btnTransaction";
             this.btnTransaction.Size = new System.Drawing.Size(329, 42);
             this.btnTransaction.TabIndex = 54;
@@ -202,7 +202,7 @@
             // 
             this.txtStudentNum.BackColor = System.Drawing.SystemColors.Control;
             this.txtStudentNum.Location = new System.Drawing.Point(89, 71);
-            this.txtStudentNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStudentNum.Margin = new System.Windows.Forms.Padding(4);
             this.txtStudentNum.Name = "txtStudentNum";
             this.txtStudentNum.ReadOnly = true;
             this.txtStudentNum.Size = new System.Drawing.Size(115, 22);
@@ -222,7 +222,7 @@
             // 
             this.txtStudentYear.BackColor = System.Drawing.SystemColors.Control;
             this.txtStudentYear.Location = new System.Drawing.Point(89, 134);
-            this.txtStudentYear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStudentYear.Margin = new System.Windows.Forms.Padding(4);
             this.txtStudentYear.Name = "txtStudentYear";
             this.txtStudentYear.ReadOnly = true;
             this.txtStudentYear.Size = new System.Drawing.Size(115, 22);
@@ -242,7 +242,7 @@
             // 
             this.txtStudentName.BackColor = System.Drawing.SystemColors.Control;
             this.txtStudentName.Location = new System.Drawing.Point(89, 41);
-            this.txtStudentName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStudentName.Margin = new System.Windows.Forms.Padding(4);
             this.txtStudentName.Name = "txtStudentName";
             this.txtStudentName.ReadOnly = true;
             this.txtStudentName.Size = new System.Drawing.Size(209, 22);
@@ -317,7 +317,7 @@
             this.Name = "StudentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Student";
-            this.Load += new System.EventHandler(this.StudentForm_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StudentForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
