@@ -251,7 +251,6 @@ namespace ProjetoEscola
                 #endregion
 
               
-
             }
             catch (Exception error)
             {
@@ -394,7 +393,9 @@ namespace ProjetoEscola
                         //add the class to the chosen year
                         Program.Anos.Find(y => y.year == year).CLasses.Add(cl);
 
-                  
+                        #region add subjects
+
+                        #endregion
 
                         //update cbb
                         cbbClassStudent.Items.Add(cl.Name.ToString());
@@ -433,35 +434,9 @@ namespace ProjetoEscola
                 MessageBox.Show(error.Message);
             }
 
-          
-                   
         }
-
-        #region btnLeaveClickEvents
-        private void btnLeaveStudent_Click(object sender, EventArgs e)
-        {
-            
-            Close();
-        }
-
-        private void btnLeaveTeacher_Click(object sender, EventArgs e)
-        {
-            
-            Close();
-        }
-
-        private void btnLeaveClasses_Click(object sender, EventArgs e)
-        {
-            
-            Close();
-        }
-
-        private void btnLeaveRequests_Click(object sender, EventArgs e)
-        {
-            
-            Close();
-        }
-        #endregion
+        
+       
 
         private void btnRequest_Click(object sender, EventArgs e)//////////////////////
         {

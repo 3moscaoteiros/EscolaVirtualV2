@@ -46,7 +46,6 @@ namespace ProjetoEscola
             this.lblCreateNum = new System.Windows.Forms.Label();
             this.txtNameStudent = new System.Windows.Forms.TextBox();
             this.lblNameStudent = new System.Windows.Forms.Label();
-            this.btnLeaveStudent = new System.Windows.Forms.Button();
             this.txtBalanceStudent = new System.Windows.Forms.TextBox();
             this.lblCreateBalance = new System.Windows.Forms.Label();
             this.btnCreateStudent = new System.Windows.Forms.Button();
@@ -54,7 +53,6 @@ namespace ProjetoEscola
             this.tpTeacher = new System.Windows.Forms.TabPage();
             this.txtPINTeacher = new System.Windows.Forms.TextBox();
             this.lblPINTeacher = new System.Windows.Forms.Label();
-            this.btnLeaveTeacher = new System.Windows.Forms.Button();
             this.btnCreateTeacher = new System.Windows.Forms.Button();
             this.txtAdressTeacher = new System.Windows.Forms.TextBox();
             this.blbAdressTeacher = new System.Windows.Forms.Label();
@@ -71,13 +69,11 @@ namespace ProjetoEscola
             this.lblSubjectsTeacher = new System.Windows.Forms.Label();
             this.tpClasses = new System.Windows.Forms.TabPage();
             this.txtChooseYear = new System.Windows.Forms.TextBox();
-            this.btnLeaveClasses = new System.Windows.Forms.Button();
             this.lblClassChooseYear = new System.Windows.Forms.Label();
             this.btnCreateClass = new System.Windows.Forms.Button();
             this.lblCreateClass = new System.Windows.Forms.Label();
             this.txtCreateClass = new System.Windows.Forms.TextBox();
             this.tbRequests = new System.Windows.Forms.TabPage();
-            this.btnLeaveRequests = new System.Windows.Forms.Button();
             this.lblRequest = new System.Windows.Forms.Label();
             this.btnRequest = new System.Windows.Forms.Button();
             this.lstRequest = new System.Windows.Forms.ListBox();
@@ -117,7 +113,6 @@ namespace ProjetoEscola
             this.tpStudent.Controls.Add(this.lblCreateNum);
             this.tpStudent.Controls.Add(this.txtNameStudent);
             this.tpStudent.Controls.Add(this.lblNameStudent);
-            this.tpStudent.Controls.Add(this.btnLeaveStudent);
             this.tpStudent.Controls.Add(this.txtBalanceStudent);
             this.tpStudent.Controls.Add(this.lblCreateBalance);
             this.tpStudent.Controls.Add(this.btnCreateStudent);
@@ -248,16 +243,6 @@ namespace ProjetoEscola
             this.lblNameStudent.TabIndex = 103;
             this.lblNameStudent.Text = "Name:";
             // 
-            // btnLeaveStudent
-            // 
-            this.btnLeaveStudent.Location = new System.Drawing.Point(283, 268);
-            this.btnLeaveStudent.Name = "btnLeaveStudent";
-            this.btnLeaveStudent.Size = new System.Drawing.Size(69, 31);
-            this.btnLeaveStudent.TabIndex = 102;
-            this.btnLeaveStudent.Text = "Leave";
-            this.btnLeaveStudent.UseVisualStyleBackColor = true;
-            this.btnLeaveStudent.Click += new System.EventHandler(this.btnLeaveStudent_Click);
-            // 
             // txtBalanceStudent
             // 
             this.txtBalanceStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -304,7 +289,6 @@ namespace ProjetoEscola
             this.tpTeacher.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tpTeacher.Controls.Add(this.txtPINTeacher);
             this.tpTeacher.Controls.Add(this.lblPINTeacher);
-            this.tpTeacher.Controls.Add(this.btnLeaveTeacher);
             this.tpTeacher.Controls.Add(this.btnCreateTeacher);
             this.tpTeacher.Controls.Add(this.txtAdressTeacher);
             this.tpTeacher.Controls.Add(this.blbAdressTeacher);
@@ -342,20 +326,10 @@ namespace ProjetoEscola
             this.lblPINTeacher.TabIndex = 137;
             this.lblPINTeacher.Text = "PIN:";
             // 
-            // btnLeaveTeacher
-            // 
-            this.btnLeaveTeacher.Location = new System.Drawing.Point(8, 268);
-            this.btnLeaveTeacher.Name = "btnLeaveTeacher";
-            this.btnLeaveTeacher.Size = new System.Drawing.Size(69, 31);
-            this.btnLeaveTeacher.TabIndex = 136;
-            this.btnLeaveTeacher.Text = "Leave";
-            this.btnLeaveTeacher.UseVisualStyleBackColor = true;
-            this.btnLeaveTeacher.Click += new System.EventHandler(this.btnLeaveTeacher_Click);
-            // 
             // btnCreateTeacher
             // 
             this.btnCreateTeacher.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateTeacher.Location = new System.Drawing.Point(85, 217);
+            this.btnCreateTeacher.Location = new System.Drawing.Point(131, 254);
             this.btnCreateTeacher.Name = "btnCreateTeacher";
             this.btnCreateTeacher.Size = new System.Drawing.Size(107, 45);
             this.btnCreateTeacher.TabIndex = 135;
@@ -479,7 +453,6 @@ namespace ProjetoEscola
             // 
             this.tpClasses.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tpClasses.Controls.Add(this.txtChooseYear);
-            this.tpClasses.Controls.Add(this.btnLeaveClasses);
             this.tpClasses.Controls.Add(this.lblClassChooseYear);
             this.tpClasses.Controls.Add(this.btnCreateClass);
             this.tpClasses.Controls.Add(this.lblCreateClass);
@@ -501,16 +474,6 @@ namespace ProjetoEscola
             this.txtChooseYear.TabIndex = 138;
             this.txtChooseYear.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtChooseYear_KeyPress);
             // 
-            // btnLeaveClasses
-            // 
-            this.btnLeaveClasses.Location = new System.Drawing.Point(283, 268);
-            this.btnLeaveClasses.Name = "btnLeaveClasses";
-            this.btnLeaveClasses.Size = new System.Drawing.Size(69, 31);
-            this.btnLeaveClasses.TabIndex = 137;
-            this.btnLeaveClasses.Text = "Leave";
-            this.btnLeaveClasses.UseVisualStyleBackColor = true;
-            this.btnLeaveClasses.Click += new System.EventHandler(this.btnLeaveClasses_Click);
-            // 
             // lblClassChooseYear
             // 
             this.lblClassChooseYear.AutoSize = true;
@@ -524,7 +487,7 @@ namespace ProjetoEscola
             // btnCreateClass
             // 
             this.btnCreateClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateClass.Location = new System.Drawing.Point(107, 191);
+            this.btnCreateClass.Location = new System.Drawing.Point(116, 175);
             this.btnCreateClass.Name = "btnCreateClass";
             this.btnCreateClass.Size = new System.Drawing.Size(124, 51);
             this.btnCreateClass.TabIndex = 2;
@@ -553,7 +516,6 @@ namespace ProjetoEscola
             // tbRequests
             // 
             this.tbRequests.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.tbRequests.Controls.Add(this.btnLeaveRequests);
             this.tbRequests.Controls.Add(this.lblRequest);
             this.tbRequests.Controls.Add(this.btnRequest);
             this.tbRequests.Controls.Add(this.lstRequest);
@@ -563,16 +525,6 @@ namespace ProjetoEscola
             this.tbRequests.Size = new System.Drawing.Size(463, 336);
             this.tbRequests.TabIndex = 4;
             this.tbRequests.Text = "Requests";
-            // 
-            // btnLeaveRequests
-            // 
-            this.btnLeaveRequests.Location = new System.Drawing.Point(283, 268);
-            this.btnLeaveRequests.Name = "btnLeaveRequests";
-            this.btnLeaveRequests.Size = new System.Drawing.Size(69, 31);
-            this.btnLeaveRequests.TabIndex = 137;
-            this.btnLeaveRequests.Text = "Leave";
-            this.btnLeaveRequests.UseVisualStyleBackColor = true;
-            this.btnLeaveRequests.Click += new System.EventHandler(this.btnLeaveRequests_Click);
             // 
             // lblRequest
             // 
@@ -648,7 +600,6 @@ namespace ProjetoEscola
         private System.Windows.Forms.Label lblCreateNum;
         private System.Windows.Forms.TextBox txtNameStudent;
         private System.Windows.Forms.Label lblNameStudent;
-        private System.Windows.Forms.Button btnLeaveStudent;
         private System.Windows.Forms.TextBox txtBalanceStudent;
         private System.Windows.Forms.Label lblCreateBalance;
         private System.Windows.Forms.Button btnCreateStudent;
@@ -656,7 +607,6 @@ namespace ProjetoEscola
         private System.Windows.Forms.TabPage tpTeacher;
         private System.Windows.Forms.TabPage tpClasses;
         private System.Windows.Forms.TabPage tbRequests;
-        private System.Windows.Forms.Button btnLeaveTeacher;
         private System.Windows.Forms.Button btnCreateTeacher;
         private System.Windows.Forms.TextBox txtAdressTeacher;
         private System.Windows.Forms.Label blbAdressTeacher;
@@ -678,8 +628,6 @@ namespace ProjetoEscola
         private System.Windows.Forms.Label lblCreateClass;
         private System.Windows.Forms.TextBox txtCreateClass;
         private System.Windows.Forms.Label lblClassChooseYear;
-        private System.Windows.Forms.Button btnLeaveClasses;
-        private System.Windows.Forms.Button btnLeaveRequests;
         private System.Windows.Forms.TextBox txtPINStudnet;
         private System.Windows.Forms.Label lblPINStudent;
         private System.Windows.Forms.TextBox txtPINTeacher;
