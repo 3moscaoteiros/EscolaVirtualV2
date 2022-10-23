@@ -495,7 +495,7 @@ namespace ProjetoEscola
             // txtChooseYear
             // 
             this.txtChooseYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChooseYear.Location = new System.Drawing.Point(95, 46);
+            this.txtChooseYear.Location = new System.Drawing.Point(95, 49);
             this.txtChooseYear.Name = "txtChooseYear";
             this.txtChooseYear.Size = new System.Drawing.Size(82, 31);
             this.txtChooseYear.TabIndex = 138;
@@ -515,7 +515,7 @@ namespace ProjetoEscola
             // 
             this.lblClassChooseYear.AutoSize = true;
             this.lblClassChooseYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClassChooseYear.Location = new System.Drawing.Point(25, 49);
+            this.lblClassChooseYear.Location = new System.Drawing.Point(25, 52);
             this.lblClassChooseYear.Name = "lblClassChooseYear";
             this.lblClassChooseYear.Size = new System.Drawing.Size(64, 25);
             this.lblClassChooseYear.TabIndex = 4;
@@ -536,7 +536,7 @@ namespace ProjetoEscola
             // 
             this.lblCreateClass.AutoSize = true;
             this.lblCreateClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreateClass.Location = new System.Drawing.Point(17, 85);
+            this.lblCreateClass.Location = new System.Drawing.Point(17, 93);
             this.lblCreateClass.Name = "lblCreateClass";
             this.lblCreateClass.Size = new System.Drawing.Size(72, 25);
             this.lblCreateClass.TabIndex = 1;
@@ -545,7 +545,7 @@ namespace ProjetoEscola
             // txtCreateClass
             // 
             this.txtCreateClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCreateClass.Location = new System.Drawing.Point(95, 83);
+            this.txtCreateClass.Location = new System.Drawing.Point(95, 93);
             this.txtCreateClass.Name = "txtCreateClass";
             this.txtCreateClass.Size = new System.Drawing.Size(235, 31);
             this.txtCreateClass.TabIndex = 0;
@@ -615,6 +615,7 @@ namespace ProjetoEscola
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AdminForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminForm_FormClosed);
             this.Load += new System.EventHandler(this.AdminForm_Load);

@@ -24,15 +24,15 @@ namespace ProjetoEscola
 
                {
                  new Subject() {id = 0 , Name = "Português" ,
-                                         teacher = new Teacher(){ID="t0001", PIN="t0001" } } ,
+                                         teacher = new Teacher(){ID="t0001", PIN="00000" } } ,
                  new Subject() {id = 1 , Name = "Matemática",
-                                         teacher = new Teacher(){ID="t0002", PIN="t0002"} } ,
+                                         teacher = new Teacher(){ID="t0002", PIN="00000"} } ,
                  new Subject() {id = 2 , Name = "Inglês" ,
-                                         teacher = new Teacher(){ID="t0003", PIN="t0003"} } ,
+                                         teacher = new Teacher(){ID="t0003", PIN="00000"} } ,
                  new Subject() {id = 3 , Name = "Ciências",
-                                         teacher = new Teacher(){ID="t0004", PIN="t0004"} } ,
+                                         teacher = new Teacher(){ID="t0004", PIN="00000"} } ,
                  new Subject() {id = 4 , Name = "Fisico-quimica",
-                                         teacher = new Teacher(){ID="t0005", PIN="t0005"} } });
+                                         teacher = new Teacher(){ID="t0005", PIN="00000"} } });
 
             Program.Anos.Find(s => s.year == "6").subjects.AddRange(new Subject[]
 
@@ -76,7 +76,7 @@ namespace ProjetoEscola
             //if teacher
             if (firstC=="t")
             {
-                //MAYBE USE FOREACH??? //verify if the pass of the inserted num is correct
+                //verify if the pass of the inserted num is correct
                 //error
                 if (!Program.Anos.Exists(s => s.subjects.Exists(v => v.teacher.ID == num && v.teacher.PIN == pass)))
                 {
@@ -100,7 +100,7 @@ namespace ProjetoEscola
             if (firstC == "s")
             {
                 //error
-                //MAYBE USE FOREACH??? //verify if the pass of the inserted num is correct
+                 //verify if the pass of the inserted num is correct
                 if (!Program.Anos.Exists(y => y.CLasses.Exists(v => v.students.Exists(s => s.ID == num && s.PIN == pass)))) 
                 {
                     txtLoginNum.Text = "";
@@ -129,6 +129,14 @@ namespace ProjetoEscola
         private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             System.Windows.Forms.Application.Exit();
+        }
+
+        private void txtLoginPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) || e.KeyChar == 8)
+                e.Handled = false;
+            else
+                e.Handled = true;
         }
     }
 }

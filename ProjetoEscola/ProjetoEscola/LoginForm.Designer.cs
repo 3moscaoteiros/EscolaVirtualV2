@@ -70,6 +70,7 @@
             this.txtLoginPassword.PasswordChar = '*';
             this.txtLoginPassword.Size = new System.Drawing.Size(132, 34);
             this.txtLoginPassword.TabIndex = 8;
+            this.txtLoginPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLoginPassword_KeyPress);
             // 
             // txtLoginNum
             // 
@@ -139,6 +140,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LoginForm_FormClosed);
             this.Load += new System.EventHandler(this.LoginForm_Load);

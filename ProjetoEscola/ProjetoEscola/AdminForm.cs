@@ -383,7 +383,7 @@ namespace ProjetoEscola
                 bool hasClass = Program.Anos.Find(y => y.year == year).CLasses.Any(c => c.Name.Contains(Class));
 
                 
-                if (!hasClass)
+                if (hasClass==false)
                 {
 
                     //verify if year exists
@@ -393,9 +393,24 @@ namespace ProjetoEscola
                     {
                         //add the class to the chosen year
                         Program.Anos.Find(y => y.year == year).CLasses.Add(cl);
+
+                        #region add subjects
+                        switch()
+                        {
+
+
+
+
+
+
+
+
+                        }
+                        #endregion
+
                         //update cbb
                         cbbClassStudent.Items.Add(cl.Name.ToString());
-                        MessageBox.Show("Year successfully created", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Class successfully created", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtChooseYear.Text = "";
                         txtCreateClass.Text = "";
 
@@ -406,8 +421,13 @@ namespace ProjetoEscola
                         Year createdYear = new Year() { year = year };
                         createdYear.CLasses.Add(cl);
                         Program.Anos.Add(createdYear);
-                        
-                        MessageBox.Show("Year successfully created", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        #region add subjects
+
+                        #endregion
+
+
+                        MessageBox.Show("Class successfully created", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtChooseYear.Text = "";
                         txtCreateClass.Text = "";
                     }
