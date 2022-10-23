@@ -52,7 +52,7 @@ namespace ProjetoEscola
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string num = txtLoginNum.Text;
+            string num = txtLoginNum.Text; 
             string pass = txtLoginPassword.Text;
 
             //error
