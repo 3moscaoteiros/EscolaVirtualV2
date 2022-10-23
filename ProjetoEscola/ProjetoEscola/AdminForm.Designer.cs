@@ -460,16 +460,16 @@ namespace ProjetoEscola
             // lstTeacherSubjects
             // 
             this.lstTeacherSubjects.FormattingEnabled = true;
-            this.lstTeacherSubjects.Location = new System.Drawing.Point(267, 57);
+            this.lstTeacherSubjects.Location = new System.Drawing.Point(255, 57);
             this.lstTeacherSubjects.Name = "lstTeacherSubjects";
             this.lstTeacherSubjects.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lstTeacherSubjects.Size = new System.Drawing.Size(85, 134);
+            this.lstTeacherSubjects.Size = new System.Drawing.Size(97, 134);
             this.lstTeacherSubjects.TabIndex = 122;
             // 
             // lblSubjectsTeacher
             // 
             this.lblSubjectsTeacher.AutoSize = true;
-            this.lblSubjectsTeacher.Location = new System.Drawing.Point(264, 41);
+            this.lblSubjectsTeacher.Location = new System.Drawing.Point(252, 41);
             this.lblSubjectsTeacher.Name = "lblSubjectsTeacher";
             this.lblSubjectsTeacher.Size = new System.Drawing.Size(51, 13);
             this.lblSubjectsTeacher.TabIndex = 121;
@@ -593,6 +593,7 @@ namespace ProjetoEscola
             this.btnRequest.TabIndex = 119;
             this.btnRequest.Text = "OK";
             this.btnRequest.UseVisualStyleBackColor = true;
+            this.btnRequest.Click += new System.EventHandler(this.btnRequest_Click);
             // 
             // lstRequest
             // 

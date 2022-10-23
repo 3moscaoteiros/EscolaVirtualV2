@@ -25,24 +25,52 @@ namespace ProjetoEscola
             Program.Anos.ForEach(y => y.CLasses.ForEach(c => cbbClassStudent.Items.Add(c.Name)));
             #endregion
 
-            #region update years in TeacherTab
-            Program.Anos.ForEach(y=> lstTeacherYears.Items.Add(y.year));
-            #endregion
-
             #region update requests List
-            string request = "";
+            //string request = "";
 
 
-            //maybe not ok
-            List<Student> RequestStudents= (Program.Anos.SelectMany(y => y.CLasses.ToList().SelectMany(c=>c.students.Where(s=>s.Request==true))).ToList());
+            ////students
+            //List<Student> RequestStudents= Program.Anos.SelectMany(y => y.CLasses.ToList().SelectMany(c=>c.students.Where(s=>s.Request==true))).ToList();
 
-            foreach(Student st in RequestStudents)
-            {
-                request = $"name:{st.Name}, id:{st.ID}";
-                lstRequest.Items.Add(request);
-            }
+            //foreach(Student st in RequestStudents)
+            //{
+            //    //where to store the request item name?
+            //    request = $"id:{st.ID},";
+            //    lstRequest.Items.Add(request);
+            //}
+
+            ////teachers
+
+            //Program.Anos.ForEach(y => y.subjects.ForEach(s => 
+            //{
+            //    if (s.teacher.Request == true)
+            //    {
+            //        //where to store the request item name?
+            //        request = $"id:{s.teacher.ID},";
+            //        lstRequest.Items.Add(request);
+            //    }
+            //}));
+
+           
 
             #endregion
+
+            #region update subjects in TeacherTab
+
+            Program.Anos.ForEach(y => y.subjects.ForEach(s =>
+            {
+                if(!lstTeacherSubjects.Items.Contains(s.Name))
+                lstTeacherSubjects.Items.Add(s.Name);
+
+            }));
+
+            #endregion
+        }///////////
+
+        private void AdminForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LoginForm login = new LoginForm();
+            login.Visible = true;
 
         }
 
@@ -219,7 +247,14 @@ namespace ProjetoEscola
                 cbbClassStudent.SelectedItem = null;
                 txtBalanceStudent.Text = "";
                 txtPINStudnet.Text="";
+                #endregion
 
+                #region errors
+                if (name == "" || num == "" || nif == "" || adress == "" || contact == "" || cbbClassStudent.Items == null || money == "" || pin == "")
+                {
+                    MessageBox.Show("Information missing", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 #endregion
 
 
@@ -234,7 +269,89 @@ namespace ProjetoEscola
 
         }
 
-     
+        private void btnCreateTeacher_Click(object sender, EventArgs e)//////////////
+        {
+            try
+            {
+                #region variables
+                string name = txtNameTeacher.Text.Trim();
+                string num = txtNumTeacher.Text.Trim();
+                string nif = txtNIFTeacher.Text.Trim(); ;
+                string adress = txtAdressTeacher.Text.Trim();
+                string contact = txtContactTeacher.Text.Trim();
+                string pin = txtPINTeacher.Text.Trim();
+                bool exists = false;
+                #endregion
+
+                #region errors
+                if (name == "" || num == "" || nif == "" || adress == "" || contact == "" || pin == "" || lstTeacherSubjects.SelectedItems==null)
+                {
+                    MessageBox.Show("Information missing", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                #endregion
+
+                #region check if exists
+                //search in list if teacher exists
+
+                Program.Anos.ForEach(y => y.subjects.ForEach(s=>
+                {
+                    if (s.teacher.ID == num || s.teacher.NIF.ToString().Trim() == nif)
+                        exists = true;
+
+                }));
+
+
+                //error
+                if (exists)
+                {
+
+                    txtNumTeacher.Text = "";
+                    txtNIFTeacher.Text = "";
+
+
+                    MessageBox.Show("User already exists!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                #endregion
+
+                #region ADD TEACHER TO SUBJECTS AND YEARS
+
+                Teacher teacher = new Teacher()
+                {
+                    Name = name,
+                    Adress = adress,
+                    EMAIL = contact,
+                    NIF = Convert.ToInt32(nif),
+                    ID = $"t{num}",
+                    PIN = pin,
+                    Request = false
+
+                };
+
+                //cycle subjects to add the teacher to all of selected in listBox:
+
+
+
+
+                //lambda to add the teacher:
+
+                #endregion
+
+                #region reset textboxes
+                txtNameTeacher.Text = "";
+                txtNumTeacher.Text = "";
+                txtNIFTeacher.Text = "";
+                txtAdressTeacher.Text = "";
+                txtContactTeacher.Text = "";
+                txtPINTeacher.Text = "";
+                #endregion
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
+        }
 
         private void btnCreateClass_Click(object sender, EventArgs e)
         {
@@ -338,36 +455,33 @@ namespace ProjetoEscola
         }
         #endregion
 
-        private void AdminForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void btnRequest_Click(object sender, EventArgs e)//////////////////////
         {
-            LoginForm login = new LoginForm();
-            login.Visible = true;
-           
-        }
-
-        private void lstTeacherYears_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            #region update subjects in TeacherTab
-
-            
-            //foreach (Year y in Program.Anos)
+            //foreach (string i in lstRequest.SelectedItems)
             //{
-            //    foreach (Subject s in y.subjects)
-            //    {
-            //        lstTeacherSubjects.Items.Add(s.Name.ToString());
-            //    }
+            //    string num = i.Split(':')[1].Split(' ')[0];
+            //    string firstC = num.ToLower().Substring(0, 1);
+
+            //    //student
+            //    //if(firstC == "s")
+            //    //{
+            //    //    //Program.Anos.Where(y => y.CLasses.Where(c => c.students.
+                     
+
+
+
+            //    //}
+            //    //teacher
+            //    //if (firstC == "t")
+            //    //{
+
+
+
+
+            //    //}
+            //    //remove from lst
+
             //}
-
-
-            #endregion
         }
-
-        private void btnCreateTeacher_Click(object sender, EventArgs e)
-        {
-
-        }
-
-       
     }
 }
