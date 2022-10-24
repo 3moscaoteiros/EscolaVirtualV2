@@ -76,6 +76,7 @@
             // txtStudentAdress
             // 
             this.txtStudentAdress.BackColor = System.Drawing.SystemColors.Control;
+            this.txtStudentAdress.Enabled = false;
             this.txtStudentAdress.Location = new System.Drawing.Point(67, 161);
             this.txtStudentAdress.Name = "txtStudentAdress";
             this.txtStudentAdress.ReadOnly = true;
@@ -94,6 +95,7 @@
             // txtStudentContact
             // 
             this.txtStudentContact.BackColor = System.Drawing.SystemColors.Control;
+            this.txtStudentContact.Enabled = false;
             this.txtStudentContact.Location = new System.Drawing.Point(67, 186);
             this.txtStudentContact.Name = "txtStudentContact";
             this.txtStudentContact.ReadOnly = true;
@@ -122,6 +124,7 @@
             // txtStudentNIF
             // 
             this.txtStudentNIF.BackColor = System.Drawing.SystemColors.Control;
+            this.txtStudentNIF.Enabled = false;
             this.txtStudentNIF.Location = new System.Drawing.Point(67, 84);
             this.txtStudentNIF.Name = "txtStudentNIF";
             this.txtStudentNIF.ReadOnly = true;
@@ -188,6 +191,7 @@
             // txtStudentNum
             // 
             this.txtStudentNum.BackColor = System.Drawing.SystemColors.Control;
+            this.txtStudentNum.Enabled = false;
             this.txtStudentNum.Location = new System.Drawing.Point(67, 58);
             this.txtStudentNum.Name = "txtStudentNum";
             this.txtStudentNum.ReadOnly = true;
@@ -206,6 +210,7 @@
             // txtStudentYear
             // 
             this.txtStudentYear.BackColor = System.Drawing.SystemColors.Control;
+            this.txtStudentYear.Enabled = false;
             this.txtStudentYear.Location = new System.Drawing.Point(67, 109);
             this.txtStudentYear.Name = "txtStudentYear";
             this.txtStudentYear.ReadOnly = true;
@@ -224,6 +229,7 @@
             // txtStudentName
             // 
             this.txtStudentName.BackColor = System.Drawing.SystemColors.Control;
+            this.txtStudentName.Enabled = false;
             this.txtStudentName.Location = new System.Drawing.Point(67, 33);
             this.txtStudentName.Name = "txtStudentName";
             this.txtStudentName.ReadOnly = true;
@@ -300,6 +306,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Student";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StudentForm_FormClosed);
+            this.Load += new System.EventHandler(this.StudentForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
