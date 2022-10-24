@@ -19,8 +19,10 @@ namespace ProjetoEscola
         }
         private void AdminForm_Load(object sender, EventArgs e)
         {
-
-            
+           
+            #region add all classes to tbStudent cbb
+            Program.Anos.ForEach(y => y.CLasses.ForEach(c => cbbClassStudent.Items.Add(c.Name)));
+            #endregion
 
             #region update requests List
             string request = "";
@@ -31,9 +33,11 @@ namespace ProjetoEscola
 
             foreach (Student st in RequestStudents)
             {
-                //where to store the request item name?
-                request = $"id:{st.ID},{st.RequestInfo}";
-                lstRequest.Items.Add(request);
+                if (st.Request == true)
+                {
+                    request = $"id:{st.ID},{st.RequestInfo}";
+                    lstRequest.Items.Add(request);
+                }
             }
 
             //teachers
@@ -42,7 +46,6 @@ namespace ProjetoEscola
             {
                 if (s.teacher.Request == true)
                 {
-                    //where to store the request item name?
                     request = $"id:{s.teacher.ID},";
                     lstRequest.Items.Add(request);
                 }
@@ -179,7 +182,7 @@ namespace ProjetoEscola
                 #endregion
 
                 #region errors
-                if (name == "" || num == "" || nif == "" || adress == "" || contact == "" || cbbClassStudent.Items==null || money == "" || pin == "" || num=="0000" || nif.Length!=9)
+                if (name == "" || num == "" || nif == "" || adress == "" || contact == "" || cbbClassStudent.Items==null || money == "" || pin == "" || num=="0000" || nif.Length!=9 || pin.Length!=5)
                 {
                     MessageBox.Show("Information missing", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -238,7 +241,6 @@ namespace ProjetoEscola
                 Program.Anos.Where(y => y.year == YearWithTheClass).FirstOrDefault().CLasses.Where(c=>c.Name==Class).FirstOrDefault().students.Add(student);
                 #endregion
 
-            
                 #region reset textboxes
                 txtNameStudent.Text = "";
                 txtNumStudent.Text = "";
@@ -260,10 +262,10 @@ namespace ProjetoEscola
 
         }
 
-        private void btnCreateTeacher_Click(object sender, EventArgs e)
+        private void btnCreateTeacher_Click(object sender, EventArgs e)/////////////////////
         {
-            try
-            {
+            //try
+            //{
                 #region variables
                 string name = txtNameTeacher.Text.Trim();
                 string num = txtNumTeacher.Text.Trim();
@@ -275,7 +277,7 @@ namespace ProjetoEscola
                 #endregion
 
                 #region errors
-                if (name == "" || num == "" || nif == "" || adress == "" || contact == "" || pin == "" || lstTeacherSubjects.SelectedItems==null || num=="0000" || nif.Length != 9)
+                if (name == "" || num == "" || nif == "" || adress == "" || contact == "" || pin == "" || lstTeacherSubjects.SelectedItems==null || num=="0000" || nif.Length != 9 || pin.Length!=5)
                 {
                     MessageBox.Show("Information missing", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -320,20 +322,20 @@ namespace ProjetoEscola
 
                 };
 
-                //cycle all selectedSubjects in listBox to add the teacher to all of them
+            //cycle all selectedSubjects in listBox to add the teacher to all of them
 
+            //
+                   string selectedSubject = lstTeacherSubjects.SelectedItem.ToString();
                 //selected subjects in ListBox
-                foreach (string ss in lstTeacherSubjects.SelectedItems)
-                {
-                    //existing subjects
-                    Program.Anos.ForEach(y1 => y1.subjects.ForEach(s =>
-                    {
-                        //lambda to add the teacher:
-                        if (ss == s.Name)
-                        Program.Anos.Where(y2 => y2.subjects.Where(s2 => s2.Name == ss).FirstOrDefault().teacher==teacher);
+               
+                    ////existing subjects
+                    //Program.Anos.ForEach(y1 => y1.subjects.ForEach(s =>
+                    //{
+                    //    //lambda to add the teacher:
+                    //    if (ss == s.Name)
+                    //    Program.Anos.Where(y2 => y2.subjects.Where(s2 => s2.Name == ss).FirstOrDefault().teacher==teacher);
                         
-                    }));
-                }
+                    //}));
 
                 #endregion
 
@@ -347,14 +349,14 @@ namespace ProjetoEscola
                 #endregion
 
                 MessageBox.Show("Teacher successfully created", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show(error.Message);
-            }
+            //}
+            //catch (Exception error)
+            //{
+            //    MessageBox.Show(error.Message);
+            //}
         }
 
-        private void btnCreateClass_Click(object sender, EventArgs e)//////////////
+        private void btnCreateClass_Click(object sender, EventArgs e)
         {
             try
             {
@@ -477,9 +479,6 @@ namespace ProjetoEscola
                 }
                 #endregion
 
-                #region add all classes to tbStudent cbb
-                Program.Anos.ForEach(y => y.CLasses.ForEach(c => cbbClassStudent.Items.Add(cl.Name)));
-                #endregion
             }
             catch (Exception error)
             {
@@ -527,6 +526,19 @@ namespace ProjetoEscola
 
                 lstRequest.Items.Remove(i);
             }
+        }
+
+        private void AdminForm_Shown(object sender, EventArgs e)
+        {
+            #region mmessageBox tip to create classes
+
+            if (!Program.Anos.Any(y => y.CLasses.Any()))
+            {
+                tbAdmin.SelectedIndex = 2;
+                MessageBox.Show("No classes found, please create a class", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            #endregion
         }
     }
 }
