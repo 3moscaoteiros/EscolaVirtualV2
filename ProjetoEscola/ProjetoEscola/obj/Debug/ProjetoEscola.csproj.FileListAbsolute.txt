@@ -59,7 +59,6 @@ C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\ob
 C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.AdminForm.resources
 C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.LoginForm.resources
 C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.Properties.Resources.resources
-C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.Request.resources
 C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.StudentForm.resources
 C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.TeacherForm.resources
 C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.csproj.GenerateResource.cache
@@ -69,9 +68,6 @@ C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\ob
 C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\bin\Debug\ProjetoEscola.exe.config
 C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\bin\Debug\ProjetoEscola.exe
 C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\bin\Debug\ProjetoEscola.pdb
-C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\bin\Debug\School_DLL.dll
-C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\bin\Debug\School_DLL.pdb
-C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.csproj.CopyComplete
 C:\Users\gtrjf\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\bin\Debug\ProjetoEscola.exe.config
 C:\Users\gtrjf\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\bin\Debug\ProjetoEscola.exe
 C:\Users\gtrjf\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\bin\Debug\ProjetoEscola.pdb
@@ -89,3 +85,4 @@ C:\Users\gtrjf\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\
 C:\Users\gtrjf\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.RequestForm.resources
 C:\Users\algue\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.RequestForm.resources
 C:\Users\Maxi G\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.RequestForm.resources
+C:\Users\i200053\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.RequestForm.resources
