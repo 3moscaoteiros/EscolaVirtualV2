@@ -277,7 +277,7 @@ namespace ProjetoEscola
                 #endregion
 
                 #region errors
-                if (name == "" || num == "" || nif == "" || adress == "" || contact == "" || pin == "" || lstTeacherSubjects.SelectedItems==null || num=="0000" || nif.Length != 9 || pin.Length!=5)
+                if (name == "" || num == "" || nif == "" || adress == "" || contact == "" || pin == "" || lstTeacherSubjects.SelectedItem==null || num=="0000" || nif.Length != 9 || pin.Length!=5)
                 {
                     MessageBox.Show("Information missing", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -324,19 +324,12 @@ namespace ProjetoEscola
 
             //cycle all selectedSubjects in listBox to add the teacher to all of them
 
-            //
+            
                    string selectedSubject = lstTeacherSubjects.SelectedItem.ToString();
-                //selected subjects in ListBox
-               
-                    ////existing subjects
-                    //Program.Anos.ForEach(y1 => y1.subjects.ForEach(s =>
-                    //{
-                    //    //lambda to add the teacher:
-                    //    if (ss == s.Name)
-                    //    Program.Anos.Where(y2 => y2.subjects.Where(s2 => s2.Name == ss).FirstOrDefault().teacher==teacher);
-                        
-                    //}));
+            //selected subjects in ListBox
 
+                #region Add the teacher
+                Program.Anos.Where(y2 => y2.subjects.Where(s2 => s2.Name == selectedSubject).FirstOrDefault().teacher==teacher);
                 #endregion
 
                 #region reset textboxes
