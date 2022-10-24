@@ -82,7 +82,7 @@ namespace ProjetoEscola
             //if teacher
             if (firstC=="t")
             {
-                //verify if the pass of the inserted num is correct
+                //verify if the pass of the inserted num is incorrect
                 if (!Program.Anos.Exists(y => y.subjects.Exists(s => s.teacher.ID == num && s.teacher.PIN == pass)))
                 {
                     txtLoginNum.Text = "";
@@ -92,6 +92,7 @@ namespace ProjetoEscola
                 }
                 else
                 {
+
                     //if exists:
                     Hide();
                     TeacherForm teacherForm = new TeacherForm();
