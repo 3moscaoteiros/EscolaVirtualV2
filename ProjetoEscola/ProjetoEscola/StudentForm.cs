@@ -22,5 +22,15 @@ namespace ProjetoEscola
             LoginForm login = new LoginForm();
             login.Visible = true;
         }
+
+        #region KeyPressEvents
+        private void txtDeposit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) || e.KeyChar == 8)
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+        #endregion
     }
 }

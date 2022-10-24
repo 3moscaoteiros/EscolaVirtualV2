@@ -25,32 +25,32 @@ namespace ProjetoEscola
             #endregion
 
             #region update requests List
-            //string request = "";
+            string request = "";
 
 
-            ////students
-            //List<Student> RequestStudents= Program.Anos.SelectMany(y => y.CLasses.ToList().SelectMany(c=>c.students.Where(s=>s.Request==true))).ToList();
+            //students
+            List<Student> RequestStudents = Program.Anos.SelectMany(y => y.CLasses.ToList().SelectMany(c => c.students.Where(s => s.Request == true))).ToList();
 
-            //foreach(Student st in RequestStudents)
-            //{
-            //    //where to store the request item name?
-            //    request = $"id:{st.ID},";
-            //    lstRequest.Items.Add(request);
-            //}
+            foreach (Student st in RequestStudents)
+            {
+                //where to store the request item name?
+                request = $"id:{st.ID},{st.RequestInfo}";
+                lstRequest.Items.Add(request);
+            }
 
-            ////teachers
+            //teachers
 
-            //Program.Anos.ForEach(y => y.subjects.ForEach(s => 
-            //{
-            //    if (s.teacher.Request == true)
-            //    {
-            //        //where to store the request item name?
-            //        request = $"id:{s.teacher.ID},";
-            //        lstRequest.Items.Add(request);
-            //    }
-            //}));
+            Program.Anos.ForEach(y => y.subjects.ForEach(s =>
+            {
+                if (s.teacher.Request == true)
+                {
+                    //where to store the request item name?
+                    request = $"id:{s.teacher.ID},";
+                    lstRequest.Items.Add(request);
+                }
+            }));
 
-           
+
 
             #endregion
 
@@ -122,14 +122,6 @@ namespace ProjetoEscola
                 e.Handled = true;
         }
 
-        private void txtContactTeacher_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (Char.IsDigit(e.KeyChar) || e.KeyChar == 8)
-                e.Handled = false;
-            else
-                e.Handled = true;
-        }
-
         private void txtNumStudent_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar) || e.KeyChar == 8)
@@ -155,6 +147,14 @@ namespace ProjetoEscola
         }
 
         private void txtPINStudnet_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) || e.KeyChar == 8)
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        private void txtPINTeacher_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar) || e.KeyChar == 8)
                 e.Handled = false;
@@ -238,6 +238,7 @@ namespace ProjetoEscola
                 Program.Anos.Where(y => y.year == YearWithTheClass).FirstOrDefault().CLasses.Where(c=>c.Name==Class).FirstOrDefault().students.Add(student);
                 #endregion
 
+                
                 #region reset textboxes
                 txtNameStudent.Text = "";
                 txtNumStudent.Text = "";
@@ -249,7 +250,7 @@ namespace ProjetoEscola
                 txtPINStudnet.Text="";
                 #endregion
 
-              
+                MessageBox.Show("Student successfully created", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception error)
             {
@@ -259,7 +260,7 @@ namespace ProjetoEscola
 
         }
 
-        private void btnCreateTeacher_Click(object sender, EventArgs e)//////////////
+        private void btnCreateTeacher_Click(object sender, EventArgs e)
         {
             try
             {
@@ -280,7 +281,7 @@ namespace ProjetoEscola
                     return;
                 }
                 #endregion
-
+                
                 #region check if exists
                 //search in list if teacher exists
 
@@ -344,6 +345,8 @@ namespace ProjetoEscola
                 txtContactTeacher.Text = "";
                 txtPINTeacher.Text = "";
                 #endregion
+
+                MessageBox.Show("Teacher successfully created", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception error)
             {
@@ -482,35 +485,38 @@ namespace ProjetoEscola
 
         }
         
-       
-
         private void btnRequest_Click(object sender, EventArgs e)//////////////////////
         {
-            //foreach (string i in lstRequest.SelectedItems)
-            //{
-            //    string num = i.Split(':')[1].Split(' ')[0];
-            //    string firstC = num.ToLower().Substring(0, 1);
+            //request = $"id:{st.ID},{st.RequestInfo}";
+            foreach (string i in lstRequest.SelectedItems)
+            {
+                string num = i.Split(',')[1].Split(',')[0];
+                string info = i.Split(':')[1];
+                string firstC = num.ToLower().Substring(0, 1);
 
-            //    //student
-            //    //if(firstC == "s")
-            //    //{
-            //    //    //Program.Anos.Where(y => y.CLasses.Where(c => c.students.
-                     
-
-
-
-            //    //}
-            //    //teacher
-            //    //if (firstC == "t")
-            //    //{
+                //student
+                if (firstC == "s")
+                {
+                    //Student std = Program.Anos.Where(y => y.CLasses.Where(c => c.students.FirstOrDefault(s => s.ID == num)));
+                    
 
 
 
 
-            //    //}
-            //    //remove from lst
+                }
+                //teacher
+                if (firstC == "t")
+                {
 
-            //}
+
+
+
+                }
+                //remove from lst
+
+            }
         }
+
+        
     }
 }

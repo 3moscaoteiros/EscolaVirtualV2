@@ -318,6 +318,7 @@ namespace ProjetoEscola
             this.txtPINTeacher.Name = "txtPINTeacher";
             this.txtPINTeacher.Size = new System.Drawing.Size(43, 20);
             this.txtPINTeacher.TabIndex = 138;
+            this.txtPINTeacher.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPINTeacher_KeyPress);
             // 
             // lblPINTeacher
             // 

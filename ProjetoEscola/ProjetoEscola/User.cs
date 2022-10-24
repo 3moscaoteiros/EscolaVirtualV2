@@ -15,6 +15,7 @@ namespace ProjetoEscola
         public string PIN { get; set; }
         public string ID { get; set; }
         public bool Request { get; set; }
+        public string RequestInfo { get; set; }
 
     }
 }

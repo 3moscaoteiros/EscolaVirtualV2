@@ -29,27 +29,26 @@ namespace ProjetoEscola
             }
 
         }
+        #region KeyPressEvents
 
-        private void cbbClasses_SelectedIndexChanged(object sender, EventArgs e)
+        private void txtSelectGrade_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if (Char.IsDigit(e.KeyChar) || e.KeyChar =='.' || e.KeyChar == 8)
+                e.Handled = false;
+            else
+                e.Handled = true;
         }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Close();
-
-        }
+        #endregion
 
         private void TeacherForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             LoginForm login = new LoginForm();
             login.Visible = true;
+        }
+
+        private void lblChangeDataTeacher_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

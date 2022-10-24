@@ -45,7 +45,7 @@
             this.txtTeacherNum = new System.Windows.Forms.TextBox();
             this.lblTeacherNum = new System.Windows.Forms.Label();
             this.lblTeacherYears = new System.Windows.Forms.Label();
-            this.txtTeacherNaem = new System.Windows.Forms.TextBox();
+            this.txtTeacherName = new System.Windows.Forms.TextBox();
             this.lblTeacherName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDesign = new System.Windows.Forms.TextBox();
@@ -59,6 +59,7 @@
             this.txtSelectGrade.Name = "txtSelectGrade";
             this.txtSelectGrade.Size = new System.Drawing.Size(68, 20);
             this.txtSelectGrade.TabIndex = 77;
+            this.txtSelectGrade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSelectGrade_KeyPress);
             // 
             // lblGradesManagement
             // 
@@ -82,7 +83,7 @@
             // 
             // txtTeacherAdress
             // 
-            this.txtTeacherAdress.Location = new System.Drawing.Point(56, 136);
+            this.txtTeacherAdress.Location = new System.Drawing.Point(56, 159);
             this.txtTeacherAdress.Name = "txtTeacherAdress";
             this.txtTeacherAdress.ReadOnly = true;
             this.txtTeacherAdress.Size = new System.Drawing.Size(189, 20);
@@ -91,7 +92,7 @@
             // lblTeacherAdress
             // 
             this.lblTeacherAdress.AutoSize = true;
-            this.lblTeacherAdress.Location = new System.Drawing.Point(12, 140);
+            this.lblTeacherAdress.Location = new System.Drawing.Point(12, 163);
             this.lblTeacherAdress.Name = "lblTeacherAdress";
             this.lblTeacherAdress.Size = new System.Drawing.Size(42, 13);
             this.lblTeacherAdress.TabIndex = 72;
@@ -99,7 +100,7 @@
             // 
             // txtTeacherContact
             // 
-            this.txtTeacherContact.Location = new System.Drawing.Point(56, 112);
+            this.txtTeacherContact.Location = new System.Drawing.Point(56, 135);
             this.txtTeacherContact.Name = "txtTeacherContact";
             this.txtTeacherContact.ReadOnly = true;
             this.txtTeacherContact.Size = new System.Drawing.Size(87, 20);
@@ -108,7 +109,7 @@
             // lblTeacherContact
             // 
             this.lblTeacherContact.AutoSize = true;
-            this.lblTeacherContact.Location = new System.Drawing.Point(12, 116);
+            this.lblTeacherContact.Location = new System.Drawing.Point(12, 139);
             this.lblTeacherContact.Name = "lblTeacherContact";
             this.lblTeacherContact.Size = new System.Drawing.Size(47, 13);
             this.lblTeacherContact.TabIndex = 70;
@@ -123,6 +124,7 @@
             this.lblChangeDataTeacher.TabIndex = 69;
             this.lblChangeDataTeacher.Text = "Change data";
             this.lblChangeDataTeacher.UseVisualStyleBackColor = true;
+            this.lblChangeDataTeacher.Click += new System.EventHandler(this.lblChangeDataTeacher_Click);
             // 
             // cbTeacherSubjects
             // 
@@ -154,7 +156,7 @@
             // 
             // txtTeacherNIF
             // 
-            this.txtTeacherNIF.Location = new System.Drawing.Point(56, 87);
+            this.txtTeacherNIF.Location = new System.Drawing.Point(56, 110);
             this.txtTeacherNIF.Name = "txtTeacherNIF";
             this.txtTeacherNIF.ReadOnly = true;
             this.txtTeacherNIF.Size = new System.Drawing.Size(87, 20);
@@ -163,7 +165,7 @@
             // lblTeacherNIF
             // 
             this.lblTeacherNIF.AutoSize = true;
-            this.lblTeacherNIF.Location = new System.Drawing.Point(28, 90);
+            this.lblTeacherNIF.Location = new System.Drawing.Point(28, 113);
             this.lblTeacherNIF.Name = "lblTeacherNIF";
             this.lblTeacherNIF.Size = new System.Drawing.Size(27, 13);
             this.lblTeacherNIF.TabIndex = 64;
@@ -171,7 +173,7 @@
             // 
             // txtTeacherNum
             // 
-            this.txtTeacherNum.Location = new System.Drawing.Point(56, 61);
+            this.txtTeacherNum.Location = new System.Drawing.Point(56, 84);
             this.txtTeacherNum.Name = "txtTeacherNum";
             this.txtTeacherNum.ReadOnly = true;
             this.txtTeacherNum.Size = new System.Drawing.Size(87, 20);
@@ -180,7 +182,7 @@
             // lblTeacherNum
             // 
             this.lblTeacherNum.AutoSize = true;
-            this.lblTeacherNum.Location = new System.Drawing.Point(24, 64);
+            this.lblTeacherNum.Location = new System.Drawing.Point(24, 87);
             this.lblTeacherNum.Name = "lblTeacherNum";
             this.lblTeacherNum.Size = new System.Drawing.Size(32, 13);
             this.lblTeacherNum.TabIndex = 62;
@@ -195,18 +197,18 @@
             this.lblTeacherYears.TabIndex = 61;
             this.lblTeacherYears.Text = "Years:";
             // 
-            // txtTeacherNaem
+            // txtTeacherName
             // 
-            this.txtTeacherNaem.Location = new System.Drawing.Point(56, 161);
-            this.txtTeacherNaem.Name = "txtTeacherNaem";
-            this.txtTeacherNaem.ReadOnly = true;
-            this.txtTeacherNaem.Size = new System.Drawing.Size(189, 20);
-            this.txtTeacherNaem.TabIndex = 60;
+            this.txtTeacherName.Location = new System.Drawing.Point(56, 58);
+            this.txtTeacherName.Name = "txtTeacherName";
+            this.txtTeacherName.ReadOnly = true;
+            this.txtTeacherName.Size = new System.Drawing.Size(189, 20);
+            this.txtTeacherName.TabIndex = 60;
             // 
             // lblTeacherName
             // 
             this.lblTeacherName.AutoSize = true;
-            this.lblTeacherName.Location = new System.Drawing.Point(18, 164);
+            this.lblTeacherName.Location = new System.Drawing.Point(18, 61);
             this.lblTeacherName.Name = "lblTeacherName";
             this.lblTeacherName.Size = new System.Drawing.Size(38, 13);
             this.lblTeacherName.TabIndex = 59;
@@ -278,7 +280,7 @@
             this.Controls.Add(this.txtTeacherNum);
             this.Controls.Add(this.lblTeacherNum);
             this.Controls.Add(this.lblTeacherYears);
-            this.Controls.Add(this.txtTeacherNaem);
+            this.Controls.Add(this.txtTeacherName);
             this.Controls.Add(this.lblTeacherName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -287,7 +289,7 @@
             this.MinimizeBox = false;
             this.Name = "TeacherForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\";
+            this.Text = "Teacher";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TeacherForm_FormClosed);
             this.Load += new System.EventHandler(this.TeacherForm_Load);
             this.ResumeLayout(false);
@@ -312,7 +314,7 @@
         private System.Windows.Forms.TextBox txtTeacherNum;
         private System.Windows.Forms.Label lblTeacherNum;
         private System.Windows.Forms.Label lblTeacherYears;
-        private System.Windows.Forms.TextBox txtTeacherNaem;
+        private System.Windows.Forms.TextBox txtTeacherName;
         private System.Windows.Forms.Label lblTeacherName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtDesign;
