@@ -20,9 +20,7 @@ namespace ProjetoEscola
         private void AdminForm_Load(object sender, EventArgs e)
         {
 
-            #region add all classes to tbStudent cbb
-            Program.Anos.ForEach(y => y.CLasses.ForEach(c => cbbClassStudent.Items.Add(c.Name)));
-            #endregion
+            
 
             #region update requests List
             string request = "";
@@ -381,7 +379,7 @@ namespace ProjetoEscola
                 Class cl = new Class();
                 cl.Name = Class;
 
-            #region verify if class already exists
+                #region verify if class already exists
             Program.Anos.ForEach(y => y.CLasses.ForEach(c =>
             {
                 if (c.Name == Class)
@@ -479,6 +477,9 @@ namespace ProjetoEscola
                 }
                 #endregion
 
+                #region add all classes to tbStudent cbb
+                Program.Anos.ForEach(y => y.CLasses.ForEach(c => cbbClassStudent.Items.Add(c.Name)));
+                #endregion
             }
             catch (Exception error)
             {
