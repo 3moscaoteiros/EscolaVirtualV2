@@ -487,33 +487,42 @@ namespace ProjetoEscola
         
         private void btnRequest_Click(object sender, EventArgs e)//////////////////////
         {
-            //request = $"id:{st.ID},{st.RequestInfo}";
+            
             foreach (string i in lstRequest.SelectedItems)
             {
                 string num = i.Split(',')[1].Split(',')[0];
                 string info = i.Split(':')[1];
                 string firstC = num.ToLower().Substring(0, 1);
 
-                //student
+                //updt student
                 if (firstC == "s")
                 {
-                    //Student std = Program.Anos.Where(y => y.CLasses.Where(c => c.students.FirstOrDefault(s => s.ID == num)));
-                    
-
-
-
-
+     
+                    Program.Anos.ForEach(y => y.CLasses.ForEach(c => c.students.ForEach(s =>
+                    {
+                        if (s.ID == num)
+                        {
+                            s.Request = false;
+                            s.RequestInfo = null;
+                        }
+                    })));
                 }
-                //teacher
+                //updt teacher
                 if (firstC == "t")
                 {
-
-
-
+                    Program.Anos.ForEach(y => y.subjects.ForEach(s =>
+                    {
+                        if (s.teacher.ID == num)
+                        {
+                            s.teacher.Request = false;
+                            s.teacher.RequestInfo = null;
+                        }
+                    }));
 
                 }
                 //remove from lst
 
+                lstRequest.Items.Remove(i);
             }
         }
 
