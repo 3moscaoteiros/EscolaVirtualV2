@@ -179,7 +179,7 @@ namespace ProjetoEscola
                 #endregion
 
                 #region errors
-                if (name == "" || num == "" || nif == "" || adress == "" || contact == "" || cbbClassStudent.Items==null || money == "" || pin == "" || num=="0000")
+                if (name == "" || num == "" || nif == "" || adress == "" || contact == "" || cbbClassStudent.Items==null || money == "" || pin == "" || num=="0000" || nif.Length!=9)
                 {
                     MessageBox.Show("Information missing", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -238,7 +238,7 @@ namespace ProjetoEscola
                 Program.Anos.Where(y => y.year == YearWithTheClass).FirstOrDefault().CLasses.Where(c=>c.Name==Class).FirstOrDefault().students.Add(student);
                 #endregion
 
-                
+            
                 #region reset textboxes
                 txtNameStudent.Text = "";
                 txtNumStudent.Text = "";
@@ -275,7 +275,7 @@ namespace ProjetoEscola
                 #endregion
 
                 #region errors
-                if (name == "" || num == "" || nif == "" || adress == "" || contact == "" || pin == "" || lstTeacherSubjects.SelectedItems==null || num=="0000")
+                if (name == "" || num == "" || nif == "" || adress == "" || contact == "" || pin == "" || lstTeacherSubjects.SelectedItems==null || num=="0000" || nif.Length != 9)
                 {
                     MessageBox.Show("Information missing", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -354,7 +354,7 @@ namespace ProjetoEscola
             }
         }
 
-        private void btnCreateClass_Click(object sender, EventArgs e)
+        private void btnCreateClass_Click(object sender, EventArgs e)//////////////
         {
             try
             {
@@ -478,7 +478,7 @@ namespace ProjetoEscola
                 #endregion
 
                 #region add all classes to tbStudent cbb
-                Program.Anos.ForEach(y => y.CLasses.ForEach(c => cbbClassStudent.Items.Add(c.Name)));
+                Program.Anos.ForEach(y => y.CLasses.ForEach(c => cbbClassStudent.Items.Add(cl.Name)));
                 #endregion
             }
             catch (Exception error)
@@ -528,7 +528,5 @@ namespace ProjetoEscola
                 lstRequest.Items.Remove(i);
             }
         }
-
-        
     }
 }
