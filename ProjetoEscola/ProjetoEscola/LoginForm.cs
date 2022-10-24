@@ -122,7 +122,6 @@ namespace ProjetoEscola
                 }
             }
                  
-            //List<Student> StudentsProf = Program.Anos.SelectMany(s => s.CLasses.Exists(h => h.)
 
         }
 
