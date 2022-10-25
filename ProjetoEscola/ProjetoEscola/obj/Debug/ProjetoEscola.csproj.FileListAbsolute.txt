@@ -39,3 +39,6 @@ C:\Users\Maxi G\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj
 C:\Users\Maxi G\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.csproj.CoreCompileInputs.cache
 C:\Users\Maxi G\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.exe
 C:\Users\Maxi G\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\obj\Debug\ProjetoEscola.pdb
+C:\Users\Maxi G\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\bin\Debug\ProjetoEscola.exe.config
+C:\Users\Maxi G\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\bin\Debug\ProjetoEscola.exe
+C:\Users\Maxi G\Documents\GitHub\EscolaVirtualV2\ProjetoEscola\ProjetoEscola\bin\Debug\ProjetoEscola.pdb

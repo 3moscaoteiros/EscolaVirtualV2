@@ -262,10 +262,10 @@ namespace ProjetoEscola
 
         }
 
-        private void btnCreateTeacher_Click(object sender, EventArgs e)/////////////////////
+        private void btnCreateTeacher_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 #region variables
                 string name = txtNameTeacher.Text.Trim();
                 string num = txtNumTeacher.Text.Trim();
@@ -282,17 +282,22 @@ namespace ProjetoEscola
                     MessageBox.Show("Information missing", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                #endregion
-                
-                #region check if exists
-                //search in list if teacher exists
+            #endregion
 
-                Program.Anos.ForEach(y => y.subjects.ForEach(s=>
+                #region check if exists
+            // how to make him find only subject that existed before adding the year?
+            //search in list if teacher exists
+
+            Program.Anos.ForEach(y => y.subjects.ForEach(s =>
+            {
+                //if the suject has teacher(to avoid looping new created subjects)
+                if (s.teacher != null)
                 {
                     if (s.teacher.ID == num || s.teacher.NIF.ToString().Trim() == nif)
                         exists = true;
+                }
 
-                }));
+            }));
 
 
                 //error
@@ -322,11 +327,9 @@ namespace ProjetoEscola
 
                 };
 
-            //cycle all selectedSubjects in listBox to add the teacher to all of them
-
-            
-                   string selectedSubject = lstTeacherSubjects.SelectedItem.ToString();
-            //selected subjects in ListBox
+                //selected subject in ListBox
+                string selectedSubject = lstTeacherSubjects.SelectedItem.ToString();
+                
 
                 #region Add the teacher
                 Program.Anos.Where(y2 => y2.subjects.Where(s2 => s2.Name == selectedSubject).FirstOrDefault().teacher==teacher);
@@ -342,11 +345,11 @@ namespace ProjetoEscola
                 #endregion
 
                 MessageBox.Show("Teacher successfully created", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
-            //catch (Exception error)
-            //{
-            //    MessageBox.Show(error.Message);
-            //}
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
         }
 
         private void btnCreateClass_Click(object sender, EventArgs e)

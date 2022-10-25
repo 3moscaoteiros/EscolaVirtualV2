@@ -36,10 +36,8 @@ namespace ProjetoEscola
 
         private void StudentForm_Load(object sender, EventArgs e)
         {
-            Program.Anos.ForEach(a =>
-            {
-                a.CLasses.ForEach(c =>
-                    {
+            Program.Anos.ForEach(a => a.CLasses.ForEach(c =>
+                {
                         if(c.students.Exists(s => s.LoginState == 1))
                         {
                             txtStudentName.Text = c.students.Find(s => s.LoginState == 1).Name.ToString();
@@ -66,8 +64,8 @@ namespace ProjetoEscola
                                 }
                             }
                         }
-                    });
-            });
+                }));
+            
         }
     }
 }
