@@ -375,13 +375,14 @@ namespace ProjetoEscola
                 cl.Name = Class;
 
                 #region verify if class already exists
-            Program.Anos.ForEach(y => y.CLasses.ForEach(c =>
-            {
-                if (c.Name == Class)
-                    hasClass = true;
+                        Program.Anos.ForEach(y => y.CLasses.ForEach(c =>
+                        {
+                            if (c.Name == Class)
+                            hasClass = true;
 
-            }));
-                
+                        }));
+                #endregion
+
                 if (hasClass==false)
                 {
 
