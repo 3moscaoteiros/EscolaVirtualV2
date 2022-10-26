@@ -25,7 +25,7 @@ namespace ProjetoEscola
 
             List<Student> students = (List<Student>)Program.Anos.SelectMany(a => a.CLasses.SelectMany(c => c.students.SelectMany(s => s.grades.Where(b => b.Subject.teacher.ID == txtTeacherNum.Text))));
 
-            if (students.Count != null)
+            if (students.Count >= 0)
             {
 
                 for (int i = 0; i < students.Count; i++)
