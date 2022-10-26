@@ -23,19 +23,26 @@ namespace ProjetoEscola
         private void TeacherForm_Load(object sender, EventArgs e)
         {
 
-            //List<Student> students = (List<Student>)Program.Anos.SelectMany(a => a.CLasses.SelectMany(c => c.students.SelectMany(s => s.grades.Where(b => b.Subject.teacher.ID == txtTeacherNum.Text))));
+            List<Student> students = (List<Student>)Program.Anos.SelectMany(a => a.CLasses.SelectMany(c => c.students.SelectMany(s => s.grades.Where(b => b.Subject.teacher.ID == txtTeacherNum.Text))));
 
-            //for (int i = 0; i < students.Count; i++)
-            //{
-            //    lstStudentGrade.Items.Add(students[i].ToString());
-            //}
+            if (students.Count != null)
+            {
+
+                for (int i = 0; i < students.Count; i++)
+                {
+                    lstStudentGrade.Items.Add(students[i].ToString());
+                }
+            }
+            else
+                MessageBox.Show("no students found ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            
 
         }
         #region KeyPressEvents
 
         private void txtSelectGrade_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Char.IsDigit(e.KeyChar) || e.KeyChar =='.' || e.KeyChar == 8)
+            if (Char.IsDigit(e.KeyChar) || e.KeyChar == '.' || e.KeyChar == 8)
                 e.Handled = false;
             else
                 e.Handled = true;
