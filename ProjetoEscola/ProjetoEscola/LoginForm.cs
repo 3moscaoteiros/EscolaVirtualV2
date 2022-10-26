@@ -23,15 +23,15 @@ namespace ProjetoEscola
 
                {
                  new Subject() { Name = "Português" ,
-                                         teacher = new Teacher(){ID="t0001", PIN="00000" } } ,
+                                         teacher = new Teacher(){ID="t0001", PIN="00000", NIF=412462116 } } ,
                  new Subject() { Name = "Matemática",
-                                         teacher = new Teacher(){ID="t0002", PIN="00000"} } ,
+                                         teacher = new Teacher(){ID="t0002", PIN="00000", NIF=957483650} } ,
                  new Subject() { Name = "Inglês" ,
-                                         teacher = new Teacher(){ID="t0003", PIN="00000"} } ,
+                                         teacher = new Teacher(){ID="t0003", PIN="00000", NIF=390172831} } ,
                  new Subject() { Name = "Ciências",
-                                         teacher = new Teacher(){ID="t0004", PIN="00000"} } ,
+                                         teacher = new Teacher(){ID="t0004", PIN="00000", NIF=317390817} } ,
                  new Subject() { Name = "Educação Física",
-                                         teacher = new Teacher(){ID="t0005", PIN="00000"} } });
+                                         teacher = new Teacher(){ID="t0005", PIN="00000", NIF=361209382} } });
 
             Program.Anos.Find(s => s.year == "6").subjects.AddRange(new Subject[]
 
@@ -66,6 +66,7 @@ namespace ProjetoEscola
                     Hide();
                     AdminForm adminForm = new AdminForm();
                     adminForm.ShowDialog();
+                    return;
               }
 
             if (num.Length != 5 || pass.Length != 5)
@@ -75,8 +76,9 @@ namespace ProjetoEscola
             }
 
             #endregion
+
             //take first char(t or s)
-            string firstC = txtLoginNum.Text.ToLower().Substring(0, 1);
+            string firstC = txtLoginNum.Text.Trim().ToLower().Substring(0, 1);
            
 
             //if teacher
@@ -87,9 +89,8 @@ namespace ProjetoEscola
                 {
                     txtLoginNum.Text = "";
                     txtLoginPassword.Text = "";
-
                     MessageBox.Show("Wrong information!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                }   
                 else
                 {
 
@@ -99,8 +100,6 @@ namespace ProjetoEscola
                     teacherForm.ShowDialog();
                 }
             }
-   
-
             //if student
             if (firstC == "s")
             {
@@ -123,7 +122,7 @@ namespace ProjetoEscola
                     studentForm.ShowDialog();
                 }
             }
-               
+
 
         }
 

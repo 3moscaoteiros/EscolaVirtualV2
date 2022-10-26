@@ -23,12 +23,12 @@ namespace ProjetoEscola
         private void TeacherForm_Load(object sender, EventArgs e)
         {
 
-            List<Student> students = (List<Student>)Program.Anos.SelectMany(a => a.CLasses.SelectMany(c => c.students.SelectMany(s => s.grades.Where(b => b.Subject.teacher.ID == txtTeacherNum.Text))));
+            //List<Student> students = (List<Student>)Program.Anos.SelectMany(a => a.CLasses.SelectMany(c => c.students.SelectMany(s => s.grades.Where(b => b.Subject.teacher.ID == txtTeacherNum.Text))));
 
-            for (int i = 0; i < students.Count; i++)
-            {
-                lstStudentGrade.Items.Add(students[i].ToString());
-            }
+            //for (int i = 0; i < students.Count; i++)
+            //{
+            //    lstStudentGrade.Items.Add(students[i].ToString());
+            //}
 
         }
         #region KeyPressEvents
