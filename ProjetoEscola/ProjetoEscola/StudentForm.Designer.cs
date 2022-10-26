@@ -51,6 +51,8 @@
             this.lblStudentName = new System.Windows.Forms.Label();
             this.txtdesign1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblClassStdnt = new System.Windows.Forms.Label();
+            this.txtClassStdnt = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // cbStudentSubjects
@@ -67,7 +69,7 @@
             // lblStudentSubjects
             // 
             this.lblStudentSubjects.AutoSize = true;
-            this.lblStudentSubjects.Location = new System.Drawing.Point(14, 137);
+            this.lblStudentSubjects.Location = new System.Drawing.Point(14, 138);
             this.lblStudentSubjects.Name = "lblStudentSubjects";
             this.lblStudentSubjects.Size = new System.Drawing.Size(51, 13);
             this.lblStudentSubjects.TabIndex = 65;
@@ -80,13 +82,13 @@
             this.txtStudentAdress.Location = new System.Drawing.Point(67, 161);
             this.txtStudentAdress.Name = "txtStudentAdress";
             this.txtStudentAdress.ReadOnly = true;
-            this.txtStudentAdress.Size = new System.Drawing.Size(149, 20);
+            this.txtStudentAdress.Size = new System.Drawing.Size(158, 20);
             this.txtStudentAdress.TabIndex = 64;
             // 
             // lblStudentAdress
             // 
             this.lblStudentAdress.AutoSize = true;
-            this.lblStudentAdress.Location = new System.Drawing.Point(21, 163);
+            this.lblStudentAdress.Location = new System.Drawing.Point(21, 164);
             this.lblStudentAdress.Name = "lblStudentAdress";
             this.lblStudentAdress.Size = new System.Drawing.Size(42, 13);
             this.lblStudentAdress.TabIndex = 63;
@@ -105,7 +107,7 @@
             // lblStudentContact
             // 
             this.lblStudentContact.AutoSize = true;
-            this.lblStudentContact.Location = new System.Drawing.Point(23, 189);
+            this.lblStudentContact.Location = new System.Drawing.Point(18, 189);
             this.lblStudentContact.Name = "lblStudentContact";
             this.lblStudentContact.Size = new System.Drawing.Size(47, 13);
             this.lblStudentContact.TabIndex = 61;
@@ -114,9 +116,9 @@
             // btnChangeDataStudent
             // 
             this.btnChangeDataStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangeDataStudent.Location = new System.Drawing.Point(67, 232);
+            this.btnChangeDataStudent.Location = new System.Drawing.Point(67, 244);
             this.btnChangeDataStudent.Name = "btnChangeDataStudent";
-            this.btnChangeDataStudent.Size = new System.Drawing.Size(129, 47);
+            this.btnChangeDataStudent.Size = new System.Drawing.Size(129, 35);
             this.btnChangeDataStudent.TabIndex = 60;
             this.btnChangeDataStudent.Text = "Change data";
             this.btnChangeDataStudent.UseVisualStyleBackColor = true;
@@ -201,7 +203,7 @@
             // lblStudentNum
             // 
             this.lblStudentNum.AutoSize = true;
-            this.lblStudentNum.Location = new System.Drawing.Point(32, 59);
+            this.lblStudentNum.Location = new System.Drawing.Point(32, 61);
             this.lblStudentNum.Name = "lblStudentNum";
             this.lblStudentNum.Size = new System.Drawing.Size(32, 13);
             this.lblStudentNum.TabIndex = 51;
@@ -220,7 +222,7 @@
             // lblStudentYear
             // 
             this.lblStudentYear.AutoSize = true;
-            this.lblStudentYear.Location = new System.Drawing.Point(30, 111);
+            this.lblStudentYear.Location = new System.Drawing.Point(30, 112);
             this.lblStudentYear.Name = "lblStudentYear";
             this.lblStudentYear.Size = new System.Drawing.Size(32, 13);
             this.lblStudentYear.TabIndex = 49;
@@ -239,7 +241,7 @@
             // lblStudentName
             // 
             this.lblStudentName.AutoSize = true;
-            this.lblStudentName.Location = new System.Drawing.Point(24, 36);
+            this.lblStudentName.Location = new System.Drawing.Point(27, 36);
             this.lblStudentName.Name = "lblStudentName";
             this.lblStudentName.Size = new System.Drawing.Size(38, 13);
             this.lblStudentName.TabIndex = 47;
@@ -269,12 +271,33 @@
             this.label1.TabIndex = 84;
             this.label1.Text = "School Card";
             // 
+            // lblClassStdnt
+            // 
+            this.lblClassStdnt.AutoSize = true;
+            this.lblClassStdnt.Location = new System.Drawing.Point(27, 214);
+            this.lblClassStdnt.Name = "lblClassStdnt";
+            this.lblClassStdnt.Size = new System.Drawing.Size(35, 13);
+            this.lblClassStdnt.TabIndex = 85;
+            this.lblClassStdnt.Text = "Class:";
+            // 
+            // txtClassStdnt
+            // 
+            this.txtClassStdnt.BackColor = System.Drawing.SystemColors.Control;
+            this.txtClassStdnt.Enabled = false;
+            this.txtClassStdnt.Location = new System.Drawing.Point(67, 211);
+            this.txtClassStdnt.Name = "txtClassStdnt";
+            this.txtClassStdnt.ReadOnly = true;
+            this.txtClassStdnt.Size = new System.Drawing.Size(87, 20);
+            this.txtClassStdnt.TabIndex = 86;
+            // 
             // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(542, 289);
+            this.Controls.Add(this.txtClassStdnt);
+            this.Controls.Add(this.lblClassStdnt);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtdesign1);
             this.Controls.Add(this.cbStudentSubjects);
@@ -336,5 +359,7 @@
         private System.Windows.Forms.Label lblStudentName;
         private System.Windows.Forms.TextBox txtdesign1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblClassStdnt;
+        private System.Windows.Forms.TextBox txtClassStdnt;
     }
 }
