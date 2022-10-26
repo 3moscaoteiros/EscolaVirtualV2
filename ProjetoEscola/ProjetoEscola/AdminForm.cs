@@ -539,7 +539,7 @@ namespace ProjetoEscola
 
         private void AdminForm_Shown(object sender, EventArgs e)
         {
-            #region mmessageBox tip to create classes
+            #region messageBox tip to create classes
 
             if (!Program.Anos.Any(y => y.CLasses.Any()))
             {

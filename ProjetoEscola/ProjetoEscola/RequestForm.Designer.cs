@@ -32,7 +32,7 @@ namespace ProjetoEscola
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RequestForm));
             this.cbbRequest = new System.Windows.Forms.ComboBox();
             this.txtRequest = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRequest = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -57,14 +57,14 @@ namespace ProjetoEscola
             this.txtRequest.Size = new System.Drawing.Size(158, 20);
             this.txtRequest.TabIndex = 1;
             // 
-            // button1
+            // btnRequest
             // 
-            this.button1.Location = new System.Drawing.Point(63, 133);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "OK";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnRequest.Location = new System.Drawing.Point(63, 133);
+            this.btnRequest.Name = "btnRequest";
+            this.btnRequest.Size = new System.Drawing.Size(158, 23);
+            this.btnRequest.TabIndex = 2;
+            this.btnRequest.Text = "OK";
+            this.btnRequest.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -76,21 +76,21 @@ namespace ProjetoEscola
             this.label1.TabIndex = 3;
             this.label1.Text = "What do you want to change?";
             // 
-            // Request
+            // RequestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(285, 179);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnRequest);
             this.Controls.Add(this.txtRequest);
             this.Controls.Add(this.cbbRequest);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Request";
+            this.Name = "RequestForm";
             this.Text = "Request";
             this.Load += new System.EventHandler(this.Request_Load);
             this.ResumeLayout(false);
@@ -102,7 +102,7 @@ namespace ProjetoEscola
 
         private System.Windows.Forms.ComboBox cbbRequest;
         private System.Windows.Forms.TextBox txtRequest;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRequest;
         private System.Windows.Forms.Label label1;
     }
 }
