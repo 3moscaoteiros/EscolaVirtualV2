@@ -419,6 +419,8 @@ namespace ProjetoEscola
                         createdYear.CLasses.Add(cl);
                         Program.Anos.Add(createdYear);
 
+                        //update cbb
+                        cbbClassStudent.Items.Add(cl.Name.ToString());
                     }
 
                     #region add subjects
@@ -516,7 +518,7 @@ namespace ProjetoEscola
                         }
                     })));
                 }
-                //updt teacher
+                //update teacher
                 if (firstC == "t")
                 {
                     Program.Anos.ForEach(y => y.subjects.ForEach(s =>
