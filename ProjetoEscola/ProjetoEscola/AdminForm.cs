@@ -42,14 +42,14 @@ namespace ProjetoEscola
 
             //teachers
 
-            Program.Anos.ForEach(y => y.subjects.ForEach(s =>
-            {               
-                if (s.teacher.Request == true)
-                {
-                    request = $"id:{s.teacher.ID},";
-                    lstRequest.Items.Add(request);
-                }
-            }));
+            //Program.Anos.ForEach(y => y.subjects.ForEach(s =>
+            //{               
+            //    if (s.teacher.Request == true)
+            //    {
+            //        request = $"id:{s.teacher.ID},";
+            //        lstRequest.Items.Add(request);
+            //    }
+           // }));
 
 
 

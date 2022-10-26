@@ -113,7 +113,7 @@ namespace ProjetoEscola
                 }
                 else
                 {
-                    Program.Anos.FirstOrDefault(s => s.CLasses.Exists(a => a.students.Find(g => g.ID == txtLoginNum.Text).LoginState == 1));
+                    Program.Anos.Exists(s => s.CLasses.Exists(a => a.students.Find(g => g.ID == txtLoginNum.Text).LoginState == 1));
 
                     //if exists:
                     Hide();
