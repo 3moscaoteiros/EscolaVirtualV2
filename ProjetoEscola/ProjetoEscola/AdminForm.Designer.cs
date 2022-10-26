@@ -314,7 +314,7 @@ namespace ProjetoEscola
             // 
             // txtPINTeacher
             // 
-            this.txtPINTeacher.Location = new System.Drawing.Point(70, 185);
+            this.txtPINTeacher.Location = new System.Drawing.Point(52, 185);
             this.txtPINTeacher.MaxLength = 5;
             this.txtPINTeacher.Name = "txtPINTeacher";
             this.txtPINTeacher.Size = new System.Drawing.Size(43, 20);
@@ -324,7 +324,7 @@ namespace ProjetoEscola
             // lblPINTeacher
             // 
             this.lblPINTeacher.AutoSize = true;
-            this.lblPINTeacher.Location = new System.Drawing.Point(36, 188);
+            this.lblPINTeacher.Location = new System.Drawing.Point(18, 188);
             this.lblPINTeacher.Name = "lblPINTeacher";
             this.lblPINTeacher.Size = new System.Drawing.Size(28, 13);
             this.lblPINTeacher.TabIndex = 137;
@@ -333,7 +333,7 @@ namespace ProjetoEscola
             // btnCreateTeacher
             // 
             this.btnCreateTeacher.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateTeacher.Location = new System.Drawing.Point(131, 254);
+            this.btnCreateTeacher.Location = new System.Drawing.Point(66, 236);
             this.btnCreateTeacher.Name = "btnCreateTeacher";
             this.btnCreateTeacher.Size = new System.Drawing.Size(107, 45);
             this.btnCreateTeacher.TabIndex = 135;
@@ -343,7 +343,7 @@ namespace ProjetoEscola
             // 
             // txtAdressTeacher
             // 
-            this.txtAdressTeacher.Location = new System.Drawing.Point(70, 133);
+            this.txtAdressTeacher.Location = new System.Drawing.Point(52, 133);
             this.txtAdressTeacher.Name = "txtAdressTeacher";
             this.txtAdressTeacher.Size = new System.Drawing.Size(168, 20);
             this.txtAdressTeacher.TabIndex = 134;
@@ -351,7 +351,7 @@ namespace ProjetoEscola
             // blbAdressTeacher
             // 
             this.blbAdressTeacher.AutoSize = true;
-            this.blbAdressTeacher.Location = new System.Drawing.Point(28, 136);
+            this.blbAdressTeacher.Location = new System.Drawing.Point(10, 136);
             this.blbAdressTeacher.Name = "blbAdressTeacher";
             this.blbAdressTeacher.Size = new System.Drawing.Size(42, 13);
             this.blbAdressTeacher.TabIndex = 133;
@@ -359,7 +359,7 @@ namespace ProjetoEscola
             // 
             // txtContactTeacher
             // 
-            this.txtContactTeacher.Location = new System.Drawing.Point(70, 159);
+            this.txtContactTeacher.Location = new System.Drawing.Point(52, 159);
             this.txtContactTeacher.Name = "txtContactTeacher";
             this.txtContactTeacher.Size = new System.Drawing.Size(87, 20);
             this.txtContactTeacher.TabIndex = 132;
@@ -367,7 +367,7 @@ namespace ProjetoEscola
             // lblContactTeacher
             // 
             this.lblContactTeacher.AutoSize = true;
-            this.lblContactTeacher.Location = new System.Drawing.Point(23, 162);
+            this.lblContactTeacher.Location = new System.Drawing.Point(5, 162);
             this.lblContactTeacher.Name = "lblContactTeacher";
             this.lblContactTeacher.Size = new System.Drawing.Size(47, 13);
             this.lblContactTeacher.TabIndex = 131;
@@ -375,7 +375,7 @@ namespace ProjetoEscola
             // 
             // txtNIFTeacher
             // 
-            this.txtNIFTeacher.Location = new System.Drawing.Point(70, 107);
+            this.txtNIFTeacher.Location = new System.Drawing.Point(52, 107);
             this.txtNIFTeacher.MaxLength = 9;
             this.txtNIFTeacher.Name = "txtNIFTeacher";
             this.txtNIFTeacher.Size = new System.Drawing.Size(87, 20);
@@ -385,7 +385,7 @@ namespace ProjetoEscola
             // lblNIFTeacher
             // 
             this.lblNIFTeacher.AutoSize = true;
-            this.lblNIFTeacher.Location = new System.Drawing.Point(41, 108);
+            this.lblNIFTeacher.Location = new System.Drawing.Point(23, 108);
             this.lblNIFTeacher.Name = "lblNIFTeacher";
             this.lblNIFTeacher.Size = new System.Drawing.Size(27, 13);
             this.lblNIFTeacher.TabIndex = 129;
@@ -393,7 +393,7 @@ namespace ProjetoEscola
             // 
             // txtNumTeacher
             // 
-            this.txtNumTeacher.Location = new System.Drawing.Point(70, 82);
+            this.txtNumTeacher.Location = new System.Drawing.Point(52, 82);
             this.txtNumTeacher.MaxLength = 4;
             this.txtNumTeacher.Name = "txtNumTeacher";
             this.txtNumTeacher.Size = new System.Drawing.Size(87, 20);
@@ -403,7 +403,7 @@ namespace ProjetoEscola
             // lblNumTeacher
             // 
             this.lblNumTeacher.AutoSize = true;
-            this.lblNumTeacher.Location = new System.Drawing.Point(36, 85);
+            this.lblNumTeacher.Location = new System.Drawing.Point(18, 85);
             this.lblNumTeacher.Name = "lblNumTeacher";
             this.lblNumTeacher.Size = new System.Drawing.Size(32, 13);
             this.lblNumTeacher.TabIndex = 127;
@@ -411,7 +411,7 @@ namespace ProjetoEscola
             // 
             // txtNameTeacher
             // 
-            this.txtNameTeacher.Location = new System.Drawing.Point(70, 57);
+            this.txtNameTeacher.Location = new System.Drawing.Point(52, 57);
             this.txtNameTeacher.Name = "txtNameTeacher";
             this.txtNameTeacher.Size = new System.Drawing.Size(158, 20);
             this.txtNameTeacher.TabIndex = 126;
@@ -420,7 +420,7 @@ namespace ProjetoEscola
             // lblNameTeacher
             // 
             this.lblNameTeacher.AutoSize = true;
-            this.lblNameTeacher.Location = new System.Drawing.Point(30, 64);
+            this.lblNameTeacher.Location = new System.Drawing.Point(12, 64);
             this.lblNameTeacher.Name = "lblNameTeacher";
             this.lblNameTeacher.Size = new System.Drawing.Size(38, 13);
             this.lblNameTeacher.TabIndex = 125;
@@ -440,10 +440,9 @@ namespace ProjetoEscola
             // lstTeacherSubjects
             // 
             this.lstTeacherSubjects.FormattingEnabled = true;
-            this.lstTeacherSubjects.Location = new System.Drawing.Point(255, 57);
+            this.lstTeacherSubjects.Location = new System.Drawing.Point(226, 57);
             this.lstTeacherSubjects.Name = "lstTeacherSubjects";
-            this.lstTeacherSubjects.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lstTeacherSubjects.Size = new System.Drawing.Size(97, 134);
+            this.lstTeacherSubjects.Size = new System.Drawing.Size(126, 186);
             this.lstTeacherSubjects.TabIndex = 122;
             // 
             // lblSubjectsTeacher
@@ -577,6 +576,7 @@ namespace ProjetoEscola
             this.Text = "AdminForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminForm_FormClosed);
             this.Load += new System.EventHandler(this.AdminForm_Load);
+            this.Shown += new System.EventHandler(this.AdminForm_Shown);
             this.tbAdmin.ResumeLayout(false);
             this.tpStudent.ResumeLayout(false);
             this.tpStudent.PerformLayout();
