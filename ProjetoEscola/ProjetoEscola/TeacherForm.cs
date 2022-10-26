@@ -38,6 +38,7 @@ namespace ProjetoEscola
             
 
         }
+
         #region KeyPressEvents
 
         private void txtSelectGrade_KeyPress(object sender, KeyPressEventArgs e)
