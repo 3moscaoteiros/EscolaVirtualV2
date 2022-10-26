@@ -47,9 +47,10 @@ namespace ProjetoEscola
                             txtClassStdnt.Text = c.Name;
                             txtStudentAdress.Text = c.students.Find(s => s.LoginState == 1).Adress.ToString();
                             txtBalance.Text = c.students.Find(s => s.LoginState == 1).Balance.ToString();
+                            txtStudentContact.Text = c.students.Find(s => s.LoginState == 1).EMAIL.ToString();
 
-                            //Adicionar as discplinas do aluno para a cbb.
-                            foreach(Year y in Program.Anos)
+                        //Adicionar as discplinas do aluno para a cbb.
+                        foreach (Year y in Program.Anos)
                             {
                                 //Se o ano letivo for igual ao ano letivo do aluno selecionado anteriormente ,
                                 //são colocados para a coleção items da cbb todas as discplinas desse aluno.
@@ -57,9 +58,9 @@ namespace ProjetoEscola
                                 {
                                     int idx;
 
-                                    for(idx = 0; idx <= y.subjects.Count; idx++)
+                                    for(idx = 0; idx < y.subjects.Count; idx++)
                                     {
-                                        cbStudentSubjects.Items.Add(a.subjects[idx]);
+                                        cbStudentSubjects.Items.Add(a.subjects[idx].ToString());
                                     }
                                 }
                             }

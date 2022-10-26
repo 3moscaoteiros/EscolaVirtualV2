@@ -113,7 +113,14 @@ namespace ProjetoEscola
                 }
                 else
                 {
-                    Program.Anos.Exists(s => s.CLasses.Exists(a => a.students.Find(g => g.ID == txtLoginNum.Text).LoginState == 1));
+                    Program.Anos.ForEach(y =>
+                    {
+                        y.CLasses.ForEach(c =>
+                        {
+                            c.students.Find(s => s.ID == txtLoginNum.Text).LoginState = 1;
+
+                        });
+                    });
 
                     //if exists:
                     Hide();
