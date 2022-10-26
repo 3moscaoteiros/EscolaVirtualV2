@@ -182,12 +182,23 @@ namespace ProjetoEscola
                 #endregion
 
                 #region errors
-                if (name == "" || num == "" || nif == "" || adress == "" || contact == "" || cbbClassStudent.Items==null || money == "" || pin == "" || num=="0000" || nif.Length!=9 || pin.Length!=5)
+                if (name == "" || num == "" || nif == "" || adress == "" || contact == "" || cbbClassStudent.Items==null || money == "" || pin == "" || num=="0000")
                 {
                     MessageBox.Show("Information missing", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
+                if (nif.Length != 9)
+                {
+                    MessageBox.Show("Please insert 9 digits at NIF", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (pin.Length != 5)
+                {
+                    MessageBox.Show("Please insert 5 digits at PIN", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
                 #endregion
 
@@ -258,7 +269,6 @@ namespace ProjetoEscola
             {
                 MessageBox.Show(error.Message);
             }
-
 
         }
 
@@ -375,12 +385,12 @@ namespace ProjetoEscola
                 #endregion
 
                 Class cl = new Class();
-                cl.Name = Class;
+                cl.Name = $"{year}:{Class}";
 
                 #region verify if class already exists
                         Program.Anos.ForEach(y => y.CLasses.ForEach(c =>
                         {
-                            if (c.Name == Class)
+                            if (c.Name == $"{year}:{txtCreateClass.Text}")
                             hasClass = true;
 
                         }));
@@ -409,6 +419,8 @@ namespace ProjetoEscola
                         createdYear.CLasses.Add(cl);
                         Program.Anos.Add(createdYear);
 
+                        //update cbb
+                        cbbClassStudent.Items.Add(cl.Name.ToString());
                     }
 
                     #region add subjects
@@ -493,7 +505,7 @@ namespace ProjetoEscola
                 string info = i.Split(':')[1];
                 string firstC = num.ToLower().Substring(0, 1);
 
-                //updt student
+                //update student
                 if (firstC == "s")
                 {
      
@@ -506,7 +518,7 @@ namespace ProjetoEscola
                         }
                     })));
                 }
-                //updt teacher
+                //update teacher
                 if (firstC == "t")
                 {
                     Program.Anos.ForEach(y => y.subjects.ForEach(s =>
