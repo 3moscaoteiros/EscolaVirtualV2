@@ -20,12 +20,11 @@ namespace ProjetoEscola
         private void LoginForm_Load(object sender, EventArgs e)
         {
             Program.Anos.Find(s => s.year == "5").subjects.AddRange(new Subject[]
-
                {
                  new Subject() { Name = "Português" ,
                                          teacher = new Teacher(){ID="t0001", PIN="00000", NIF=412462116 } } ,
                  new Subject() { Name = "Matemática",
-                                         teacher = new Teacher(){ID="t0002", PIN="00000", NIF=957483650} } ,
+                                         teacher = new Teacher(){ID="t0002", PIN="00001", NIF=957483650} } ,
                  new Subject() { Name = "Inglês" ,
                                          teacher = new Teacher(){ID="t0003", PIN="00000", NIF=390172831} } ,
                  new Subject() { Name = "Ciências",
