@@ -46,7 +46,7 @@ namespace ProjetoEscola
                             txtStudentYear.Text = a.year;
                             txtClassStdnt.Text = c.Name;
                             txtStudentAdress.Text = c.students.Find(s => s.LoginState == 1).Adress.ToString();
-                            txtBalance.Text = c.students.Find(s => s.LoginState == 1).Balance.ToString();
+                            txtBalance.Text = c.students.Find(s => s.LoginState == 1).Balance.ToString() + "€";
                             txtStudentContact.Text = c.students.Find(s => s.LoginState == 1).EMAIL.ToString();
 
                         //Adicionar as discplinas do aluno para a cbb.
@@ -60,13 +60,33 @@ namespace ProjetoEscola
 
                                     for(idx = 0; idx < y.subjects.Count; idx++)
                                     {
-                                        cbStudentSubjects.Items.Add(a.subjects[idx].ToString());
+                                        cbStudentSubjects.Items.Add(a.subjects[idx].Name);
                                     }
                                 }
                             }
                         }
                 }));
             
+        }
+
+        private void btnTransaction_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Convert.ToInt32(txtBalance.Text) == 0)
+                {
+                    MessageBox.Show("Operation not realizaed , please try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtDeposit.Text = "";
+                    txtDeposit.Focus();
+                    return;
+                }
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("It has ocorred an error , we´ll solve it as soon as possible!" , "Error" , MessageBoxButtons.OK , MessageBoxIcon.Error);
+            }
+
+
         }
     }
 }

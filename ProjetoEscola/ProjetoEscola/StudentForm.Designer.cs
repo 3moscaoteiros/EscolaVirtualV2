@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentForm));
-            this.cbStudentSubjects = new System.Windows.Forms.ComboBox();
             this.lblStudentSubjects = new System.Windows.Forms.Label();
             this.txtStudentAdress = new System.Windows.Forms.TextBox();
             this.lblStudentAdress = new System.Windows.Forms.Label();
@@ -53,19 +52,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblClassStdnt = new System.Windows.Forms.Label();
             this.txtClassStdnt = new System.Windows.Forms.TextBox();
+            this.cbStudentSubjects = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
-            // 
-            // cbStudentSubjects
-            // 
-            this.cbStudentSubjects.BackColor = System.Drawing.SystemColors.Control;
-            this.cbStudentSubjects.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbStudentSubjects.ForeColor = System.Drawing.SystemColors.Control;
-            this.cbStudentSubjects.FormattingEnabled = true;
-            this.cbStudentSubjects.Location = new System.Drawing.Point(89, 164);
-            this.cbStudentSubjects.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.cbStudentSubjects.Name = "cbStudentSubjects";
-            this.cbStudentSubjects.Size = new System.Drawing.Size(115, 24);
-            this.cbStudentSubjects.TabIndex = 66;
             // 
             // lblStudentSubjects
             // 
@@ -82,7 +70,7 @@
             this.txtStudentAdress.BackColor = System.Drawing.SystemColors.Control;
             this.txtStudentAdress.Enabled = false;
             this.txtStudentAdress.Location = new System.Drawing.Point(89, 198);
-            this.txtStudentAdress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStudentAdress.Margin = new System.Windows.Forms.Padding(4);
             this.txtStudentAdress.Name = "txtStudentAdress";
             this.txtStudentAdress.ReadOnly = true;
             this.txtStudentAdress.Size = new System.Drawing.Size(209, 22);
@@ -103,7 +91,7 @@
             this.txtStudentContact.BackColor = System.Drawing.SystemColors.Control;
             this.txtStudentContact.Enabled = false;
             this.txtStudentContact.Location = new System.Drawing.Point(89, 229);
-            this.txtStudentContact.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStudentContact.Margin = new System.Windows.Forms.Padding(4);
             this.txtStudentContact.Name = "txtStudentContact";
             this.txtStudentContact.ReadOnly = true;
             this.txtStudentContact.Size = new System.Drawing.Size(115, 22);
@@ -123,7 +111,7 @@
             // 
             this.btnChangeDataStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangeDataStudent.Location = new System.Drawing.Point(89, 300);
-            this.btnChangeDataStudent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnChangeDataStudent.Margin = new System.Windows.Forms.Padding(4);
             this.btnChangeDataStudent.Name = "btnChangeDataStudent";
             this.btnChangeDataStudent.Size = new System.Drawing.Size(172, 43);
             this.btnChangeDataStudent.TabIndex = 60;
@@ -135,7 +123,7 @@
             this.txtStudentNIF.BackColor = System.Drawing.SystemColors.Control;
             this.txtStudentNIF.Enabled = false;
             this.txtStudentNIF.Location = new System.Drawing.Point(89, 103);
-            this.txtStudentNIF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStudentNIF.Margin = new System.Windows.Forms.Padding(4);
             this.txtStudentNIF.Name = "txtStudentNIF";
             this.txtStudentNIF.ReadOnly = true;
             this.txtStudentNIF.Size = new System.Drawing.Size(115, 22);
@@ -156,7 +144,7 @@
             this.txtBalance.Enabled = false;
             this.txtBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBalance.Location = new System.Drawing.Point(357, 114);
-            this.txtBalance.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBalance.Margin = new System.Windows.Forms.Padding(4);
             this.txtBalance.Name = "txtBalance";
             this.txtBalance.ReadOnly = true;
             this.txtBalance.Size = new System.Drawing.Size(328, 34);
@@ -177,7 +165,7 @@
             // 
             this.txtDeposit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDeposit.Location = new System.Drawing.Point(357, 188);
-            this.txtDeposit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDeposit.Margin = new System.Windows.Forms.Padding(4);
             this.txtDeposit.Name = "txtDeposit";
             this.txtDeposit.Size = new System.Drawing.Size(329, 34);
             this.txtDeposit.TabIndex = 55;
@@ -187,12 +175,13 @@
             // 
             this.btnTransaction.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTransaction.Location = new System.Drawing.Point(357, 263);
-            this.btnTransaction.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTransaction.Margin = new System.Windows.Forms.Padding(4);
             this.btnTransaction.Name = "btnTransaction";
             this.btnTransaction.Size = new System.Drawing.Size(329, 42);
             this.btnTransaction.TabIndex = 54;
             this.btnTransaction.Text = "APPLY";
             this.btnTransaction.UseVisualStyleBackColor = true;
+            this.btnTransaction.Click += new System.EventHandler(this.btnTransaction_Click);
             // 
             // lblDeposit
             // 
@@ -210,7 +199,7 @@
             this.txtStudentNum.BackColor = System.Drawing.SystemColors.Control;
             this.txtStudentNum.Enabled = false;
             this.txtStudentNum.Location = new System.Drawing.Point(89, 71);
-            this.txtStudentNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStudentNum.Margin = new System.Windows.Forms.Padding(4);
             this.txtStudentNum.Name = "txtStudentNum";
             this.txtStudentNum.ReadOnly = true;
             this.txtStudentNum.Size = new System.Drawing.Size(115, 22);
@@ -231,7 +220,7 @@
             this.txtStudentYear.BackColor = System.Drawing.SystemColors.Control;
             this.txtStudentYear.Enabled = false;
             this.txtStudentYear.Location = new System.Drawing.Point(89, 134);
-            this.txtStudentYear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStudentYear.Margin = new System.Windows.Forms.Padding(4);
             this.txtStudentYear.Name = "txtStudentYear";
             this.txtStudentYear.ReadOnly = true;
             this.txtStudentYear.Size = new System.Drawing.Size(55, 22);
@@ -252,7 +241,7 @@
             this.txtStudentName.BackColor = System.Drawing.SystemColors.Control;
             this.txtStudentName.Enabled = false;
             this.txtStudentName.Location = new System.Drawing.Point(89, 41);
-            this.txtStudentName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStudentName.Margin = new System.Windows.Forms.Padding(4);
             this.txtStudentName.Name = "txtStudentName";
             this.txtStudentName.ReadOnly = true;
             this.txtStudentName.Size = new System.Drawing.Size(209, 22);
@@ -306,11 +295,20 @@
             this.txtClassStdnt.BackColor = System.Drawing.SystemColors.Control;
             this.txtClassStdnt.Enabled = false;
             this.txtClassStdnt.Location = new System.Drawing.Point(89, 260);
-            this.txtClassStdnt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtClassStdnt.Margin = new System.Windows.Forms.Padding(4);
             this.txtClassStdnt.Name = "txtClassStdnt";
             this.txtClassStdnt.ReadOnly = true;
             this.txtClassStdnt.Size = new System.Drawing.Size(115, 22);
             this.txtClassStdnt.TabIndex = 86;
+            // 
+            // cbStudentSubjects
+            // 
+            this.cbStudentSubjects.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbStudentSubjects.FormattingEnabled = true;
+            this.cbStudentSubjects.Location = new System.Drawing.Point(88, 163);
+            this.cbStudentSubjects.Name = "cbStudentSubjects";
+            this.cbStudentSubjects.Size = new System.Drawing.Size(210, 24);
+            this.cbStudentSubjects.TabIndex = 87;
             // 
             // StudentForm
             // 
@@ -318,11 +316,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(723, 356);
+            this.Controls.Add(this.cbStudentSubjects);
             this.Controls.Add(this.txtClassStdnt);
             this.Controls.Add(this.lblClassStdnt);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtdesign1);
-            this.Controls.Add(this.cbStudentSubjects);
             this.Controls.Add(this.lblStudentSubjects);
             this.Controls.Add(this.txtStudentAdress);
             this.Controls.Add(this.lblStudentAdress);
@@ -358,8 +356,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox cbStudentSubjects;
         private System.Windows.Forms.Label lblStudentSubjects;
         private System.Windows.Forms.TextBox txtStudentAdress;
         private System.Windows.Forms.Label lblStudentAdress;
@@ -383,5 +379,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblClassStdnt;
         private System.Windows.Forms.TextBox txtClassStdnt;
+        private System.Windows.Forms.ComboBox cbStudentSubjects;
     }
 }
