@@ -138,5 +138,16 @@ namespace ProjetoEscola
                 MessageBox.Show("No students, please tell the administration to create", "Teacher Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void btnApplyGrades_Click(object sender, EventArgs e)
+        {
+            if(txtSelectGrade.Text.Trim() =="" || lstStudentGrade.SelectedItem==null)
+            {
+                MessageBox.Show("Information missing", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
+        }
     }
 }

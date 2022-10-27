@@ -80,6 +80,7 @@
             this.btnApplyGrades.TabIndex = 75;
             this.btnApplyGrades.Text = "Apply";
             this.btnApplyGrades.UseVisualStyleBackColor = true;
+            this.btnApplyGrades.Click += new System.EventHandler(this.btnApplyGrades_Click);
             // 
             // txtTeacherAdress
             // 
