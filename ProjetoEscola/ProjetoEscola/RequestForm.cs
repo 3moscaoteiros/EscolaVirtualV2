@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+
 namespace ProjetoEscola
 {
     public partial class RequestForm : Form
     {
-        
+        Teacher LoginTeacher = new Teacher();
+        Student LoginStudent = new Student();
+
         public RequestForm()
         {
             InitializeComponent();
@@ -20,12 +24,128 @@ namespace ProjetoEscola
 
         private void Request_Load(object sender, EventArgs e)
         {
-            #region search which user has the request
+            #region search which user has login state
+           //students
+            Program.Anos.ToList().ForEach(y => y.CLasses.ToList().ForEach(c => c.students.ForEach(s =>
+            {
+                if (s.LoginState)
+                    LoginStudent = s;
+            })));
 
-            //students
-            
-           
-            #endregion
+            //teachers
+            if (LoginStudent == null)
+                Program.Anos.ForEach(y => y.subjects.ForEach(s =>
+                {
+                    if (s.teacher.LoginState)
+                        LoginTeacher = s.teacher;
+                }));
+
+           #endregion
+        }
+
+        private void btnRequest_Click(object sender, EventArgs e)
+        {
+            bool error = false;
+            try
+            {
+                #region errors
+                if(txtRequest.Text.Trim()=="" || cbbRequest.SelectedItem==null)
+                {
+                    MessageBox.Show("Information missing", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                #endregion
+
+                #region change properties
+                //if student
+                if (LoginStudent != null)
+                {
+                    switch (cbbRequest.SelectedItem.ToString())
+                    {
+                        case "Name": LoginStudent.Name = txtRequest.Text; break;
+                        case "Num": LoginStudent.ID = txtRequest.Text; break;
+                        case "NIF": LoginStudent.NIF = Convert.ToInt32(txtRequest.Text); break;
+                        case "Adress": LoginStudent.Adress = txtRequest.Text; break;
+                        case "Contact": LoginStudent.EMAIL = txtRequest.Text; break;
+                        default: MessageBox.Show("Invalid selected item", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error); break;
+
+                    }
+                    
+                }
+                //if teacher
+                if(LoginTeacher != null)
+                {
+                    switch (cbbRequest.SelectedItem.ToString())
+                    {
+                        case "Name":
+                             if(txtRequest.Text.Any(c => !char.IsLetter(c)))
+                                {
+                                    MessageBox.Show("Please insert only letters", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    txtRequest.Text = "";
+                                    error = true;
+                                    break;
+                                }
+                            LoginTeacher.Name = txtRequest.Text; break;
+                        case "Num":
+                            if (txtRequest.Text.Any(c => !char.IsDigit(c)))
+                            {
+                                MessageBox.Show("Please insert only numbers", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txtRequest.Text = "";
+                                error = true;
+                                break;
+                            }
+                            LoginTeacher.ID = txtRequest.Text; break;
+                        case "NIF":
+                            if (txtRequest.Text.Any(c => !char.IsDigit(c)))
+                            {
+                                MessageBox.Show("Please insert only numbers", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txtRequest.Text = "";
+                                error = true;
+                                break;
+                            }
+                            LoginTeacher.NIF = Convert.ToInt32(txtRequest.Text); break;
+                        case "Adress": LoginTeacher.Adress = txtRequest.Text; break;
+                        case "Contact": LoginTeacher.EMAIL = txtRequest.Text; break;
+                        default: MessageBox.Show("Invalid selected item", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error); break;
+
+                    }
+                  
+                }
+                #endregion
+                if (error == false)
+                {
+                    MessageBox.Show("Users's info has been changed", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Close();
+
+                }
+               
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Invalid format, Please reinsert a valid text", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (OverflowException)
+            {
+                MessageBox.Show("Invalid info, Please reinsert a valid one", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Some error ocurred", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void RequestForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if(LoginStudent != null)
+            {
+                StudentForm student = new StudentForm();
+                student.Visible = true;
+            }
+            else
+            {
+                TeacherForm teacher = new TeacherForm();
+                teacher.Visible = true;
+            }
         }
     }
 } 

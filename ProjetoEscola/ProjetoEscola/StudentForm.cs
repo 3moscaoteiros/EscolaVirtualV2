@@ -38,19 +38,19 @@ namespace ProjetoEscola
         {
             Program.Anos.ForEach(a => a.CLasses.ForEach(c =>
                 {
-                        if(c.students.Exists(s => s.LoginState == 1))
+                        if(c.students.Exists(s => s.LoginState == true))
                         {
-                            txtStudentName.Text = c.students.Find(s => s.LoginState == 1).Name.ToString();
-                            txtStudentNum.Text = c.students.Find(s => s.LoginState == 1).ID.ToString();
-                            txtStudentNIF.Text = c.students.Find(s => s.LoginState == 1).NIF.ToString();
+                            txtStudentName.Text = c.students.Find(s => s.LoginState == true).Name.ToString();
+                            txtStudentNum.Text = c.students.Find(s => s.LoginState == true).ID.ToString();
+                            txtStudentNIF.Text = c.students.Find(s => s.LoginState == true).NIF.ToString();
                             txtStudentYear.Text = a.year;
                             txtClassStdnt.Text = c.Name;
-                            txtStudentAdress.Text = c.students.Find(s => s.LoginState == 1).Adress.ToString();
-                            txtBalance.Text = c.students.Find(s => s.LoginState == 1).Balance.ToString();
-                            txtStudentContact.Text = c.students.Find(s => s.LoginState == 1).EMAIL.ToString();
+                            txtStudentAdress.Text = c.students.Find(s => s.LoginState == true).Adress.ToString();
+                            txtBalance.Text = c.students.Find(s => s.LoginState == true).Balance.ToString();
+                            txtStudentContact.Text = c.students.Find(s => s.LoginState == true).EMAIL.ToString();
 
-                        //Adicionar as discplinas do aluno para a cbb.
-                        foreach (Year y in Program.Anos)
+                            //Adicionar as discplinas do aluno para a cbb.
+                            foreach (Year y in Program.Anos)
                             {
                                 //Se o ano letivo for igual ao ano letivo do aluno selecionado anteriormente ,
                                 //são colocados para a coleção items da cbb todas as discplinas desse aluno.
@@ -66,7 +66,7 @@ namespace ProjetoEscola
                             }
                         }
                 }));
-            
+
         }
     }
 }

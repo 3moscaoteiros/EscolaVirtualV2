@@ -16,6 +16,7 @@ namespace ProjetoEscola
         public string ID { get; set; }
         public bool Request { get; set; }
         public string RequestInfo { get; set; }
+        public bool LoginState { get; set; }
 
     }
 }

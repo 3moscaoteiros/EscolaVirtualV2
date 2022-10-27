@@ -38,12 +38,13 @@ namespace ProjetoEscola
             // 
             // cbbRequest
             // 
+            this.cbbRequest.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbRequest.FormattingEnabled = true;
             this.cbbRequest.Items.AddRange(new object[] {
             "Name",
             "Num",
             "NIF",
-            "Adrees",
+            "Adress",
             "Contact"});
             this.cbbRequest.Location = new System.Drawing.Point(63, 51);
             this.cbbRequest.Name = "cbbRequest";
@@ -65,6 +66,7 @@ namespace ProjetoEscola
             this.btnRequest.TabIndex = 2;
             this.btnRequest.Text = "OK";
             this.btnRequest.UseVisualStyleBackColor = true;
+            this.btnRequest.Click += new System.EventHandler(this.btnRequest_Click);
             // 
             // label1
             // 
@@ -92,6 +94,7 @@ namespace ProjetoEscola
             this.MinimizeBox = false;
             this.Name = "RequestForm";
             this.Text = "Request";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RequestForm_FormClosed);
             this.Load += new System.EventHandler(this.Request_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

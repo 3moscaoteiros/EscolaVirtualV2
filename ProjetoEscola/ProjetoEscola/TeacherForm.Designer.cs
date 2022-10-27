@@ -37,8 +37,7 @@
             this.txtTeacherContact = new System.Windows.Forms.TextBox();
             this.lblTeacherContact = new System.Windows.Forms.Label();
             this.lblChangeDataTeacher = new System.Windows.Forms.Button();
-            this.cbTeacherSubjects = new System.Windows.Forms.ComboBox();
-            this.lblTeacherSubjects = new System.Windows.Forms.Label();
+            this.lblTeacherSubject = new System.Windows.Forms.Label();
             this.cbTeacherYears = new System.Windows.Forms.ComboBox();
             this.txtTeacherNIF = new System.Windows.Forms.TextBox();
             this.lblTeacherNIF = new System.Windows.Forms.Label();
@@ -51,6 +50,7 @@
             this.txtDesign = new System.Windows.Forms.TextBox();
             this.lblEnterGrade = new System.Windows.Forms.Label();
             this.lstStudentGrade = new System.Windows.Forms.ListBox();
+            this.txtTeacherSubject = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtSelectGrade
@@ -92,7 +92,7 @@
             // lblTeacherAdress
             // 
             this.lblTeacherAdress.AutoSize = true;
-            this.lblTeacherAdress.Location = new System.Drawing.Point(12, 163);
+            this.lblTeacherAdress.Location = new System.Drawing.Point(12, 162);
             this.lblTeacherAdress.Name = "lblTeacherAdress";
             this.lblTeacherAdress.Size = new System.Drawing.Size(42, 13);
             this.lblTeacherAdress.TabIndex = 72;
@@ -109,7 +109,7 @@
             // lblTeacherContact
             // 
             this.lblTeacherContact.AutoSize = true;
-            this.lblTeacherContact.Location = new System.Drawing.Point(12, 139);
+            this.lblTeacherContact.Location = new System.Drawing.Point(7, 138);
             this.lblTeacherContact.Name = "lblTeacherContact";
             this.lblTeacherContact.Size = new System.Drawing.Size(47, 13);
             this.lblTeacherContact.TabIndex = 70;
@@ -126,30 +126,21 @@
             this.lblChangeDataTeacher.UseVisualStyleBackColor = true;
             this.lblChangeDataTeacher.Click += new System.EventHandler(this.lblChangeDataTeacher_Click);
             // 
-            // cbTeacherSubjects
+            // lblTeacherSubject
             // 
-            this.cbTeacherSubjects.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTeacherSubjects.FormattingEnabled = true;
-            this.cbTeacherSubjects.Location = new System.Drawing.Point(71, 197);
-            this.cbTeacherSubjects.Name = "cbTeacherSubjects";
-            this.cbTeacherSubjects.Size = new System.Drawing.Size(80, 21);
-            this.cbTeacherSubjects.TabIndex = 68;
-            // 
-            // lblTeacherSubjects
-            // 
-            this.lblTeacherSubjects.AutoSize = true;
-            this.lblTeacherSubjects.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblTeacherSubjects.Location = new System.Drawing.Point(18, 199);
-            this.lblTeacherSubjects.Name = "lblTeacherSubjects";
-            this.lblTeacherSubjects.Size = new System.Drawing.Size(51, 13);
-            this.lblTeacherSubjects.TabIndex = 67;
-            this.lblTeacherSubjects.Text = "Subjects:";
+            this.lblTeacherSubject.AutoSize = true;
+            this.lblTeacherSubject.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblTeacherSubject.Location = new System.Drawing.Point(8, 188);
+            this.lblTeacherSubject.Name = "lblTeacherSubject";
+            this.lblTeacherSubject.Size = new System.Drawing.Size(46, 13);
+            this.lblTeacherSubject.TabIndex = 67;
+            this.lblTeacherSubject.Text = "Subject:";
             // 
             // cbTeacherYears
             // 
             this.cbTeacherYears.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTeacherYears.FormattingEnabled = true;
-            this.cbTeacherYears.Location = new System.Drawing.Point(71, 221);
+            this.cbTeacherYears.Location = new System.Drawing.Point(56, 211);
             this.cbTeacherYears.Name = "cbTeacherYears";
             this.cbTeacherYears.Size = new System.Drawing.Size(80, 21);
             this.cbTeacherYears.TabIndex = 66;
@@ -165,7 +156,7 @@
             // lblTeacherNIF
             // 
             this.lblTeacherNIF.AutoSize = true;
-            this.lblTeacherNIF.Location = new System.Drawing.Point(28, 113);
+            this.lblTeacherNIF.Location = new System.Drawing.Point(23, 113);
             this.lblTeacherNIF.Name = "lblTeacherNIF";
             this.lblTeacherNIF.Size = new System.Drawing.Size(27, 13);
             this.lblTeacherNIF.TabIndex = 64;
@@ -191,7 +182,7 @@
             // lblTeacherYears
             // 
             this.lblTeacherYears.AutoSize = true;
-            this.lblTeacherYears.Location = new System.Drawing.Point(18, 223);
+            this.lblTeacherYears.Location = new System.Drawing.Point(17, 215);
             this.lblTeacherYears.Name = "lblTeacherYears";
             this.lblTeacherYears.Size = new System.Drawing.Size(37, 13);
             this.lblTeacherYears.TabIndex = 61;
@@ -254,12 +245,21 @@
             this.lstStudentGrade.Size = new System.Drawing.Size(218, 186);
             this.lstStudentGrade.TabIndex = 86;
             // 
+            // txtTeacherSubject
+            // 
+            this.txtTeacherSubject.Location = new System.Drawing.Point(56, 185);
+            this.txtTeacherSubject.Name = "txtTeacherSubject";
+            this.txtTeacherSubject.ReadOnly = true;
+            this.txtTeacherSubject.Size = new System.Drawing.Size(87, 20);
+            this.txtTeacherSubject.TabIndex = 87;
+            // 
             // TeacherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(497, 325);
+            this.Controls.Add(this.txtTeacherSubject);
             this.Controls.Add(this.lstStudentGrade);
             this.Controls.Add(this.txtDesign);
             this.Controls.Add(this.label1);
@@ -272,8 +272,7 @@
             this.Controls.Add(this.txtTeacherContact);
             this.Controls.Add(this.lblTeacherContact);
             this.Controls.Add(this.lblChangeDataTeacher);
-            this.Controls.Add(this.cbTeacherSubjects);
-            this.Controls.Add(this.lblTeacherSubjects);
+            this.Controls.Add(this.lblTeacherSubject);
             this.Controls.Add(this.cbTeacherYears);
             this.Controls.Add(this.txtTeacherNIF);
             this.Controls.Add(this.lblTeacherNIF);
@@ -292,6 +291,7 @@
             this.Text = "Teacher";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TeacherForm_FormClosed);
             this.Load += new System.EventHandler(this.TeacherForm_Load);
+            this.Shown += new System.EventHandler(this.TeacherForm_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -306,8 +306,7 @@
         private System.Windows.Forms.TextBox txtTeacherContact;
         private System.Windows.Forms.Label lblTeacherContact;
         private System.Windows.Forms.Button lblChangeDataTeacher;
-        private System.Windows.Forms.ComboBox cbTeacherSubjects;
-        private System.Windows.Forms.Label lblTeacherSubjects;
+        private System.Windows.Forms.Label lblTeacherSubject;
         private System.Windows.Forms.ComboBox cbTeacherYears;
         private System.Windows.Forms.TextBox txtTeacherNIF;
         private System.Windows.Forms.Label lblTeacherNIF;
@@ -320,5 +319,6 @@
         private System.Windows.Forms.TextBox txtDesign;
         private System.Windows.Forms.Label lblEnterGrade;
         private System.Windows.Forms.ListBox lstStudentGrade;
+        private System.Windows.Forms.TextBox txtTeacherSubject;
     }
 }

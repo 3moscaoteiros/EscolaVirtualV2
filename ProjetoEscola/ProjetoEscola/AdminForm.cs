@@ -17,7 +17,7 @@ namespace ProjetoEscola
         {
             InitializeComponent();
         }
-        private void AdminForm_Load(object sender, EventArgs e)
+        private void AdminForm_Load(object sender, EventArgs e)////////////
         {
            
             #region add all classes to tbStudent cbb
@@ -26,7 +26,6 @@ namespace ProjetoEscola
 
             #region update requests List
             string request = "";
-
 
             //students
             List<Student> RequestStudents = Program.Anos.SelectMany(y => y.CLasses.ToList().SelectMany(c => c.students.Where(s => s.Request == true))).ToList();
@@ -41,17 +40,14 @@ namespace ProjetoEscola
             }
 
             //teachers
-
-            //Program.Anos.ForEach(y => y.subjects.ForEach(s =>
-            //{               
-            //    if (s.teacher.Request == true)
-            //    {
-            //        request = $"id:{s.teacher.ID},";
-            //        lstRequest.Items.Add(request);
-            //    }
-           // }));
-
-
+            Program.Anos.ForEach(y => y.subjects.ForEach(s =>
+            {
+                if (s.teacher.Request == true)
+                {
+                    request = $"id:{s.teacher.ID},{s.teacher.RequestInfo}";
+                    lstRequest.Items.Add(request);
+                }
+            }));
 
             #endregion
 
@@ -498,7 +494,7 @@ namespace ProjetoEscola
         
         private void btnRequest_Click(object sender, EventArgs e)//////////////////////
         {
-            
+       
             foreach (string i in lstRequest.SelectedItems)
             {
                 string num = i.Split(',')[1].Split(',')[0];

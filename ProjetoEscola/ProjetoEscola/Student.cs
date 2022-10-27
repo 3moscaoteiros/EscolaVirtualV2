@@ -11,6 +11,5 @@ namespace ProjetoEscola
         public double Balance { get; set; }
 
         public List<Grade> grades = new List<Grade>();
-        public int LoginState { get; set; }
     }
 }

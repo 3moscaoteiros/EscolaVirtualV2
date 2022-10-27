@@ -19,19 +19,23 @@ namespace ProjetoEscola
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
+            #region create 5 subjects in year 5 
             Program.Anos.Find(s => s.year == "5").subjects.AddRange(new Subject[]
                {
                  new Subject() { Name = "Português" ,
-                                         teacher = new Teacher(){ID="t0001", PIN="00000", NIF=412462116 } } ,
+                                         teacher = new Teacher(){Name="João", ID="t0001", PIN="00000", NIF=412462116,EMAIL="joao@gmail.com",Adress="Rua do João", subject= new Subject(){Name="Português"} } },
                  new Subject() { Name = "Matemática",
-                                         teacher = new Teacher(){ID="t0002", PIN="00001", NIF=957483650} } ,
+                                         teacher = new Teacher(){Name="Manuel",ID="t0002", PIN="00000", NIF=957483650,EMAIL="manuel@gmail.com",Adress="Rua do Manuel", subject= new Subject(){Name="Matemática"} } },
                  new Subject() { Name = "Inglês" ,
-                                         teacher = new Teacher(){ID="t0003", PIN="00000", NIF=390172831} } ,
+                                         teacher = new Teacher(){Name="Jorge",ID="t0003", PIN="00000", NIF=390172831,EMAIL="jorge@gmail.com",Adress="Rua do Jorge", subject= new Subject(){Name="Inglês"} } },
                  new Subject() { Name = "Ciências",
-                                         teacher = new Teacher(){ID="t0004", PIN="00000", NIF=317390817} } ,
+                                         teacher = new Teacher(){Name="Luís",ID="t0004", PIN="00000", NIF=317390817,EMAIL="luis@gmail.com",Adress="Rua do Luís", subject= new Subject(){Name="Ciências"} } },
                  new Subject() { Name = "Educação Física",
-                                         teacher = new Teacher(){ID="t0005", PIN="00000", NIF=361209382} } });
+                                         teacher = new Teacher(){Name="Rogério",ID="t0005", PIN="00000", NIF=361209382,EMAIL="rogerio@gmail.com",Adress="Rua do Rogério", subject= new Subject(){Name="Educação Física"} } } });
 
+            #endregion
+
+            #region create 5 subjects in year 6
             Program.Anos.Find(s => s.year == "6").subjects.AddRange(new Subject[]
 
                  {
@@ -46,6 +50,8 @@ namespace ProjetoEscola
                  new Subject() { Name = "Fisico-quimica",
                                          teacher = Program.Anos[0].subjects[4].teacher }
                  });
+            
+            #endregion
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -94,6 +100,15 @@ namespace ProjetoEscola
                 {
 
                     //if exists:
+                    Program.Anos.ForEach(y =>
+                    {
+                        y.subjects.ForEach(s =>
+                        {
+                            if (s.teacher.ID == txtLoginNum.Text)
+                                s.teacher.LoginState = true;
+                        });
+                    });
+
                     Hide();
                     TeacherForm teacherForm = new TeacherForm();
                     teacherForm.ShowDialog();
@@ -113,16 +128,16 @@ namespace ProjetoEscola
                 }
                 else
                 {
+                    //if exists:
                     Program.Anos.ForEach(y =>
                     {
                         y.CLasses.ForEach(c =>
                         {
-                            c.students.Find(s => s.ID == txtLoginNum.Text).LoginState = 1;
+                            c.students.Find(s => s.ID == txtLoginNum.Text).LoginState = true;
 
                         });
                     });
 
-                    //if exists:
                     Hide();
                     StudentForm studentForm = new StudentForm();
                     studentForm.ShowDialog();
