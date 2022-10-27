@@ -171,14 +171,14 @@ namespace ProjetoEscola
                 string adress = txtAdressStudent.Text.Trim();
                 string contact = txtContactStudent.Text.Trim();
                 string Class = cbbClassStudent.SelectedItem.ToString();
-                string money = txtBalanceStudent.Text.Trim();
+                int money = Convert.ToInt32(txtBalanceStudent.Text);
                 string pin = txtPINStudnet.Text.Trim();
                 bool exists = false;
                 string YearWithTheClass = "";
                 #endregion
 
                 #region errors
-                if (name == "" || num == "" || nif == "" || adress == "" || contact == "" || cbbClassStudent.Items==null || money == "" || pin == "" || num=="0000")
+                if (name == "" || num == "" || nif == "" || adress == "" || contact == "" || cbbClassStudent.Items==null || money < 0 || pin == "" || num=="0000")
                 {
                     MessageBox.Show("Information missing", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -232,8 +232,8 @@ namespace ProjetoEscola
                     NIF = Convert.ToInt32(nif),
                     ID = $"s{num}",
                     PIN = pin,
-                    Request = false
-
+                    Request = false,
+                    Balance = money,
                 };
 
                 //cycle list years to see which is the year that has the student's class
