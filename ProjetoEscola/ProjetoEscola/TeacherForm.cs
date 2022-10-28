@@ -68,10 +68,6 @@ namespace ProjetoEscola
                 });
                 #endregion
 
-                #region
-
-
-                #endregion
 
                 #region update students lst
                 Program.Anos.ForEach(y =>
@@ -81,19 +77,33 @@ namespace ProjetoEscola
                     //find teachers years
                     if (y.year == ty.year)
                         {
-                        //find teacher students
-                        y.CLasses.ForEach(c => c.students.ForEach(s =>
-                            {
-                                
-                            //verify if already exists in lst
-                            if (!lstStudentGrade.Items.Contains($"{s.Name},{s.ID}"))
+                            //find teacher classes and students
+                            y.CLasses.ForEach(c => c.students.ForEach(s =>
                                 {
-                                    //add to listBox
-                                    lstStudentGrade.Items.Add($"{s.Name},{s.ID}");
-                                    hasStd = true;
-                                }
+                                    //if exists grades in the student
 
+                                    if (s.grades.Count!=0)
+                                    {
+                                        var grade = s.grades.Find(g => g.Subject.Name == txtTeacherSubject.Text).Val;
 
+                                        //verify if already exists in lst
+                                        if (!lstStudentGrade.Items.Contains($"{s.Name},{s.ID}:{grade}"))
+                                        {
+                                            //add to listBox
+                                            lstStudentGrade.Items.Add($"{s.Name},{s.ID}:{grade}");
+                                            hasStd = true;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        //verify if already exists in lst
+                                        if (!lstStudentGrade.Items.Contains($"{s.Name},{s.ID}"))
+                                        {
+                                            //add to listBox
+                                            lstStudentGrade.Items.Add($"{s.Name},{s.ID}");
+                                            hasStd = true;
+                                        }
+                                    }
 
                             }));
 
@@ -171,10 +181,17 @@ namespace ProjetoEscola
                 return;
             }
 
-            
+            if(Convert.ToDouble(txtSelectGrade.Text)<0 || Convert.ToDouble(txtSelectGrade.Text) > 20)
+            {
+                MessageBox.Show("Wrong numbers", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+
             string studentString = lstStudentGrade.SelectedItem.ToString();
             string name = studentString.Split(',')[0];
-            string num = studentString.Split(',')[1];
+            string num = studentString.Split(',')[1].Split(':')[0];
             string subject = LoggedTeacher.subject.ToString();
             double newgrade = Convert.ToDouble(txtSelectGrade.Text);
 
@@ -197,6 +214,7 @@ namespace ProjetoEscola
             MessageBox.Show("Grade changed", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
             txtSelectGrade.Text = "";
             lstStudentGrade.SelectedItem = null;
+            
         }
          
         

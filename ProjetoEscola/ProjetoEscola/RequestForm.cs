@@ -38,8 +38,11 @@ namespace ProjetoEscola
                 if (LoginStudent.ID == null)
                     Program.Anos.ForEach(y => y.subjects.ForEach(s =>
                     {
-                        if (s.teacher.LoginState)
-                            LoginTeacher = s.teacher;
+                        if (s.teacher != null)
+                        {
+                            if (s.teacher.LoginState)
+                                LoginTeacher = s.teacher;
+                        }
                     }));
 
                 #endregion
