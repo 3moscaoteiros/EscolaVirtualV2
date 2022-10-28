@@ -26,8 +26,11 @@ namespace ProjetoEscola
 
                 Program.Anos.ForEach(y => y.subjects.ForEach(s =>
                 {
-                    if (s.teacher.LoginState)
-                        LoginTeacher = s.teacher;
+                    if (s.teacher != null)
+                    {
+                        if (s.teacher.LoginState)
+                            LoginTeacher = s.teacher;
+                    }
                 }));
 
             #endregion
@@ -57,11 +60,11 @@ namespace ProjetoEscola
             #region add years to cbb
             teacherYears.ForEach(y =>
             {
+                if(!cbTeacherYears.Items.Contains(y.year))
                 cbTeacherYears.Items.Add(y.year);
 
             });
             #endregion
-
 
             #region update students lst
             Program.Anos.ForEach(y =>
@@ -75,7 +78,7 @@ namespace ProjetoEscola
                         y.CLasses.ForEach(c => c.students.ForEach(s =>
                         {
                             //verify if already exists in lst
-                            if (lstStudentGrade.Items.Contains($"{s.Name},{s.ID}"))
+                            if (!lstStudentGrade.Items.Contains($"{s.Name},{s.ID}"))
                             {
                                 //add to listBox
                                 lstStudentGrade.Items.Add($"{s.Name},{s.ID}");

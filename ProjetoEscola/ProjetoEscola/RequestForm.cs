@@ -32,8 +32,8 @@ namespace ProjetoEscola
                     LoginStudent = s;
             })));
 
-            //teachers
-            if (LoginStudent == null)
+            //teachers0
+            if (LoginStudent.ID == null)
                 Program.Anos.ForEach(y => y.subjects.ForEach(s =>
                 {
                     if (s.teacher.LoginState)
@@ -43,7 +43,7 @@ namespace ProjetoEscola
            #endregion
         }
 
-        private void btnRequest_Click(object sender, EventArgs e)
+        private void btnRequest_Click(object sender, EventArgs e)///////////////////
         {
             bool error = false;
             try
@@ -136,7 +136,7 @@ namespace ProjetoEscola
 
         private void RequestForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if(LoginStudent != null)
+            if(LoginStudent.ID != null)
             {
                 StudentForm student = new StudentForm();
                 student.Visible = true;

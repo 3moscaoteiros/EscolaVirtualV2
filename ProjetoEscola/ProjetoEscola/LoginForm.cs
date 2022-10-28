@@ -84,10 +84,10 @@ namespace ProjetoEscola
 
             //take first char(t or s)
             string firstC = txtLoginNum.Text.Trim().ToLower().Substring(0, 1);
-           
+
 
             //if teacher
-            if (firstC=="t")
+            if (firstC == "t")
             {
                 //verify if the pass of the inserted num is incorrect
                 if (!Program.Anos.Exists(y => y.subjects.Exists(s => s.teacher.ID == num && s.teacher.PIN == pass)))
@@ -95,19 +95,19 @@ namespace ProjetoEscola
                     txtLoginNum.Text = "";
                     txtLoginPassword.Text = "";
                     MessageBox.Show("Wrong information!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }   
+                }
                 else
                 {
 
                     //if exists:
-                    Program.Anos.ForEach(y =>
-                    {
-                        y.subjects.ForEach(s =>
+                    Program.Anos.ForEach(y => y.subjects.ForEach(s =>
                         {
-                            if (s.teacher.ID == txtLoginNum.Text)
-                                s.teacher.LoginState = true;
-                        });
-                    });
+                            if (s.teacher != null)
+                            {
+                                if (s.teacher.ID == txtLoginNum.Text)
+                                    s.teacher.LoginState = true;
+                            }
+                        }));
 
                     Hide();
                     TeacherForm teacherForm = new TeacherForm();
