@@ -27,39 +27,46 @@ namespace ProjetoEscola
             #region update requests List
             string request = "";
 
-            //students
-            List<Student> RequestStudents = Program.Anos.SelectMany(y => y.CLasses.ToList().SelectMany(c => c.students.Where(s => s.Request == true))).ToList();
-
-            foreach (Student st in RequestStudents)
+            try
             {
-                if (st.Request == true)
+                //students
+                List<Student> RequestStudents = Program.Anos.SelectMany(y => y.CLasses.ToList().SelectMany(c => c.students.Where(s => s.Request == true))).ToList();
+
+                foreach (Student st in RequestStudents)
                 {
-                    request = $"id:{st.ID},{st.RequestInfo}";
-                    lstRequest.Items.Add(request);
+                    if (st.Request == true)
+                    {
+                        request = $"id:{st.ID},{st.RequestInfo}";
+                        lstRequest.Items.Add(request);
+                    }
                 }
+
+                //teachers
+                Program.Anos.ForEach(y => y.subjects.ForEach(s =>
+                {
+                    if (s.teacher.Request == true)
+                    {
+                        request = $"id:{s.teacher.ID},{s.teacher.RequestInfo}";
+                        lstRequest.Items.Add(request);
+                    }
+                }));
+
+
+                #endregion
+
+                #region update subjects in TeacherTab
+
+                Program.Anos.ForEach(y => y.subjects.ForEach(s =>
+                {
+                    if (!lstTeacherSubjects.Items.Contains(s.Name))
+                        lstTeacherSubjects.Items.Add(s.Name);
+
+                }));
             }
-
-            //teachers
-            Program.Anos.ForEach(y => y.subjects.ForEach(s =>
+            catch(Exception ex)
             {
-                if (s.teacher.Request == true)
-                {
-                    request = $"id:{s.teacher.ID},{s.teacher.RequestInfo}";
-                    lstRequest.Items.Add(request);
-                }
-            }));
-
-            #endregion
-
-            #region update subjects in TeacherTab
-
-            Program.Anos.ForEach(y => y.subjects.ForEach(s =>
-            {
-                if(!lstTeacherSubjects.Items.Contains(s.Name))
-                lstTeacherSubjects.Items.Add(s.Name);
-
-            }));
-
+                MessageBox.Show(ex.Message);
+            }
             #endregion
         }
 
@@ -494,42 +501,50 @@ namespace ProjetoEscola
         
         private void btnRequest_Click(object sender, EventArgs e)//////////////////////
         {
-       
-            foreach (string i in lstRequest.SelectedItems)
+
+            try
             {
-                string num = i.Split(',')[1].Split(',')[0];
-                string info = i.Split(':')[1];
-                string firstC = num.ToLower().Substring(0, 1);
-
-                //update student
-                if (firstC == "s")
+                foreach (string i in lstRequest.SelectedItems)
                 {
-     
-                    Program.Anos.ForEach(y => y.CLasses.ForEach(c => c.students.ForEach(s =>
+                    string num = i.Split(',')[1].Split(',')[0];
+                    string info = i.Split(':')[1];
+                    string firstC = num.ToLower().Substring(0, 1);
+
+                    //update student
+                    if (firstC == "s")
                     {
-                        if (s.ID == num)
+
+                        Program.Anos.ForEach(y => y.CLasses.ForEach(c => c.students.ForEach(s =>
                         {
-                            s.Request = false;
-                            s.RequestInfo = null;
-                        }
-                    })));
-                }
-                //update teacher
-                if (firstC == "t")
-                {
-                    Program.Anos.ForEach(y => y.subjects.ForEach(s =>
+                            if (s.ID == num)
+                            {
+                                s.Request = false;
+                                s.RequestInfo = null;
+                            }
+                        })));
+                    }
+                    //update teacher
+                    if (firstC == "t")
                     {
-                        if (s.teacher.ID == num)
+                        Program.Anos.ForEach(y => y.subjects.ForEach(s =>
                         {
-                            s.teacher.Request = false;
-                            s.teacher.RequestInfo = null;
-                        }
-                    }));
+                            if (s.teacher.ID == num)
+                            {
+                                s.teacher.Request = false;
+                                s.teacher.RequestInfo = null;
+                            }
+                        }));
+
+                    }
+                    //remove from lst
+
+                    lstRequest.Items.Remove(i);
 
                 }
-                //remove from lst
-
-                lstRequest.Items.Remove(i);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 

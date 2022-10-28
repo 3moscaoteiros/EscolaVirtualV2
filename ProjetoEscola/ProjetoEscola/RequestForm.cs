@@ -24,23 +24,30 @@ namespace ProjetoEscola
 
         private void Request_Load(object sender, EventArgs e)
         {
-            #region search which user has login state
-           //students
-            Program.Anos.ToList().ForEach(y => y.CLasses.ToList().ForEach(c => c.students.ForEach(s =>
+            try
             {
-                if (s.LoginState)
-                    LoginStudent = s;
-            })));
-
-            //teachers0
-            if (LoginStudent.ID == null)
-                Program.Anos.ForEach(y => y.subjects.ForEach(s =>
+                #region search which user has login state
+                //students
+                Program.Anos.ToList().ForEach(y => y.CLasses.ToList().ForEach(c => c.students.ForEach(s =>
                 {
-                    if (s.teacher.LoginState)
-                        LoginTeacher = s.teacher;
-                }));
+                    if (s.LoginState)
+                        LoginStudent = s;
+                })));
 
-           #endregion
+                //teachers
+                if (LoginStudent.ID == null)
+                    Program.Anos.ForEach(y => y.subjects.ForEach(s =>
+                    {
+                        if (s.teacher.LoginState)
+                            LoginTeacher = s.teacher;
+                    }));
+
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnRequest_Click(object sender, EventArgs e)///////////////////
@@ -128,9 +135,9 @@ namespace ProjetoEscola
             {
                 MessageBox.Show("Invalid info, Please reinsert a valid one", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Some error ocurred", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message);
             }
         }
 

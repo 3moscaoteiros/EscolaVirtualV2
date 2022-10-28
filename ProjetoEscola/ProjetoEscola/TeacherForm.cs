@@ -12,7 +12,7 @@ namespace ProjetoEscola
 {
     public partial class TeacherForm : Form
     {
-        Teacher LoginTeacher = new Teacher();
+        Teacher LoggedTeacher = new Teacher();
         bool hasStd = false;
 
         public TeacherForm()
@@ -20,77 +20,90 @@ namespace ProjetoEscola
             InitializeComponent();
         }
 
-        private void TeacherForm_Load(object sender, EventArgs e)
+        private void TeacherForm_Load(object sender, EventArgs e)///////////////
         {
-            #region search which teacher has login state
+            try
+            {
+                #region search which teacher has login state
 
                 Program.Anos.ForEach(y => y.subjects.ForEach(s =>
                 {
                     if (s.teacher != null)
                     {
                         if (s.teacher.LoginState)
-                            LoginTeacher = s.teacher;
+                            LoggedTeacher = s.teacher;
                     }
                 }));
 
-            #endregion
+                #endregion
 
-            #region fill up all info
-            txtTeacherName.Text= LoginTeacher.Name;
-            txtTeacherNum.Text = LoginTeacher.ID;
-            txtTeacherNIF.Text = LoginTeacher.NIF.ToString();
-            txtTeacherContact.Text = LoginTeacher.EMAIL;
-            txtTeacherAdress.Text = LoginTeacher.Adress;
-            #endregion
+                #region fill up all info
+                txtTeacherName.Text = LoggedTeacher.Name;
+                txtTeacherNum.Text = LoggedTeacher.ID;
+                txtTeacherNIF.Text = LoggedTeacher.NIF.ToString();
+                txtTeacherContact.Text = LoggedTeacher.EMAIL;
+                txtTeacherAdress.Text = LoggedTeacher.Adress;
+                #endregion
 
-            #region update subject
-            txtTeacherSubject.Text = LoginTeacher.subject.Name;
-            #endregion
+                #region update subject
+                txtTeacherSubject.Text = LoggedTeacher.subject.Name;
+                #endregion
 
-            #region find teacher years
-            List<Year> teacherYears = new List<Year>();
-            //find in what years are the teacher's subject
-            Program.Anos.ForEach(y => y.subjects.ForEach(s =>
-            {
-                if (s.Name == LoginTeacher.subject.Name)
-                    teacherYears.Add(y);
-            }));
-            #endregion
-
-            #region add years to cbb
-            teacherYears.ForEach(y =>
-            {
-                if(!cbTeacherYears.Items.Contains(y.year))
-                cbTeacherYears.Items.Add(y.year);
-
-            });
-            #endregion
-
-            #region update students lst
-            Program.Anos.ForEach(y =>
-            {
-                teacherYears.ForEach(ty =>
+                #region find teacher years
+                List<Year> teacherYears = new List<Year>();
+                //find in what years are the teacher's subject
+                Program.Anos.ForEach(y => y.subjects.ForEach(s =>
                 {
-                    //find teachers years
-                    if(y.year==ty.year)
-                    {
-                        //find teacher students
-                        y.CLasses.ForEach(c => c.students.ForEach(s =>
-                        {
-                            //verify if already exists in lst
-                            if (!lstStudentGrade.Items.Contains($"{s.Name},{s.ID}"))
-                            {
-                                //add to listBox
-                                lstStudentGrade.Items.Add($"{s.Name},{s.ID}");
-                                hasStd = true;
-                            }
-                        }));
- 
-                    }
+                    if (s.Name == LoggedTeacher.subject.Name)
+                        teacherYears.Add(y);
+                }));
+                #endregion
+
+                #region add years to cbb
+                teacherYears.ForEach(y =>
+                {
+                    if (!cbTeacherYears.Items.Contains(y.year))
+                        cbTeacherYears.Items.Add(y.year);
 
                 });
+                #endregion
 
-            });
+
+
+                #region update students lst
+                Program.Anos.ForEach(y =>
+                {
+                    teacherYears.ForEach(ty =>
+                    {
+                    //find teachers years
+                    if (y.year == ty.year)
+                        {
+                        //find teacher students
+                        y.CLasses.ForEach(c => c.students.ForEach(s =>
+                            {
+
+                            //verify if already exists in lst
+                            if (!lstStudentGrade.Items.Contains($"{s.Name},{s.ID}"))
+                                {
+                                    //add to listBox
+                                    lstStudentGrade.Items.Add($"{s.Name},{s.ID}");
+                                    hasStd = true;
+                                }
+
+
+
+                            }));
+
+                        }
+
+                    });
+
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
 
             #endregion
@@ -107,7 +120,6 @@ namespace ProjetoEscola
             //}
             //else
             //    MessageBox.Show("No students found ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            
         }
 
         #region KeyPressEvents
@@ -142,15 +154,50 @@ namespace ProjetoEscola
             }
         }
 
-        private void btnApplyGrades_Click(object sender, EventArgs e)
+        private void btnApplyGrades_Click(object sender, EventArgs e)/////////////////////
         {
-            if(txtSelectGrade.Text.Trim() =="" || lstStudentGrade.SelectedItem==null)
+            if(txtSelectGrade.Text.Trim() =="")
             {
-                MessageBox.Show("Information missing", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Information missing, please insert a grade", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if ( lstStudentGrade.SelectedItem == null)
+            {
+                MessageBox.Show("Please choose a student first", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
 
+            string studentString = lstStudentGrade.SelectedItem.ToString();
+            string num = studentString.Split(',')[1];
+            string subject = LoggedTeacher.subject.ToString();
+            double newgrade = Convert.ToDouble(txtSelectGrade.Text);
 
+            //find student class
+            Class studentClass = new Class();
+            Program.Anos.ForEach(y => y.CLasses.ForEach(c => c.students.ForEach(s => {
+                //find the student 
+                if (s.ID == num)
+                    studentClass = c;
+            })));
+
+            //change grade
+            Program.Anos.Where(y => y.CLasses.SelectMany(c => c.students).Where(s => s.ID == num).FirstOrDefault().grades.Find(g => g.Subject.Name == subject).Val == Math.Round(newgrade, 2));
+
+            //add the grade to the selected item string(missing)
+            //lstStudentGrade.Items.RemoveAt(lstStudentGrade.SelectedIndex);
+
+
+
+            //lstStudentGrade.Items.Insert(lstStudentGrade.SelectedIndex, $"{s.Name},{s.ID}");
+
+
+            MessageBox.Show("Grade changed", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            txtSelectGrade.Text = "";
+            lstStudentGrade.SelectedItem = null;
         }
+         
+        
     }
 }
