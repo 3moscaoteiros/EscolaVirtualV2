@@ -20,7 +20,7 @@ namespace ProjetoEscola
             InitializeComponent();
         }
 
-        private void TeacherForm_Load(object sender, EventArgs e)///////////////
+        private void TeacherForm_Load(object sender, EventArgs e)/////////////// NO LOAD DO FORM NÃO ATUALIZA A NOTA NA LISTBOX
         {
             try
             {
@@ -68,7 +68,10 @@ namespace ProjetoEscola
                 });
                 #endregion
 
+                #region
 
+
+                #endregion
 
                 #region update students lst
                 Program.Anos.ForEach(y =>
@@ -81,7 +84,7 @@ namespace ProjetoEscola
                         //find teacher students
                         y.CLasses.ForEach(c => c.students.ForEach(s =>
                             {
-
+                                
                             //verify if already exists in lst
                             if (!lstStudentGrade.Items.Contains($"{s.Name},{s.ID}"))
                                 {
@@ -154,7 +157,7 @@ namespace ProjetoEscola
             }
         }
 
-        private void btnApplyGrades_Click(object sender, EventArgs e)/////////////////////
+        private void btnApplyGrades_Click(object sender, EventArgs e)
         {
             if(txtSelectGrade.Text.Trim() =="")
             {
@@ -168,8 +171,9 @@ namespace ProjetoEscola
                 return;
             }
 
-
+            
             string studentString = lstStudentGrade.SelectedItem.ToString();
+            string name = studentString.Split(',')[0];
             string num = studentString.Split(',')[1];
             string subject = LoggedTeacher.subject.ToString();
             double newgrade = Convert.ToDouble(txtSelectGrade.Text);
@@ -186,12 +190,9 @@ namespace ProjetoEscola
             Program.Anos.Where(y => y.CLasses.SelectMany(c => c.students).Where(s => s.ID == num).FirstOrDefault().grades.Find(g => g.Subject.Name == subject).Val == Math.Round(newgrade, 2));
 
             //add the grade to the selected item string(missing)
-            //lstStudentGrade.Items.RemoveAt(lstStudentGrade.SelectedIndex);
-
-
-
-            //lstStudentGrade.Items.Insert(lstStudentGrade.SelectedIndex, $"{s.Name},{s.ID}");
-
+            lstStudentGrade.Items.Insert(lstStudentGrade.SelectedIndex, $"{name},{num}:{newgrade}");
+            lstStudentGrade.Items.RemoveAt(lstStudentGrade.SelectedIndex);
+           
 
             MessageBox.Show("Grade changed", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
             txtSelectGrade.Text = "";
