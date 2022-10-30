@@ -1,0 +1,27 @@
+Admin:
+	login:00000
+	pin:00000
+
+Teacher João:
+	login:t0001
+	pin:00000
+
+Teacher Manuel:
+	login:t0002
+	pin:00000
+
+Teacher Jorge:
+	login:t0003
+	pin:00000
+
+Teacher Luís:
+	login:t0004
+	pin:00000
+
+Teacher Rogério:
+	login:t0005
+	pin:00000
+
+Students:
+	login:sxxxx
+	pin:xxxxx
