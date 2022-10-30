@@ -388,7 +388,7 @@ namespace ProjetoEscola
                 #endregion
 
                 Class cl = new Class();
-                cl.Name = $"{year}:{Class}";
+                cl.Name = $"{year}:{Class.ToUpper()}";
 
                 #region verify if class already exists
                         Program.Anos.ForEach(y => y.CLasses.ForEach(c =>

@@ -60,13 +60,46 @@ namespace ProjetoEscola
 
                                     for(idx = 0; idx < y.subjects.Count; idx++)
                                     {
-                                        cbStudentSubjects.Items.Add(a.subjects[idx].ToString());
+                                        cbStudentSubjects.Items.Add(a.subjects[idx].Name.ToString());
                                     }
                                 }
                             }
                         }
                 }));
 
+        }
+
+        private void btnChangeDataStudent_Click(object sender, EventArgs e)
+        {
+            Hide();
+            RequestForm rqstForm = new RequestForm();
+            rqstForm.ShowDialog();
+        }
+
+        private void btnTransaction_Click(object sender, EventArgs e)
+        {
+            //Verificar se o numero é maior que 0
+            //Verificar se o numero não é muito grande 
+
+            try
+            {
+                if (Convert.ToInt32(txtDeposit.Text) <= 0)
+                {
+                    MessageBox.Show("Invalid value , please try again!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtDeposit.Focus();
+                }
+            }
+            catch (OverflowException){ MessageBox.Show("Value to big , please insert a smaller one!" , "ERROR" , MessageBoxButtons.OK , MessageBoxIcon.Error);}
+            catch (Exception ex) { MessageBox.Show("Ocurred an expected error , we´ll solve it as soon we can!\nCause: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+
+            int blnce = Convert.ToInt32(txtBalance.Text);
+            int dpst = Convert.ToInt32(txtDeposit.Text);
+
+            blnce += dpst;
+
+            txtBalance.Text = blnce.ToString();
+            MessageBox.Show("Transaction completed with sucess!", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            txtDeposit.Text = "";
         }
     }
 }

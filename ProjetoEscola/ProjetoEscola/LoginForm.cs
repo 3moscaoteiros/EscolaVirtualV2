@@ -59,27 +59,32 @@ namespace ProjetoEscola
             string num = txtLoginNum.Text; 
             string pass = txtLoginPassword.Text;
 
-            #region errors
-            if (num == "" || pass == "")
-            {
-                MessageBox.Show("Missing information!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
 
-            if (txtLoginNum.Text == "00000" && txtLoginPassword.Text == "00000")
-              {
+            #region errors
+
+            try
+            {
+                if (num == "" || pass == "")
+                {
+                    MessageBox.Show("Missing information!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (txtLoginNum.Text == "00000" && txtLoginPassword.Text == "00000")
+                {
                     Hide();
                     AdminForm adminForm = new AdminForm();
                     adminForm.ShowDialog();
                     return;
-              }
+                }
 
-            if (num.Length != 5 || pass.Length != 5)
-            {
-                MessageBox.Show("Wrong Information!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                if (num.Length != 5 || pass.Length != 5)
+                {
+                    MessageBox.Show("Wrong Information!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
-
+            catch (Exception ex) { MessageBox.Show("Ocurred an expected error , we´ll solve it as soon we can!\nCause: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             #endregion
 
             //take first char(t or s)
