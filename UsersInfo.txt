@@ -1,3 +1,13 @@
+Projeto elaborado por:
+Maksym i200039
+Samuel Freitas i200053
+Gonçalo Ferreira i200042
+
+-A aplicação tem a opção de criar alunos,professores,anos(com as devidas disciplinas) e turmas.
+-Os professores conseguem consultar o seu perfil e gerir as notas de todos os alunos da sua disciplina.
+-Os alunos conseguem ver o seu perfil, consultar e depositar dinheiro no seu saldo escolar.
+-Também é possível um utilizador mudar a sua informação pessoal pelo meio de um pedido que é feito ao admin.
+
 Admin:
 	login:00000
 	pin:00000
@@ -21,6 +31,10 @@ Teacher Luís:
 Teacher Rogério:
 	login:t0005
 	pin:00000
+
+Teachers:
+	login:txxxx
+	pin:xxxxx
 
 Students:
 	login:sxxxx
