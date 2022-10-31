@@ -215,8 +215,7 @@ namespace ProjetoEscola
             txtSelectGrade.Text = "";
             lstStudentGrade.SelectedItem = null;
             
-        }
-         
+        }        
         
     }
 }

@@ -55,7 +55,7 @@
             // 
             // txtSelectGrade
             // 
-            this.txtSelectGrade.Location = new System.Drawing.Point(354, 258);
+            this.txtSelectGrade.Location = new System.Drawing.Point(343, 258);
             this.txtSelectGrade.Name = "txtSelectGrade";
             this.txtSelectGrade.Size = new System.Drawing.Size(68, 20);
             this.txtSelectGrade.TabIndex = 77;
@@ -74,7 +74,7 @@
             // btnApplyGrades
             // 
             this.btnApplyGrades.Font = new System.Drawing.Font("Microsoft PhagsPa", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnApplyGrades.Location = new System.Drawing.Point(334, 284);
+            this.btnApplyGrades.Location = new System.Drawing.Point(323, 284);
             this.btnApplyGrades.Name = "btnApplyGrades";
             this.btnApplyGrades.Size = new System.Drawing.Size(104, 31);
             this.btnApplyGrades.TabIndex = 75;
@@ -232,7 +232,7 @@
             // lblEnterGrade
             // 
             this.lblEnterGrade.AutoSize = true;
-            this.lblEnterGrade.Location = new System.Drawing.Point(368, 243);
+            this.lblEnterGrade.Location = new System.Drawing.Point(356, 242);
             this.lblEnterGrade.Name = "lblEnterGrade";
             this.lblEnterGrade.Size = new System.Drawing.Size(39, 13);
             this.lblEnterGrade.TabIndex = 78;

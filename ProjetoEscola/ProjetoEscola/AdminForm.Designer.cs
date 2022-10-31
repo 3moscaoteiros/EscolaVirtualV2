@@ -199,6 +199,7 @@ namespace ProjetoEscola
             this.txtNIFStudent.Name = "txtNIFStudent";
             this.txtNIFStudent.Size = new System.Drawing.Size(87, 20);
             this.txtNIFStudent.TabIndex = 109;
+            this.txtNIFStudent.TextChanged += new System.EventHandler(this.txtNIFStudent_TextChanged);
             this.txtNIFStudent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNIFStudent_KeyPress);
             // 
             // lblCreateNIF

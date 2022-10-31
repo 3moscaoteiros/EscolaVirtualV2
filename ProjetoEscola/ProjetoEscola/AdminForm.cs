@@ -560,5 +560,10 @@ namespace ProjetoEscola
             }
             #endregion
         }
+
+        private void txtNIFStudent_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
