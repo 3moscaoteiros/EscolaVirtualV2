@@ -87,18 +87,7 @@ namespace ProjetoEscola
             catch (Exception ex) { MessageBox.Show("Ocurred an unexpected error , we´ll solve it as soon as we can!\nCause: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             #endregion
 
-            try
-            {
-                //Geral search to verify if exists any user with the number of the txtbox
-                if (!Program.Anos.Exists(y => y.subjects.Exists(s => s.teacher.ID == num)) || !Program.Anos.Exists(y => y.CLasses.Exists(c => c.students.Exists(s => s.ID == num))))
-                {
-                    txtLoginNum.Text = "";
-                    txtLoginPassword.Text = "";
-                    MessageBox.Show("This user doesn´t exists!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-            }
-            catch (Exception ex) { MessageBox.Show("Ocurred an unexpected error , we´ll solve it as soon as we can!\nCause: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+         
 
 
             //take first char(t or s)
