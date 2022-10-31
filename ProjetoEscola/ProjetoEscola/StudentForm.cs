@@ -91,7 +91,7 @@ namespace ProjetoEscola
             }
             catch (OverflowException){ MessageBox.Show("Value to big , please insert a smaller one!" , "ERROR" , MessageBoxButtons.OK , MessageBoxIcon.Error);}
             catch (FormatException){ MessageBox.Show("No value, please insert a smaller one!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-            catch (Exception ex) { MessageBox.Show("Ocurred an expected error , we´ll solve it as soon we can!\nCause: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (Exception ex) { MessageBox.Show("Ocurred an unexpected error , we´ll solve it as soon as we can!\nCause: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error); }
 
             int blnce = Convert.ToInt32(txtBalance.Text);
             int dpst = Convert.ToInt32(txtDeposit.Text);
@@ -101,11 +101,6 @@ namespace ProjetoEscola
             txtBalance.Text = blnce.ToString();
             MessageBox.Show("Transaction completed with sucess!", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
             txtDeposit.Text = "";
-        }
-
-        private void txtDeposit_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

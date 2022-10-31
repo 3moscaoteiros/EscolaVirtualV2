@@ -290,18 +290,39 @@ namespace ProjetoEscola
                 #endregion
 
                 #region errors
-                if (name == "" || num == "" || nif == "" || adress == "" || contact == "" || pin == "" || lstTeacherSubjects.SelectedItem==null || num=="0000" || nif.Length != 9 || pin.Length!=5)
+                if (name == "" || num == "" || nif == "" || adress == "" || contact == "" || pin == "")
                 {
                     MessageBox.Show("Information missing", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-            #endregion
+                if(num == "0000")
+                {
+                    MessageBox.Show("Invalid number , please try again!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtNumStudent.Focus();
+                    return;
+                }
+                if (lstTeacherSubjects.SelectedItem == null)
+                {
+                    MessageBox.Show("Please , select a subject!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (nif.Length != 9)
+                {
+                    MessageBox.Show("Attention , the NIF must have only nine digits!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (pin.Length != 5)
+                {
+                    MessageBox.Show("Attention , the PIN must have only five digits!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                #endregion
 
                 #region check if exists
-            // how to make him find only subject that existed before adding the year?
-            //search in list if teacher exists
+                // how to make him find only subject that existed before adding the year?
+                //search in list if teacher exists
 
-            Program.Anos.ForEach(y => y.subjects.ForEach(s =>
+                Program.Anos.ForEach(y => y.subjects.ForEach(s =>
             {
                 //if the suject has teacher(to avoid looping new created subjects)
                 if (s.teacher != null)

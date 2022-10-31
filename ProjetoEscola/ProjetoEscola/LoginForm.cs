@@ -84,73 +84,100 @@ namespace ProjetoEscola
                     return;
                 }
             }
-            catch (Exception ex) { MessageBox.Show("Ocurred an expected error , we´ll solve it as soon we can!\nCause: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (Exception ex) { MessageBox.Show("Ocurred an unexpected error , we´ll solve it as soon as we can!\nCause: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             #endregion
 
+            try
+            {
+                //Geral search to verify if exists any user with the number of the txtbox
+                if (!Program.Anos.Exists(y => y.subjects.Exists(s => s.teacher.ID == num)) || !Program.Anos.Exists(y => y.CLasses.Exists(c => c.students.Exists(s => s.ID == num))))
+                {
+                    txtLoginNum.Text = "";
+                    txtLoginPassword.Text = "";
+                    MessageBox.Show("This user doesn´t exists!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            catch (Exception ex) { MessageBox.Show("Ocurred an unexpected error , we´ll solve it as soon as we can!\nCause: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+
+
             //take first char(t or s)
-            string firstC = txtLoginNum.Text.Trim().ToLower().Substring(0, 1);
-
-
-            //if teacher
-            if (firstC == "t")
+            try
             {
-                //verify if the pass of the inserted num is incorrect
-                if (!Program.Anos.Exists(y => y.subjects.Exists(s => s.teacher.ID == num && s.teacher.PIN == pass)))
-                {
-                    txtLoginNum.Text = "";
-                    txtLoginPassword.Text = "";
-                    MessageBox.Show("Wrong information!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
+                string firstC = txtLoginNum.Text.Trim().ToLower().Substring(0, 1);
 
-                    //if exists:
-                    Program.Anos.ForEach(y => y.subjects.ForEach(s =>
-                        {
-                            if (s.teacher != null)
-                            {
-                                if (s.teacher.ID == txtLoginNum.Text)
-                                    s.teacher.LoginState = true;
-                            }
-                        }));
+                #region TeacherDataProcessment
 
-                    Hide();
-                    TeacherForm teacherForm = new TeacherForm();
-                    teacherForm.ShowDialog();
-                }
-            }
-            //if student
-            if (firstC == "s")
-            {
-                
-                 //verify if the pass of the inserted num is correct
-                if (!Program.Anos.Exists(y => y.CLasses.Exists(c=> c.students.Exists(s => s.ID == num && s.PIN == pass)))) 
-                {
-                    txtLoginNum.Text = "";
-                    txtLoginPassword.Text = "";
 
-                    MessageBox.Show("Wrong information!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
+                //if teacher
+                if (firstC == "t")
                 {
-                    //if exists:
-                    Program.Anos.ForEach(y =>
+                    //verify if the pass of the inserted num is incorrect
+                    if (!Program.Anos.Exists(y => y.subjects.Exists(s => s.teacher.ID == num && s.teacher.PIN == pass)))
                     {
-                        y.CLasses.ForEach(c =>
-                        {
-                            c.students.Find(s => s.ID == txtLoginNum.Text).LoginState = true;
+                        txtLoginNum.Text = "";
+                        txtLoginPassword.Text = "";
+                        MessageBox.Show("Wrong information!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
 
-                        });
-                    });
+                        //if exists:
+                        Program.Anos.ForEach(y => y.subjects.ForEach(s =>
+                            {
+                                if (s.teacher != null)
+                                {
+                                    if (s.teacher.ID == txtLoginNum.Text)
+                                        s.teacher.LoginState = true;
+                                }
+                            }));
 
-                    Hide();
-                    StudentForm studentForm = new StudentForm();
-                    studentForm.ShowDialog();
+                        Hide();
+                        TeacherForm teacherForm = new TeacherForm();
+                        teacherForm.ShowDialog();
+                    }
                 }
-            }
 
+                #endregion
+            
+            
+                #region StudentDataProcessment
+                //if student
+                if (firstC == "s")
+                {
+
+                    //verify if the pass of the inserted num is correct
+                    if (!Program.Anos.Exists(y => y.CLasses.Exists(c => c.students.Exists(s => s.ID == num && s.PIN == pass))))
+                    {
+                        txtLoginNum.Text = "";
+                        txtLoginPassword.Text = "";
+
+                        MessageBox.Show("Wrong information!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        //if exists:
+                        Program.Anos.ForEach(y =>
+                        {
+                            y.CLasses.ForEach(c =>
+                            {
+                                c.students.Find(s => s.ID == txtLoginNum.Text).LoginState = true;
+
+                            });
+                        });
+
+                        Hide();
+                        StudentForm studentForm = new StudentForm();
+                        studentForm.ShowDialog();
+                    }
+                }
+                #endregion
+            }
+            catch (ArgumentOutOfRangeException) { MessageBox.Show("Attention , your num must have starts with the letter s or t!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (Exception ex) { MessageBox.Show("Ocurred an unexpected error , we´ll solve it as soon as we can!\nCause: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error); }
 
         }
+
 
         private void btnLoginInfo_Click(object sender, EventArgs e)
         {
