@@ -29,8 +29,8 @@ namespace ProjetoEscola
             #region update requests List
             string request = "";
 
-            //try
-            //{
+            try
+            {
                 //students
                 List<Student> RequestStudents = Program.Anos.SelectMany(y => y.CLasses.ToList().SelectMany(c => c.students.Where(s => s.Request == true))).ToList();
 
@@ -69,11 +69,11 @@ namespace ProjetoEscola
 
                 }));
                 #endregion
-            //}
-            //catch (Exception error)
-            //{
-            //    MessageBox.Show(error.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             
         }
 
@@ -207,6 +207,13 @@ namespace ProjetoEscola
                 if (pin.Length != 5)
                 {
                     MessageBox.Show("Please insert 5 digits at PIN", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (num == "0000")
+                {
+                    MessageBox.Show("Invalid number , please try again!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtNumStudent.Focus();
                     return;
                 }
 
