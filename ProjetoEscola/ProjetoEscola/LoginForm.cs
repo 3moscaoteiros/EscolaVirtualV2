@@ -102,7 +102,7 @@ namespace ProjetoEscola
                 if (firstC == "t")
                 {
                     //verify if the pass of the inserted num is incorrect
-                    if (!Program.Anos.Exists(y => y.subjects.Exists(s => s.teacher.ID == num && s.teacher.PIN == pass)))
+                    if (!Program.Anos.Exists(y => y.subjects.Exists(s2 => s2.teacher != null && s2.teacher.ID == num && s2.teacher.PIN == pass)))
                     {
                         txtLoginNum.Text = "";
                         txtLoginPassword.Text = "";

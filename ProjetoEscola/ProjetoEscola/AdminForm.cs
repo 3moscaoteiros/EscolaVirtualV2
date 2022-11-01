@@ -292,6 +292,7 @@ namespace ProjetoEscola
                 string contact = txtContactTeacher.Text.Trim();
                 string pin = txtPINTeacher.Text.Trim();
                 bool exists = false;
+                bool subjectHasTeacher = false;
                 #endregion
 
                 #region errors
@@ -300,7 +301,7 @@ namespace ProjetoEscola
                     MessageBox.Show("Information missing", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                if(num == "0000")
+                if (num == "0000")
                 {
                     MessageBox.Show("Invalid number , please try again!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtNumStudent.Focus();
@@ -324,9 +325,6 @@ namespace ProjetoEscola
                 #endregion
 
                 #region check if exists
-                // how to make him find only subject that existed before adding the year?
-                //search in list if teacher exists
-
                 Program.Anos.ForEach(y => y.subjects.ForEach(s =>
             {
                 //if the suject has teacher(to avoid looping new created subjects)
@@ -354,6 +352,12 @@ namespace ProjetoEscola
 
                 #region ADD TEACHER TO SUBJECTS AND YEARS
 
+
+                //selected subject in ListBox
+                string selectedSubject = lstTeacherSubjects.SelectedItem.ToString();
+
+                Subject subject = new Subject(){ Name = selectedSubject };;
+
                 Teacher teacher = new Teacher()
                 {
                     Name = name,
@@ -362,28 +366,58 @@ namespace ProjetoEscola
                     NIF = Convert.ToInt32(nif),
                     ID = $"t{num}",
                     PIN = pin,
-                    Request = false
+                    Request = false,
+                    subject = subject
 
                 };
 
-                //selected subject in ListBox
-                string selectedSubject = lstTeacherSubjects.SelectedItem.ToString();
-                
 
                 #region Add the teacher
-                Program.Anos.Where(y2 => y2.subjects.Where(s2 => s2.Name == selectedSubject).FirstOrDefault().teacher==teacher);
-                #endregion
 
-                #region reset textboxes
-                txtNameTeacher.Text = "";
-                txtNumTeacher.Text = "";
-                txtNIFTeacher.Text = "";
-                txtAdressTeacher.Text = "";
-                txtContactTeacher.Text = "";
-                txtPINTeacher.Text = "";
-                #endregion
 
-                MessageBox.Show("Teacher successfully created", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Program.Anos.ForEach(y =>
+                {
+                    foreach (Subject s in y.subjects)
+                    {
+
+                        if (s.Name == selectedSubject)
+                        {
+                            if (s.teacher != null)
+                            {
+                                subjectHasTeacher = true;
+                                break;
+                            }
+
+                            s.teacher = teacher;
+                            break;
+                        }
+
+                    }
+
+                });
+                #endregion
+                if (!subjectHasTeacher)
+                {
+                    
+                    
+
+                    #region reset textboxes
+                    txtNameTeacher.Text = "";
+                    txtNumTeacher.Text = "";
+                    txtNIFTeacher.Text = "";
+                    txtAdressTeacher.Text = "";
+                    txtContactTeacher.Text = "";
+                    txtPINTeacher.Text = "";
+                    lstTeacherSubjects.SelectedItem = null;
+                    #endregion
+
+                    MessageBox.Show("Teacher successfully created", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Subject already has teacher, please select a different one", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
             }
             catch (Exception error)
             {
