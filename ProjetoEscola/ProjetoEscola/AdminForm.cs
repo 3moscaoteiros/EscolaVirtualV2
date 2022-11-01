@@ -180,7 +180,7 @@ namespace ProjetoEscola
             {
                 #region variables
                 string name = txtNameStudent.Text.Trim();
-                string num = txtNumStudent.Text.Trim();
+                string num = $"s{txtNumStudent.Text.Trim()}";
                 string nif = txtNIFStudent.Text.Trim(); ;
                 string adress = txtAdressStudent.Text.Trim();
                 string contact = txtContactStudent.Text.Trim();
@@ -244,7 +244,7 @@ namespace ProjetoEscola
                     Adress = adress,
                     EMAIL = contact,
                     NIF = Convert.ToInt32(nif),
-                    ID = $"s{num}",
+                    ID = num,
                     PIN = pin,
                     Request = false,
                     Balance = money,
