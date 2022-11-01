@@ -29,8 +29,8 @@ namespace ProjetoEscola
             #region update requests List
             string request = "";
 
-            try
-            {
+            //try
+            //{
                 //students
                 List<Student> RequestStudents = Program.Anos.SelectMany(y => y.CLasses.ToList().SelectMany(c => c.students.Where(s => s.Request == true))).ToList();
 
@@ -46,7 +46,8 @@ namespace ProjetoEscola
                 //teachers
                 Program.Anos.ForEach(y => y.subjects.ForEach(s =>
                 {
-                    if (!lstRequest.Items.Contains($"id:{s.teacher.ID},{s.teacher.RequestInfo}"))
+                    
+                    if (s.teacher!=null && !lstRequest.Items.Contains($"id:{s.teacher.ID},{s.teacher.RequestInfo}"))
                     {
                         if (s.teacher.Request == true)
                         {
@@ -59,7 +60,7 @@ namespace ProjetoEscola
 
                 #endregion
 
-            #region update subjects in TeacherTab
+                #region update subjects in TeacherTab
 
                 Program.Anos.ForEach(y => y.subjects.ForEach(s =>
                 {
@@ -67,12 +68,13 @@ namespace ProjetoEscola
                         lstTeacherSubjects.Items.Add(s.Name);
 
                 }));
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            #endregion
+                #endregion
+            //}
+            //catch (Exception error)
+            //{
+            //    MessageBox.Show(error.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+            
         }
 
         private void AdminForm_FormClosed(object sender, FormClosedEventArgs e)
