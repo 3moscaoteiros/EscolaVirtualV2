@@ -20,7 +20,7 @@ namespace ProjetoEscola
             InitializeComponent();
         }
 
-        private void TeacherForm_Load(object sender, EventArgs e)/////////////// NO LOAD DO FORM NÃO ATUALIZA A NOTA NA LISTBOX
+        private void TeacherForm_Load(object sender, EventArgs e)
         {
             try
             {
@@ -112,27 +112,15 @@ namespace ProjetoEscola
                     });
 
                 });
+                #endregion
             }
-            catch (Exception ex)
+            catch (Exception error)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(error.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
 
-            #endregion
 
-            //List<Student> students = (List<Student>)Program.Anos.SelectMany(a => a.CLasses.SelectMany(c => c.students.SelectMany(s => s.grades.Where(b => b.Subject.teacher.ID == txtTeacherNum.Text))));
-
-            //if (students.Count >= 0)
-            //{
-
-            //    for (int i = 0; i < students.Count; i++)
-            //    {
-            //        lstStudentGrade.Items.Add(students[i].ToString());
-            //    }
-            //}
-            //else
-            //    MessageBox.Show("No students found ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         #region KeyPressEvents
@@ -169,52 +157,60 @@ namespace ProjetoEscola
 
         private void btnApplyGrades_Click(object sender, EventArgs e)
         {
-            if(txtSelectGrade.Text.Trim() =="")
+
+            try
             {
-                MessageBox.Show("Information missing, please insert a grade", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                if (txtSelectGrade.Text.Trim() == "")
+                {
+                    MessageBox.Show("Information missing, please insert a grade", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (lstStudentGrade.SelectedItem == null)
+                {
+                    MessageBox.Show("Please choose a student first", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (Convert.ToDouble(txtSelectGrade.Text) < 0 || Convert.ToDouble(txtSelectGrade.Text) > 20)
+                {
+                    MessageBox.Show("Wrong numbers", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+
+
+                string studentString = lstStudentGrade.SelectedItem.ToString();
+                string name = studentString.Split(',')[0];
+                string num = studentString.Split(',')[1].Split(':')[0];
+                string subject = LoggedTeacher.subject.ToString();
+                double newgrade = Convert.ToDouble(txtSelectGrade.Text);
+
+                //find student class
+                Class studentClass = new Class();
+                Program.Anos.ForEach(y => y.CLasses.ForEach(c => c.students.ForEach(s =>
+                {
+                    //find the student 
+                    if (s.ID == num)
+                        studentClass = c;
+                })));
+
+                //change grade
+                Program.Anos.Where(y => y.CLasses.SelectMany(c => c.students).Where(s => s.ID == num).FirstOrDefault().grades.Find(g => g.Subject.Name == subject).Val == Math.Round(newgrade, 2));
+
+                //add the grade to the selected item string(missing)
+                lstStudentGrade.Items.Insert(lstStudentGrade.SelectedIndex, $"{name},{num}:{newgrade}");
+                lstStudentGrade.Items.RemoveAt(lstStudentGrade.SelectedIndex);
+
+
+                MessageBox.Show("Grade changed", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtSelectGrade.Text = "";
+                lstStudentGrade.SelectedItem = null;
             }
-
-            if ( lstStudentGrade.SelectedItem == null)
-            {
-                MessageBox.Show("Please choose a student first", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+            catch (Exception error)
+            { 
+                MessageBox.Show(error.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            if(Convert.ToDouble(txtSelectGrade.Text)<0 || Convert.ToDouble(txtSelectGrade.Text) > 20)
-            {
-                MessageBox.Show("Wrong numbers", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-
-
-            string studentString = lstStudentGrade.SelectedItem.ToString();
-            string name = studentString.Split(',')[0];
-            string num = studentString.Split(',')[1].Split(':')[0];
-            string subject = LoggedTeacher.subject.ToString();
-            double newgrade = Convert.ToDouble(txtSelectGrade.Text);
-
-            //find student class
-            Class studentClass = new Class();
-            Program.Anos.ForEach(y => y.CLasses.ForEach(c => c.students.ForEach(s => {
-                //find the student 
-                if (s.ID == num)
-                    studentClass = c;
-            })));
-
-            //change grade
-            Program.Anos.Where(y => y.CLasses.SelectMany(c => c.students).Where(s => s.ID == num).FirstOrDefault().grades.Find(g => g.Subject.Name == subject).Val == Math.Round(newgrade, 2));
-
-            //add the grade to the selected item string(missing)
-            lstStudentGrade.Items.Insert(lstStudentGrade.SelectedIndex, $"{name},{num}:{newgrade}");
-            lstStudentGrade.Items.RemoveAt(lstStudentGrade.SelectedIndex);
-           
-
-            MessageBox.Show("Grade changed", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            txtSelectGrade.Text = "";
-            lstStudentGrade.SelectedItem = null;
-            
         }        
         
     }

@@ -12,12 +12,14 @@ namespace ProjetoEscola
 {
     public partial class AdminForm : Form
     {
+        Teacher RequestTeacher = new Teacher();
+        Student RequestStudent = new Student();
 
         public AdminForm()
         {
             InitializeComponent();
         }
-        private void AdminForm_Load(object sender, EventArgs e)////////////
+        private void AdminForm_Load(object sender, EventArgs e)
         {
            
             #region add all classes to tbStudent cbb
@@ -44,17 +46,20 @@ namespace ProjetoEscola
                 //teachers
                 Program.Anos.ForEach(y => y.subjects.ForEach(s =>
                 {
-                    if (s.teacher.Request == true)
+                    if (!lstRequest.Items.Contains($"id:{s.teacher.ID},{s.teacher.RequestInfo}"))
                     {
-                        request = $"id:{s.teacher.ID},{s.teacher.RequestInfo}";
-                        lstRequest.Items.Add(request);
+                        if (s.teacher.Request == true)
+                        {
+                            request = $"id:{s.teacher.ID},{s.teacher.RequestInfo}";
+                            lstRequest.Items.Add(request);
+                        }
                     }
                 }));
 
 
                 #endregion
 
-                #region update subjects in TeacherTab
+            #region update subjects in TeacherTab
 
                 Program.Anos.ForEach(y => y.subjects.ForEach(s =>
                 {
@@ -270,7 +275,7 @@ namespace ProjetoEscola
             }
             catch (Exception error)
             {
-                MessageBox.Show(error.Message);
+                MessageBox.Show(error.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -515,21 +520,44 @@ namespace ProjetoEscola
             }
             catch (Exception error)
             {
-                MessageBox.Show(error.Message);
+                MessageBox.Show(error.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
         
-        private void btnRequest_Click(object sender, EventArgs e)//////////////////////
+        private void btnRequest_Click(object sender, EventArgs e)
         {
 
             try
             {
-                foreach (string i in lstRequest.SelectedItems)
+                #region search which user wants the request
+                //students
+                Program.Anos.ToList().ForEach(y => y.CLasses.ToList().ForEach(c => c.students.ForEach(s =>
                 {
-                    string num = i.Split(',')[1].Split(',')[0];
-                    string info = i.Split(':')[1];
+                    if (s.Request)
+                        RequestStudent = s;
+                })));
+
+                //teachers
+                if (RequestTeacher.ID == null)
+                {
+                    Program.Anos.ForEach(y => y.subjects.ForEach(s =>
+                    {
+                        if (s.teacher != null)
+                        {
+                            if (s.teacher.Request)
+                                RequestTeacher = s.teacher;
+                        }
+                    }));
+                }
+                #endregion
+
+
+                    string i = lstRequest.SelectedItem.ToString();
+                    string num = i.Split(',')[0].Split(':')[1];
+                    string info = i.Split(':')[1].Split(',')[1];
                     string firstC = num.ToLower().Substring(0, 1);
+                    
 
                     //update student
                     if (firstC == "s")
@@ -539,6 +567,28 @@ namespace ProjetoEscola
                         {
                             if (s.ID == num)
                             {
+
+                                switch(info)
+                                {
+                                    case "Name":RequestStudent.Name = RequestStudent.RequestChangeInfo;
+                                        break;
+                                    case "Num":
+                                        RequestStudent.ID = RequestStudent.RequestChangeInfo;
+                                        break;
+                                    case "NIF":
+                                        RequestStudent.NIF = Convert.ToInt32(RequestStudent.RequestChangeInfo);
+                                        break;
+                                    case "Adress":
+                                        RequestStudent.Adress = RequestStudent.RequestChangeInfo;
+                                        break;
+                                    case "Contact":
+                                        RequestStudent.EMAIL = RequestStudent.RequestChangeInfo;
+                                        break;
+
+
+                                }
+
+
                                 s.Request = false;
                                 s.RequestInfo = null;
                             }
@@ -551,21 +601,44 @@ namespace ProjetoEscola
                         {
                             if (s.teacher.ID == num)
                             {
+
+                                switch (info)
+                                {
+                                    case "Name":
+                                        RequestTeacher.Name = RequestTeacher.RequestChangeInfo;
+                                        break;
+                                    case "Num":
+                                        RequestTeacher.ID = RequestTeacher.RequestChangeInfo;
+                                        break;
+                                    case "NIF":
+                                        RequestTeacher.NIF = Convert.ToInt32(RequestTeacher.RequestChangeInfo);
+                                        break;
+                                    case "Adress":
+                                        RequestTeacher.Adress = RequestTeacher.RequestChangeInfo;
+                                        break;
+                                    case "Contact":
+                                        RequestTeacher.EMAIL = RequestTeacher.RequestChangeInfo;
+                                        break;
+
+
+                                }
+
+
                                 s.teacher.Request = false;
                                 s.teacher.RequestInfo = null;
                             }
                         }));
 
                     }
+
                     //remove from lst
 
                     lstRequest.Items.Remove(i);
 
-                }
             }
-            catch (Exception ex)
+            catch (Exception error)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(error.Message,"ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 
