@@ -10,6 +10,5 @@ namespace ProjetoEscola
 {
     public class Teacher : User
     {
-        public Subject subject;
     }
 }

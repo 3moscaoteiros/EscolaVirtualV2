@@ -376,8 +376,6 @@ namespace ProjetoEscola
                     ID = num,
                     PIN = pin,
                     Request = false,
-                    subject = subject
-
                 };
 
 

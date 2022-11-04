@@ -23,15 +23,15 @@ namespace ProjetoEscola
             Program.Anos.Find(s => s.year == "5").subjects.AddRange(new Subject[]
                {
                  new Subject() { Name = "Português" ,
-                                         teacher = new Teacher(){Name="João", ID="t0001", PIN="00000", NIF=412462116,EMAIL="joao@gmail.com",Adress="Rua do João", subject= new Subject(){Name="Português"} } },
+                                         teacher = new Teacher(){Name="João", ID="t0001", PIN="00000", NIF=412462116,EMAIL="joao@gmail.com",Adress="Rua do João" } },
                  new Subject() { Name = "Matemática",
-                                         teacher = new Teacher(){Name="Manuel",ID="t0002", PIN="00000", NIF=957483650,EMAIL="manuel@gmail.com",Adress="Rua do Manuel", subject= new Subject(){Name="Matemática"} } },
+                                         teacher = new Teacher(){Name="Manuel",ID="t0002", PIN="00000", NIF=957483650,EMAIL="manuel@gmail.com",Adress="Rua do Manuel" } },
                  new Subject() { Name = "Inglês" ,
-                                         teacher = new Teacher(){Name="Jorge",ID="t0003", PIN="00000", NIF=390172831,EMAIL="jorge@gmail.com",Adress="Rua do Jorge", subject= new Subject(){Name="Inglês"} } },
+                                         teacher = new Teacher(){Name="Jorge",ID="t0003", PIN="00000", NIF=390172831,EMAIL="jorge@gmail.com",Adress="Rua do Jorge" } },
                  new Subject() { Name = "Ciências",
-                                         teacher = new Teacher(){Name="Luís",ID="t0004", PIN="00000", NIF=317390817,EMAIL="luis@gmail.com",Adress="Rua do Luís", subject= new Subject(){Name="Ciências"} } },
+                                         teacher = new Teacher(){Name="Luís",ID="t0004", PIN="00000", NIF=317390817,EMAIL="luis@gmail.com",Adress="Rua do Luís" } },
                  new Subject() { Name = "Educação Física",
-                                         teacher = new Teacher(){Name="Rogério",ID="t0005", PIN="00000", NIF=361209382,EMAIL="rogerio@gmail.com",Adress="Rua do Rogério", subject= new Subject(){Name="Educação Física"} } } });
+                                         teacher = new Teacher(){Name="Rogério",ID="t0005", PIN="00000", NIF=361209382,EMAIL="rogerio@gmail.com",Adress="Rua do Rogério" } } });
 
             #endregion
 

@@ -46,7 +46,7 @@ namespace ProjetoEscola
                 #endregion
 
                 #region update subject
-                txtTeacherSubject.Text = LoggedTeacher.subject.Name;
+                txtTeacherSubject.Text = Program.Anos.FirstOrDefault().subjects.Find(s => s.teacher.ID == LoggedTeacher.ID).Name;
                 #endregion
 
                 #region find teacher years
@@ -54,7 +54,7 @@ namespace ProjetoEscola
                 //find in what years are the teacher's subject
                 Program.Anos.ForEach(y => y.subjects.ForEach(s =>
                 {
-                    if (s.Name == LoggedTeacher.subject.Name)
+                    if (s.Name == Program.Anos.FirstOrDefault().subjects.Find(t => t.teacher.ID == LoggedTeacher.ID).Name)
                         teacherYears.Add(y);
                 }));
                 #endregion
@@ -183,7 +183,7 @@ namespace ProjetoEscola
                 string studentString = lstStudentGrade.SelectedItem.ToString();
                 string name = studentString.Split(',')[0];
                 string num = studentString.Split(',')[1].Split(':')[0];
-                string subject = LoggedTeacher.subject.ToString();
+                string subject = Program.Anos.FirstOrDefault().subjects.Find(s => s.teacher.ID == LoggedTeacher.ID).Name;
                 double newgrade = Convert.ToDouble(txtSelectGrade.Text);
 
                 //find student class
