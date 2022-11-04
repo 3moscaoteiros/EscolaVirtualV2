@@ -12,12 +12,14 @@ namespace ProjetoEscola
 {
     public partial class AdminForm : Form
     {
+        Teacher RequestTeacher = new Teacher();
+        Student RequestStudent = new Student();
 
         public AdminForm()
         {
             InitializeComponent();
         }
-        private void AdminForm_Load(object sender, EventArgs e)////////////
+        private void AdminForm_Load(object sender, EventArgs e)
         {
            
             #region add all classes to tbStudent cbb
@@ -44,10 +46,14 @@ namespace ProjetoEscola
                 //teachers
                 Program.Anos.ForEach(y => y.subjects.ForEach(s =>
                 {
-                    if (s.teacher.Request == true)
+                    
+                    if (s.teacher!=null && !lstRequest.Items.Contains($"id:{s.teacher.ID},{s.teacher.RequestInfo}"))
                     {
-                        request = $"id:{s.teacher.ID},{s.teacher.RequestInfo}";
-                        lstRequest.Items.Add(request);
+                        if (s.teacher.Request == true)
+                        {
+                            request = $"id:{s.teacher.ID},{s.teacher.RequestInfo}";
+                            lstRequest.Items.Add(request);
+                        }
                     }
                 }));
 
@@ -62,12 +68,13 @@ namespace ProjetoEscola
                         lstTeacherSubjects.Items.Add(s.Name);
 
                 }));
+                #endregion
             }
-            catch(Exception ex)
+            catch (Exception error)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(error.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            #endregion
+            
         }
 
         private void AdminForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -173,7 +180,7 @@ namespace ProjetoEscola
             {
                 #region variables
                 string name = txtNameStudent.Text.Trim();
-                string num = txtNumStudent.Text.Trim();
+                string num = $"s{txtNumStudent.Text.Trim()}";
                 string nif = txtNIFStudent.Text.Trim(); ;
                 string adress = txtAdressStudent.Text.Trim();
                 string contact = txtContactStudent.Text.Trim();
@@ -200,6 +207,13 @@ namespace ProjetoEscola
                 if (pin.Length != 5)
                 {
                     MessageBox.Show("Please insert 5 digits at PIN", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (num == "0000")
+                {
+                    MessageBox.Show("Invalid number , please try again!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtNumStudent.Focus();
                     return;
                 }
 
@@ -237,7 +251,7 @@ namespace ProjetoEscola
                     Adress = adress,
                     EMAIL = contact,
                     NIF = Convert.ToInt32(nif),
-                    ID = $"s{num}",
+                    ID = num,
                     PIN = pin,
                     Request = false,
                     Balance = money,
@@ -270,7 +284,7 @@ namespace ProjetoEscola
             }
             catch (Exception error)
             {
-                MessageBox.Show(error.Message);
+                MessageBox.Show(error.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -281,12 +295,13 @@ namespace ProjetoEscola
             {
                 #region variables
                 string name = txtNameTeacher.Text.Trim();
-                string num = txtNumTeacher.Text.Trim();
+                string num = $"t{txtNumTeacher.Text.Trim()}";
                 string nif = txtNIFTeacher.Text.Trim(); ;
                 string adress = txtAdressTeacher.Text.Trim();
                 string contact = txtContactTeacher.Text.Trim();
                 string pin = txtPINTeacher.Text.Trim();
                 bool exists = false;
+                bool subjectHasTeacher = false;
                 #endregion
 
                 #region errors
@@ -295,7 +310,7 @@ namespace ProjetoEscola
                     MessageBox.Show("Information missing", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                if(num == "0000")
+                if (num == "0000")
                 {
                     MessageBox.Show("Invalid number , please try again!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtNumStudent.Focus();
@@ -319,9 +334,6 @@ namespace ProjetoEscola
                 #endregion
 
                 #region check if exists
-                // how to make him find only subject that existed before adding the year?
-                //search in list if teacher exists
-
                 Program.Anos.ForEach(y => y.subjects.ForEach(s =>
             {
                 //if the suject has teacher(to avoid looping new created subjects)
@@ -349,36 +361,72 @@ namespace ProjetoEscola
 
                 #region ADD TEACHER TO SUBJECTS AND YEARS
 
+
+                //selected subject in ListBox
+                string selectedSubject = lstTeacherSubjects.SelectedItem.ToString();
+
+                Subject subject = new Subject(){ Name = selectedSubject };;
+
                 Teacher teacher = new Teacher()
                 {
                     Name = name,
                     Adress = adress,
                     EMAIL = contact,
                     NIF = Convert.ToInt32(nif),
-                    ID = $"t{num}",
+                    ID = num,
                     PIN = pin,
-                    Request = false
+                    Request = false,
+                    subject = subject
 
                 };
 
-                //selected subject in ListBox
-                string selectedSubject = lstTeacherSubjects.SelectedItem.ToString();
-                
 
                 #region Add the teacher
-                Program.Anos.Where(y2 => y2.subjects.Where(s2 => s2.Name == selectedSubject).FirstOrDefault().teacher==teacher);
-                #endregion
 
-                #region reset textboxes
-                txtNameTeacher.Text = "";
-                txtNumTeacher.Text = "";
-                txtNIFTeacher.Text = "";
-                txtAdressTeacher.Text = "";
-                txtContactTeacher.Text = "";
-                txtPINTeacher.Text = "";
-                #endregion
 
-                MessageBox.Show("Teacher successfully created", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Program.Anos.ForEach(y =>
+                {
+                    foreach (Subject s in y.subjects)
+                    {
+
+                        if (s.Name == selectedSubject)
+                        {
+                            if (s.teacher != null)
+                            {
+                                subjectHasTeacher = true;
+                                break;
+                            }
+
+                            s.teacher = teacher;
+                            break;
+                        }
+
+                    }
+
+                });
+                #endregion
+                if (!subjectHasTeacher)
+                {
+                    
+                    
+
+                    #region reset textboxes
+                    txtNameTeacher.Text = "";
+                    txtNumTeacher.Text = "";
+                    txtNIFTeacher.Text = "";
+                    txtAdressTeacher.Text = "";
+                    txtContactTeacher.Text = "";
+                    txtPINTeacher.Text = "";
+                    lstTeacherSubjects.SelectedItem = null;
+                    #endregion
+
+                    MessageBox.Show("Teacher successfully created", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Subject already has teacher, please select a different one", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
             }
             catch (Exception error)
             {
@@ -515,21 +563,44 @@ namespace ProjetoEscola
             }
             catch (Exception error)
             {
-                MessageBox.Show(error.Message);
+                MessageBox.Show(error.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
         
-        private void btnRequest_Click(object sender, EventArgs e)//////////////////////
+        private void btnRequest_Click(object sender, EventArgs e)
         {
 
             try
             {
-                foreach (string i in lstRequest.SelectedItems)
+                #region search which user wants the request
+                //students
+                Program.Anos.ToList().ForEach(y => y.CLasses.ToList().ForEach(c => c.students.ForEach(s =>
                 {
-                    string num = i.Split(',')[1].Split(',')[0];
-                    string info = i.Split(':')[1];
+                    if (s.Request)
+                        RequestStudent = s;
+                })));
+
+                //teachers
+                if (RequestTeacher.ID == null)
+                {
+                    Program.Anos.ForEach(y => y.subjects.ForEach(s =>
+                    {
+                        if (s.teacher != null)
+                        {
+                            if (s.teacher.Request)
+                                RequestTeacher = s.teacher;
+                        }
+                    }));
+                }
+                #endregion
+
+
+                    string i = lstRequest.SelectedItem.ToString();
+                    string num = i.Split(',')[0].Split(':')[1];
+                    string info = i.Split(':')[1].Split(',')[1];
                     string firstC = num.ToLower().Substring(0, 1);
+                    
 
                     //update student
                     if (firstC == "s")
@@ -539,6 +610,28 @@ namespace ProjetoEscola
                         {
                             if (s.ID == num)
                             {
+
+                                switch(info)
+                                {
+                                    case "Name":RequestStudent.Name = RequestStudent.RequestChangeInfo;
+                                        break;
+                                    case "Num":
+                                        RequestStudent.ID = RequestStudent.RequestChangeInfo;
+                                        break;
+                                    case "NIF":
+                                        RequestStudent.NIF = Convert.ToInt32(RequestStudent.RequestChangeInfo);
+                                        break;
+                                    case "Adress":
+                                        RequestStudent.Adress = RequestStudent.RequestChangeInfo;
+                                        break;
+                                    case "Contact":
+                                        RequestStudent.EMAIL = RequestStudent.RequestChangeInfo;
+                                        break;
+
+
+                                }
+
+
                                 s.Request = false;
                                 s.RequestInfo = null;
                             }
@@ -551,21 +644,44 @@ namespace ProjetoEscola
                         {
                             if (s.teacher.ID == num)
                             {
+
+                                switch (info)
+                                {
+                                    case "Name":
+                                        RequestTeacher.Name = RequestTeacher.RequestChangeInfo;
+                                        break;
+                                    case "Num":
+                                        RequestTeacher.ID = RequestTeacher.RequestChangeInfo;
+                                        break;
+                                    case "NIF":
+                                        RequestTeacher.NIF = Convert.ToInt32(RequestTeacher.RequestChangeInfo);
+                                        break;
+                                    case "Adress":
+                                        RequestTeacher.Adress = RequestTeacher.RequestChangeInfo;
+                                        break;
+                                    case "Contact":
+                                        RequestTeacher.EMAIL = RequestTeacher.RequestChangeInfo;
+                                        break;
+
+
+                                }
+
+
                                 s.teacher.Request = false;
                                 s.teacher.RequestInfo = null;
                             }
                         }));
 
                     }
+
                     //remove from lst
 
                     lstRequest.Items.Remove(i);
 
-                }
             }
-            catch (Exception ex)
+            catch (Exception error)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(error.Message,"ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 

@@ -251,7 +251,7 @@
             this.txtTeacherSubject.Location = new System.Drawing.Point(56, 185);
             this.txtTeacherSubject.Name = "txtTeacherSubject";
             this.txtTeacherSubject.ReadOnly = true;
-            this.txtTeacherSubject.Size = new System.Drawing.Size(87, 20);
+            this.txtTeacherSubject.Size = new System.Drawing.Size(189, 20);
             this.txtTeacherSubject.TabIndex = 87;
             // 
             // TeacherForm

@@ -36,9 +36,11 @@ namespace ProjetoEscola
 
         private void StudentForm_Load(object sender, EventArgs e)
         {
-            Program.Anos.ForEach(a => a.CLasses.ForEach(c =>
-                {
-                        if(c.students.Exists(s => s.LoginState == true))
+            try
+            {
+                Program.Anos.ForEach(a => a.CLasses.ForEach(c =>
+                    {
+                        if (c.students.Exists(s => s.LoginState == true))
                         {
                             txtStudentName.Text = c.students.Find(s => s.LoginState == true).Name.ToString();
                             txtStudentNum.Text = c.students.Find(s => s.LoginState == true).ID.ToString();
@@ -49,25 +51,32 @@ namespace ProjetoEscola
                             txtBalance.Text = c.students.Find(s => s.LoginState == true).Balance.ToString();
                             txtStudentContact.Text = c.students.Find(s => s.LoginState == true).EMAIL.ToString();
 
-                            //Adicionar as discplinas do aluno para a cbb.
-                            foreach (Year y in Program.Anos)
+                        //Adicionar as disciplinas do aluno para a cbb.
+                        foreach (Year y in Program.Anos)
                             {
-                                //Se o ano letivo for igual ao ano letivo do aluno selecionado anteriormente ,
-                                //são colocados para a coleção items da cbb todas as discplinas desse aluno.
-                                if (y == a)
+                            //Se o ano letivo for igual ao ano letivo do aluno selecionado anteriormente ,
+                            //são colocados para a coleção items da cbb todas as discplinas desse aluno.
+                            if (y == a)
                                 {
                                     int idx;
 
-                                    for(idx = 0; idx < y.subjects.Count; idx++)
+                                    for (idx = 0; idx < y.subjects.Count; idx++)
                                     {
                                         cbStudentSubjects.Items.Add(a.subjects[idx].Name.ToString());
                                     }
                                 }
                             }
                         }
-                }));
-
+                    }));
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+
+        
 
         private void btnChangeDataStudent_Click(object sender, EventArgs e)
         {
@@ -89,9 +98,9 @@ namespace ProjetoEscola
                     txtDeposit.Focus();
                 }
             }
-            catch (OverflowException){ MessageBox.Show("Value to big , please insert a smaller one!" , "ERROR" , MessageBoxButtons.OK , MessageBoxIcon.Error);}
-            catch (FormatException){ MessageBox.Show("No value, please insert a smaller one!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-            catch (Exception ex) { MessageBox.Show("Ocurred an unexpected error , we´ll solve it as soon as we can!\nCause: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (OverflowException){ MessageBox.Show("The value is too big , please insert a smaller one!" , "ERROR" , MessageBoxButtons.OK , MessageBoxIcon.Error);}
+            catch (FormatException){ MessageBox.Show("Invalid format,please insert a valid one!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (Exception error) { MessageBox.Show("Ocurred an unexpected error , we´ll solve it as soon as we can!\nCause: " + error.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error); }
 
             int blnce = Convert.ToInt32(txtBalance.Text);
             int dpst = Convert.ToInt32(txtDeposit.Text);

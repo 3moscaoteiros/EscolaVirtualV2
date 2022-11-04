@@ -102,7 +102,7 @@ namespace ProjetoEscola
                 if (firstC == "t")
                 {
                     //verify if the pass of the inserted num is incorrect
-                    if (!Program.Anos.Exists(y => y.subjects.Exists(s => s.teacher.ID == num && s.teacher.PIN == pass)))
+                    if (!Program.Anos.Exists(y => y.subjects.Exists(s2 => s2.teacher != null && s2.teacher.ID == num && s2.teacher.PIN == pass)))
                     {
                         txtLoginNum.Text = "";
                         txtLoginPassword.Text = "";
@@ -160,7 +160,18 @@ namespace ProjetoEscola
                         studentForm.ShowDialog();
                     }
                 }
+
                 #endregion
+                #region error
+                if (firstC != "s" && firstC != "t")
+                {
+                    txtLoginNum.Text = "";
+                    txtLoginPassword.Text = "";
+                    MessageBox.Show("Wrong information!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                #endregion
+
+ 
             }
             catch (ArgumentOutOfRangeException) { MessageBox.Show("Attention , your num must have starts with the letter s or t!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             catch (Exception ex) { MessageBox.Show("Ocurred an unexpected error , we´ll solve it as soon as we can!\nCause: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error); }

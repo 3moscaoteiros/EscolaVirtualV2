@@ -36,6 +36,7 @@ namespace ProjetoEscola
 
                 //teachers
                 if (LoginStudent.ID == null)
+                {
                     Program.Anos.ForEach(y => y.subjects.ForEach(s =>
                     {
                         if (s.teacher != null)
@@ -44,16 +45,17 @@ namespace ProjetoEscola
                                 LoginTeacher = s.teacher;
                         }
                     }));
-
+                }
                 #endregion
             }
-            catch (Exception ex)
+            catch (Exception error)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(error.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        
         }
 
-        private void btnRequest_Click(object sender, EventArgs e)///////////////////
+        private void btnRequest_Click(object sender, EventArgs e)
         {
             bool error = false;
             try
@@ -64,6 +66,14 @@ namespace ProjetoEscola
                     MessageBox.Show("Information missing", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+
+                if(cbbRequest.SelectedItem.ToString()=="Num" && txtRequest.Text.Length!=5)
+                {
+                    MessageBox.Show("Invalid num/id", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+
                 #endregion
 
                 #region change properties
@@ -95,7 +105,12 @@ namespace ProjetoEscola
                                     error = true;
                                     break;
                                 }
-                            LoginTeacher.Name = txtRequest.Text; break;
+
+                            //add request state and requestInfo to the Teacher
+                            LoginTeacher.Request = true;
+                            LoginTeacher.RequestInfo = "Name";
+                            LoginTeacher.RequestChangeInfo=txtRequest.Text;
+                            break;
                         case "Num":
                             if (txtRequest.Text.Any(c => !char.IsDigit(c)))
                             {
@@ -104,7 +119,13 @@ namespace ProjetoEscola
                                 error = true;
                                 break;
                             }
-                            LoginTeacher.ID = txtRequest.Text; break;
+
+                            //add request state and requestInfo to the Teacher
+                            LoginTeacher.Request = true;
+                            LoginTeacher.RequestInfo = "Num";
+                            LoginTeacher.RequestChangeInfo = txtRequest.Text;
+
+                            break;
                         case "NIF":
                             if (txtRequest.Text.Any(c => !char.IsDigit(c)))
                             {
@@ -113,20 +134,39 @@ namespace ProjetoEscola
                                 error = true;
                                 break;
                             }
-                            LoginTeacher.NIF = Convert.ToInt32(txtRequest.Text); break;
-                        case "Adress": LoginTeacher.Adress = txtRequest.Text; break;
-                        case "Contact": LoginTeacher.EMAIL = txtRequest.Text; break;
+
+                            //add request state and requestInfo to the Teacher
+                            LoginTeacher.Request = true;
+                            LoginTeacher.RequestInfo = "NIF";
+                            LoginTeacher.RequestChangeInfo = txtRequest.Text;
+
+                            break;
+                        case "Adress":
+                            //add request state and requestInfo to the Teacher
+                            LoginTeacher.Request = true;
+                            LoginTeacher.RequestInfo = "Adress";
+                            LoginTeacher.RequestChangeInfo = txtRequest.Text;
+
+                            break;
+                        case "Contact":
+                            //add request state and requestInfo to the Teacher
+                            LoginTeacher.Request = true;
+                            LoginTeacher.RequestInfo = "Contact";
+                            LoginTeacher.RequestChangeInfo = txtRequest.Text;
+
+                            break;
+
                         default: MessageBox.Show("Invalid selected item", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error); break;
 
                     }
                   
                 }
                 #endregion
+
                 if (error == false)
                 {
-                    MessageBox.Show("Users's info has been changed", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Request has been sent to the admin", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Close();
-
                 }
                
             }
@@ -140,8 +180,9 @@ namespace ProjetoEscola
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        
         }
 
         private void RequestForm_FormClosed(object sender, FormClosedEventArgs e)
