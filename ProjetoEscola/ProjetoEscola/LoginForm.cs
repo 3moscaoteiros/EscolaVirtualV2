@@ -56,14 +56,14 @@ namespace ProjetoEscola
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string num = txtLoginNum.Text; 
-            string pass = txtLoginPassword.Text;
-
-
-            #region errors
-
             try
             {
+                string num = txtLoginNum.Text; 
+                string pass = txtLoginPassword.Text;
+
+
+                //errors
+
                 if (num == "" || pass == "")
                 {
                     MessageBox.Show("Missing information!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -85,7 +85,7 @@ namespace ProjetoEscola
                 }
             }
             catch (Exception ex) { MessageBox.Show("Ocurred an unexpected error , we´ll solve it as soon as we can!\nCause: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-            #endregion
+            
 
          
 
@@ -95,7 +95,7 @@ namespace ProjetoEscola
             {
                 string firstC = txtLoginNum.Text.Trim().ToLower().Substring(0, 1);
 
-                #region TeacherDataProcessment
+                //TeacherDataProcessment
 
 
                 //if teacher
@@ -127,10 +127,12 @@ namespace ProjetoEscola
                     }
                 }
 
-                #endregion
+                
+                
             
             
-                #region StudentDataProcessment
+                //StudentDataProcessment
+
                 //if student
                 if (firstC == "s")
                 {
@@ -161,15 +163,15 @@ namespace ProjetoEscola
                     }
                 }
 
-                #endregion
-                #region error
+                
+                // error
                 if (firstC != "s" && firstC != "t")
                 {
                     txtLoginNum.Text = "";
                     txtLoginPassword.Text = "";
                     MessageBox.Show("Wrong information!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                #endregion
+               
 
  
             }

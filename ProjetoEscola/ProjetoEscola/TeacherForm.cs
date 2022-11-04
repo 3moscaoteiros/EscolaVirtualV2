@@ -24,7 +24,7 @@ namespace ProjetoEscola
         {
             try
             {
-                #region search which teacher has login state
+                //search which teacher has login state
 
                 Program.Anos.ForEach(y => y.subjects.ForEach(s =>
                 {
@@ -35,41 +35,40 @@ namespace ProjetoEscola
                     }
                 }));
 
-                #endregion
 
-                #region fill up all info
+                //fill up all info
                 txtTeacherName.Text = LoggedTeacher.Name;
                 txtTeacherNum.Text = LoggedTeacher.ID;
                 txtTeacherNIF.Text = LoggedTeacher.NIF.ToString();
                 txtTeacherContact.Text = LoggedTeacher.EMAIL;
                 txtTeacherAdress.Text = LoggedTeacher.Adress;
-                #endregion
+                
 
-                #region update subject
-                txtTeacherSubject.Text = Program.Anos.FirstOrDefault().subjects.Find(s => s.teacher.ID == LoggedTeacher.ID).Name;
-                #endregion
+                //update subject
 
-                #region find teacher years
+                txtTeacherSubject.Text =  Program.Anos.SelectMany(y => y.subjects.Where(s => s.teacher != null && s.teacher.ID == LoggedTeacher.ID)).FirstOrDefault().Name;
+
+
+
+                //find teacher years
                 List<Year> teacherYears = new List<Year>();
+
                 //find in what years are the teacher's subject
                 Program.Anos.ForEach(y => y.subjects.ForEach(s =>
                 {
-                    if (s.Name == Program.Anos.FirstOrDefault().subjects.Find(t => t.teacher.ID == LoggedTeacher.ID).Name)
+                    if (s.Name == txtTeacherSubject.Text)
                         teacherYears.Add(y);
                 }));
-                #endregion
 
-                #region add years to cbb
+                //add years to cbb
                 teacherYears.ForEach(y =>
                 {
                     if (!cbTeacherYears.Items.Contains(y.year))
                         cbTeacherYears.Items.Add(y.year);
 
                 });
-                #endregion
 
-
-                #region update students lst
+                //update students lst
                 Program.Anos.ForEach(y =>
                 {
                     teacherYears.ForEach(ty =>
@@ -86,7 +85,7 @@ namespace ProjetoEscola
                                     {
                                         var grade = s.grades.Find(g => g.Subject.Name == txtTeacherSubject.Text).Val;
 
-                                        //verify if already exists in lst
+                                        //verify if already exists in lst(avoid repeating the same student)
                                         if (!lstStudentGrade.Items.Contains($"{s.Name},{s.ID}:{grade}"))
                                         {
                                             //add to listBox
@@ -96,7 +95,7 @@ namespace ProjetoEscola
                                     }
                                     else
                                     {
-                                        //verify if already exists in lst
+                                        //verify if already exists in lst(avoid repeating the same student)
                                         if (!lstStudentGrade.Items.Contains($"{s.Name},{s.ID}"))
                                         {
                                             //add to listBox
@@ -112,7 +111,7 @@ namespace ProjetoEscola
                     });
 
                 });
-                #endregion
+                
             }
             catch (Exception error)
             {
@@ -123,7 +122,6 @@ namespace ProjetoEscola
 
         }
 
-        #region KeyPressEvents
 
         private void txtSelectGrade_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -132,7 +130,7 @@ namespace ProjetoEscola
             else
                 e.Handled = true;
         }
-        #endregion
+
 
         private void TeacherForm_FormClosed(object sender, FormClosedEventArgs e)
         {

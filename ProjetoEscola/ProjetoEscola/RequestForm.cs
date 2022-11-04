@@ -26,7 +26,8 @@ namespace ProjetoEscola
         {
             try
             {
-                #region search which user has login state
+                //search which user has login state
+
                 //students
                 Program.Anos.ToList().ForEach(y => y.CLasses.ToList().ForEach(c => c.students.ForEach(s =>
                 {
@@ -46,7 +47,7 @@ namespace ProjetoEscola
                         }
                     }));
                 }
-                #endregion
+                
             }
             catch (Exception error)
             {
@@ -60,7 +61,7 @@ namespace ProjetoEscola
             bool error = false;
             try
             {
-                #region errors
+                // errors
                 if(txtRequest.Text.Trim()=="" || cbbRequest.SelectedItem==null)
                 {
                     MessageBox.Show("Information missing", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -74,19 +75,69 @@ namespace ProjetoEscola
                 }
 
 
-                #endregion
-
-                #region change properties
+                
                 //if student
                 if (LoginStudent != null)
                 {
                     switch (cbbRequest.SelectedItem.ToString())
                     {
-                        case "Name": LoginStudent.Name = txtRequest.Text; break;
-                        case "Num": LoginStudent.ID = txtRequest.Text; break;
-                        case "NIF": LoginStudent.NIF = Convert.ToInt32(txtRequest.Text); break;
-                        case "Adress": LoginStudent.Adress = txtRequest.Text; break;
-                        case "Contact": LoginStudent.EMAIL = txtRequest.Text; break;
+                        case "Name":
+                            if (txtRequest.Text.Any(c => !char.IsLetter(c)))
+                            {
+                                MessageBox.Show("Please insert only letters", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txtRequest.Text = "";
+                                error = true;
+                                break;
+                            }
+
+                            //add request state and requestInfo to the Teacher
+                            LoginStudent.Request = true;
+                            LoginStudent.RequestInfo = "Name";
+                            LoginStudent.RequestChangeInfo = txtRequest.Text;
+                            break;
+                        case "Num":
+                            if (txtRequest.Text.Any(c => !char.IsDigit(c)))
+                            {
+                                MessageBox.Show("Please insert only numbers", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txtRequest.Text = "";
+                                error = true;
+                                break;
+                            }
+
+                            //add request state and requestInfo to the Student
+                            LoginStudent.Request = true;
+                            LoginStudent.RequestInfo = "Num";
+                            LoginStudent.RequestChangeInfo = txtRequest.Text;
+
+                            break;
+                        case "NIF":
+                            if (txtRequest.Text.Any(c => !char.IsDigit(c)))
+                            {
+                                MessageBox.Show("Please insert only numbers", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txtRequest.Text = "";
+                                error = true;
+                                break;
+                            }
+
+                            //add request state and requestInfo to the Student
+                            LoginStudent.Request = true;
+                            LoginStudent.RequestInfo = "NIF";
+                            LoginStudent.RequestChangeInfo = txtRequest.Text;
+
+                            break;
+                       case "Adress":  //add request state and requestInfo to the Student
+                            LoginStudent.Request = true;
+                            LoginStudent.RequestInfo = "Adress";
+                            LoginStudent.RequestChangeInfo = txtRequest.Text;
+
+                            break;
+                       case "Contact": //add request state and requestInfo to the Student
+                            LoginStudent.Request = true;
+                            LoginStudent.RequestInfo = "Contact";
+                            LoginStudent.RequestChangeInfo = txtRequest.Text;
+
+                            break;
+
                         default: MessageBox.Show("Invalid selected item", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error); break;
 
                     }
@@ -161,7 +212,7 @@ namespace ProjetoEscola
                     }
                   
                 }
-                #endregion
+                
 
                 if (error == false)
                 {

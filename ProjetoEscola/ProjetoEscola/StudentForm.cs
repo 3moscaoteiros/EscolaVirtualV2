@@ -23,7 +23,6 @@ namespace ProjetoEscola
             login.Visible = true;
         }
 
-        #region KeyPressEvents
         private void txtDeposit_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar) || e.KeyChar == 8)
@@ -32,7 +31,6 @@ namespace ProjetoEscola
                 e.Handled = true;
         }
 
-        #endregion
 
         private void StudentForm_Load(object sender, EventArgs e)
         {
@@ -51,11 +49,12 @@ namespace ProjetoEscola
                             txtBalance.Text = c.students.Find(s => s.LoginState == true).Balance.ToString();
                             txtStudentContact.Text = c.students.Find(s => s.LoginState == true).EMAIL.ToString();
 
-                        //Adicionar as disciplinas do aluno para a cbb.
+                        //Add student subjects to the cbb
                         foreach (Year y in Program.Anos)
                             {
-                            //Se o ano letivo for igual ao ano letivo do aluno selecionado anteriormente ,
-                            //são colocados para a coleção items da cbb todas as discplinas desse aluno.
+                            //If the year is equal to the previous student's year,
+                            //it's added to the cbb all his subjects
+
                             if (y == a)
                                 {
                                     int idx;
@@ -87,9 +86,7 @@ namespace ProjetoEscola
 
         private void btnTransaction_Click(object sender, EventArgs e)
         {
-            //Verificar se o numero é maior que 0
-            //Verificar se o numero não é muito grande 
-
+            //errors
             try
             {
                 if (txtDeposit.Text.Length == 0 && Convert.ToInt32(txtDeposit.Text) == 0)

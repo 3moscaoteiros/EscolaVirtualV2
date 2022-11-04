@@ -21,46 +21,51 @@ namespace ProjetoEscola
         }
         private void AdminForm_Load(object sender, EventArgs e)
         {
-           
-            #region add all classes to tbStudent cbb
-            Program.Anos.ForEach(y => y.CLasses.ForEach(c => cbbClassStudent.Items.Add(c.Name)));
-            #endregion
-
-            #region update requests List
-            string request = "";
-
             try
             {
+                // add all classes to tbStudent cbb
+                Program.Anos.ForEach(y => y.CLasses.ForEach(c => cbbClassStudent.Items.Add(c.Name)));
+            
+
+                //update requests List
+                string request = "";
+                bool exists = false;
+
+            
                 //students
                 List<Student> RequestStudents = Program.Anos.SelectMany(y => y.CLasses.ToList().SelectMany(c => c.students.Where(s => s.Request == true))).ToList();
 
                 foreach (Student st in RequestStudents)
                 {
-                    if (st.Request == true)
-                    {
-                        request = $"id:{st.ID},{st.RequestInfo}";
-                        lstRequest.Items.Add(request);
-                    }
+                        if (st.Request == true && exists == false)
+                        {
+                            request = $"id:{st.ID},{st.RequestInfo}:{st.RequestChangeInfo}";
+                            lstRequest.Items.Add(request);
+                            exists = true;
+                        }
+                    
                 }
+
 
                 //teachers
                 Program.Anos.ForEach(y => y.subjects.ForEach(s =>
                 {
                     
-                    if (s.teacher!=null && !lstRequest.Items.Contains($"id:{s.teacher.ID},{s.teacher.RequestInfo}"))
+                    if (s.teacher!=null)
                     {
-                        if (s.teacher.Request == true)
+                        if (s.teacher.Request == true && exists == false)
                         {
-                            request = $"id:{s.teacher.ID},{s.teacher.RequestInfo}";
-                            lstRequest.Items.Add(request);
+                                request = $"id:{s.teacher.ID},{s.teacher.RequestInfo}:{s.teacher.RequestChangeInfo}";
+                                lstRequest.Items.Add(request);
+                                exists = true;
                         }
                     }
                 }));
 
+                
+                
 
-                #endregion
-
-                #region update subjects in TeacherTab
+                //update subjects in TeacherTab
 
                 Program.Anos.ForEach(y => y.subjects.ForEach(s =>
                 {
@@ -68,7 +73,8 @@ namespace ProjetoEscola
                         lstTeacherSubjects.Items.Add(s.Name);
 
                 }));
-                #endregion
+                
+
             }
             catch (Exception error)
             {
@@ -293,7 +299,7 @@ namespace ProjetoEscola
         {
             try
             {
-                #region variables
+                //variables
                 string name = txtNameTeacher.Text.Trim();
                 string num = $"t{txtNumTeacher.Text.Trim()}";
                 string nif = txtNIFTeacher.Text.Trim(); ;
@@ -302,9 +308,8 @@ namespace ProjetoEscola
                 string pin = txtPINTeacher.Text.Trim();
                 bool exists = false;
                 bool subjectHasTeacher = false;
-                #endregion
 
-                #region errors
+                //errors
                 if (name == "" || num == "" || nif == "" || adress == "" || contact == "" || pin == "")
                 {
                     MessageBox.Show("Information missing", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -331,19 +336,19 @@ namespace ProjetoEscola
                     MessageBox.Show("Attention , the PIN must have only five digits!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                #endregion
+                
 
-                #region check if exists
+                //check if exists
                 Program.Anos.ForEach(y => y.subjects.ForEach(s =>
-            {
-                //if the suject has teacher(to avoid looping new created subjects)
-                if (s.teacher != null)
                 {
-                    if (s.teacher.ID == num || s.teacher.NIF.ToString().Trim() == nif)
-                        exists = true;
-                }
+                    //if the suject has teacher(to avoid looping new created subjects)
+                  if (s.teacher != null)
+                    {
+                  if (s.teacher.ID == num || s.teacher.NIF.ToString().Trim() == nif)
+                            exists = true;
+                    }
 
-            }));
+                }));
 
 
                 //error
@@ -357,15 +362,15 @@ namespace ProjetoEscola
                     MessageBox.Show("User already exists!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                #endregion
+               
 
-                #region ADD TEACHER TO SUBJECTS AND YEARS
+                //ADD TEACHER TO SUBJECTS AND YEARS
 
 
                 //selected subject in ListBox
                 string selectedSubject = lstTeacherSubjects.SelectedItem.ToString();
 
-                Subject subject = new Subject(){ Name = selectedSubject };;
+                Subject subject = new Subject(){ Name = selectedSubject };
 
                 Teacher teacher = new Teacher()
                 {
@@ -379,8 +384,7 @@ namespace ProjetoEscola
                 };
 
 
-                #region Add the teacher
-
+                //Add the teacher
 
                 Program.Anos.ForEach(y =>
                 {
@@ -402,11 +406,11 @@ namespace ProjetoEscola
                     }
 
                 });
-                #endregion
+                
+
                 if (!subjectHasTeacher)
                 {
-                    
-                    
+                   
 
                     #region reset textboxes
                     txtNameTeacher.Text = "";
@@ -440,7 +444,7 @@ namespace ProjetoEscola
                 string Class = txtCreateClass.Text;
                 bool hasClass = false;
 
-                #region errors 
+                //errors 
                 if (year.Trim() == "" || Class.Trim() == "")
                 {
                     MessageBox.Show("Info missing", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -452,19 +456,19 @@ namespace ProjetoEscola
                     MessageBox.Show("Wrong year", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                #endregion
+                
 
                 Class cl = new Class();
                 cl.Name = $"{year}:{Class.ToUpper()}";
 
-                #region verify if class already exists
+                //verify if class already exists
                         Program.Anos.ForEach(y => y.CLasses.ForEach(c =>
                         {
                             if (c.Name == $"{year}:{txtCreateClass.Text}")
                             hasClass = true;
 
                         }));
-                #endregion
+                
 
                 if (hasClass==false)
                 {
@@ -493,7 +497,7 @@ namespace ProjetoEscola
                         cbbClassStudent.Items.Add(cl.Name.ToString());
                     }
 
-                    #region add subjects
+                    //add subjects
                     switch (year)
                     {
                         case "7":
@@ -532,9 +536,9 @@ namespace ProjetoEscola
                             break;
 
                     }
-                    #endregion
+                    
 
-                    #region update subjects in TeacherTab
+                    //update subjects in TeacherTab
 
                     Program.Anos.ForEach(y => y.subjects.ForEach(s =>
                     {
@@ -543,20 +547,20 @@ namespace ProjetoEscola
 
                     }));
 
-                    #endregion
+                    
 
-                    #region messagebox show & texboxes reset
+                    //messagebox show & texboxes reset
                     MessageBox.Show("Class successfully created", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtChooseYear.Text = "";
                     txtCreateClass.Text = "";
-                    #endregion
+                    
                 }
                 else
                 {
                     MessageBox.Show("Class already exists", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                #endregion
+               
 
             }
             catch (Exception error)
@@ -571,7 +575,9 @@ namespace ProjetoEscola
 
             try
             {
-                #region search which user wants the request
+                
+                //search which user wants the request
+
                 //students
                 Program.Anos.ToList().ForEach(y => y.CLasses.ToList().ForEach(c => c.students.ForEach(s =>
                 {
@@ -591,12 +597,12 @@ namespace ProjetoEscola
                         }
                     }));
                 }
-                #endregion
+                
 
 
                     string i = lstRequest.SelectedItem.ToString();
-                    string num = i.Split(',')[0].Split(':')[1];
-                    string info = i.Split(':')[1].Split(',')[1];
+                    string num = i.Trim().Split(',')[0].Split(':')[1];
+                    string info = i.Trim().Split(':')[1].Split(',')[1];
                     string firstC = num.ToLower().Substring(0, 1);
                     
 
@@ -676,6 +682,8 @@ namespace ProjetoEscola
 
                     lstRequest.Items.Remove(i);
 
+                    MessageBox.Show("Request accepted", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
             catch (Exception error)
             {
@@ -685,7 +693,7 @@ namespace ProjetoEscola
 
         private void AdminForm_Shown(object sender, EventArgs e)
         {
-            #region messageBox tip to create classes
+            //messageBox tip to create classes
 
             if (!Program.Anos.Any(y => y.CLasses.Any()))
             {
@@ -693,7 +701,7 @@ namespace ProjetoEscola
                 MessageBox.Show("No classes found, please create a class", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            #endregion
+            
         }
 
         private void txtNIFStudent_TextChanged(object sender, EventArgs e)
